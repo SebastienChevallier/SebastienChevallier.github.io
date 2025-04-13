@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Assistant IA - Moteur de Jeu</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Assistant IA - Moteur de Jeu</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Pose ta question sur le moteur de jeu</h1>
-  <textarea id="prompt" placeholder="Ex: Comment créer une entité avec un mesh component ?"></textarea>
-  <button onclick="sendPrompt()">Envoyer</button>
-  <pre id="response"></pre>
-<script src="script.js"></script>
+    <div class="container">
+        <h1>Assistant IA - Moteur de Jeu</h1>
+        <textarea id="prompt" placeholder="Ex: Comment créer une entité avec un mesh component ?"></textarea>
+        <button onclick="sendPrompt()">Envoyer</button>
+        <div id="loader" class="hidden"></div>
+        <pre id="response"></pre>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
