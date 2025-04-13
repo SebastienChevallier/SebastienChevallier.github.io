@@ -1,4 +1,4 @@
-const apiUrl = "https://iagameengine.onrender.com/generate";
+const apiUrl = 'https://iagameengine.onrender.com/generate';
 
 async function sendPrompt() {
     const prompt = document.getElementById('prompt').value;
