@@ -42,7 +42,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_a_component_8cpp_source.html"
+"_a_component_8cpp_source.html",
+"class_simple_broad_phase_layer_interface.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

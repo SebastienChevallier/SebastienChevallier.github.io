@@ -1,16 +1,10 @@
 var searchData=
 [
-  ['validationlayers_0',['validationLayers',['../_vulkan_manager_8cpp.html#a7ca66b16460bd6b27fa5176e228218e8',1,'VulkanManager.cpp']]],
-  ['vertex_1',['Vertex',['../struct_n_n_e_1_1_vertex.html',1,'NNE']]],
-  ['vertexbuffer_2',['vertexBuffer',['../class_n_n_e_1_1_vulkan_manager.html#a2d4a138ca01878539c4456d2e78716ac',1,'NNE::VulkanManager']]],
-  ['vertexbuffermemory_3',['vertexBufferMemory',['../class_n_n_e_1_1_vulkan_manager.html#ad47796c82d1e22e8443c2e4fe879edfb',1,'NNE::VulkanManager']]],
-  ['vertices_4',['vertices',['../class_n_n_e_1_1_vulkan_manager.html#a63186a3072727cd41d5ddaa8b9d1a6a5',1,'NNE::VulkanManager']]],
-  ['view_5',['view',['../struct_n_n_e_1_1_global_uniform_buffer_object.html#ad4fd1f0a3fa58c7048e71a9b7b2e3a99',1,'NNE::GlobalUniformBufferObject']]],
-  ['vk_5fkhr_5fsurface_6',['VK_KHR_surface',['../_vulkan_manager_8h.html#add3cae989302bd6e5653c0de50fe8099',1,'VulkanManager.h']]],
-  ['vk_5fkhr_5fwin32_5fsurface_7',['VK_KHR_win32_surface',['../_vulkan_manager_8h.html#a9f75cfd72198fb65b641ff02993d13ca',1,'VulkanManager.h']]],
-  ['vk_5fuse_5fplatform_5fwin32_5fkhr_8',['VK_USE_PLATFORM_WIN32_KHR',['../_vulkan_manager_8h.html#aea22151c1df842d43772ec5f931d2600',1,'VulkanManager.h']]],
-  ['vkmanager_9',['VKManager',['../class_n_n_e_1_1_application.html#af10106b5a2ef82b49d7dc4e62847f728',1,'NNE::Application']]],
-  ['vulkanmanager_10',['VulkanManager',['../class_n_n_e_1_1_vulkan_manager.html',1,'NNE::VulkanManager'],['../class_n_n_e_1_1_vulkan_manager.html#a4672ca1d5ceb86e50b1e95a6ad0cb522',1,'NNE::VulkanManager::VulkanManager()']]],
-  ['vulkanmanager_2ecpp_11',['VulkanManager.cpp',['../_vulkan_manager_8cpp.html',1,'']]],
-  ['vulkanmanager_2eh_12',['VulkanManager.h',['../_vulkan_manager_8h.html',1,'']]]
+  ['_7eaentity_0',['~AEntity',['../class_n_n_e_1_1_a_entity.html#a5929de0fcc70bfafaea3b99965628add',1,'NNE::AEntity']]],
+  ['_7eapplication_1',['~Application',['../class_n_n_e_1_1_systems_1_1_application.html#a8f6639fda3ed0f9cdbe99a0dabdb09c6',1,'NNE::Systems::Application']]],
+  ['_7eascene_2',['~AScene',['../class_n_n_e_1_1_a_scene.html#a9faf7f1a271327227e83627432d0b210',1,'NNE::AScene']]],
+  ['_7ecollidercomponent_3',['~ColliderComponent',['../class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html#ac6a2257af3b49233c761cc4fee64b73c',1,'NNE::Component::Physics::ColliderComponent']]],
+  ['_7ephysicssystem_4',['~PhysicsSystem',['../class_n_n_e_1_1_systems_1_1_physics_system.html#a49383db7c5aa92d048bc94cf8383577d',1,'NNE::Systems::PhysicsSystem']]],
+  ['_7erigidbodycomponent_5',['~RigidbodyComponent',['../class_n_n_e_1_1_component_1_1_physics_1_1_rigidbody_component.html#abd89459a980a45cb08cd6e697f4487cf',1,'NNE::Component::Physics::RigidbodyComponent']]],
+  ['_7evulkanmanager_6',['~VulkanManager',['../class_n_n_e_1_1_systems_1_1_vulkan_manager.html#a4a84fa5c31c3c8956f3ed1dd289669d7',1,'NNE::Systems::VulkanManager']]]
 ];

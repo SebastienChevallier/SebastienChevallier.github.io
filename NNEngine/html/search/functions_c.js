@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['physicsmanager_0',['PhysicsManager',['../class_n_n_e_1_1_physics_manager.html#a392473e97f2c8f57ce07d15217f3c06e',1,'NNE::PhysicsManager']]],
-  ['pickphysicaldevice_1',['pickPhysicalDevice',['../class_n_n_e_1_1_vulkan_manager.html#ade33d33a2e0b25482ad0244b28f6a9f1',1,'NNE::VulkanManager']]],
-  ['planecollider_2',['PlaneCollider',['../class_n_n_e_1_1_plane_collider.html#ada0c08fd1538ba96d931fa66cfad02d6',1,'NNE::PlaneCollider']]]
+  ['physicssystem_0',['PhysicsSystem',['../class_n_n_e_1_1_systems_1_1_physics_system.html#ace0bc3d4d440e80fb74e8b3a33e301d8',1,'NNE::Systems::PhysicsSystem']]],
+  ['pickphysicaldevice_1',['pickPhysicalDevice',['../class_n_n_e_1_1_systems_1_1_vulkan_manager.html#ac23f79d94496e018d663aca4b1bb234c',1,'NNE::Systems::VulkanManager']]],
+  ['planecollider_2',['PlaneCollider',['../class_n_n_e_1_1_component_1_1_physics_1_1_plane_collider.html#a49e3cdb5491b77d155fa47c3e72b2533',1,'NNE::Component::Physics::PlaneCollider']]]
 ];

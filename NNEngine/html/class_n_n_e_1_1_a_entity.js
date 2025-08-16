@@ -10,9 +10,5 @@ var class_n_n_e_1_1_a_entity =
     [ "GetName", "class_n_n_e_1_1_a_entity.html#a27f1dc8bda47a3f73a7d01e671895c97", null ],
     [ "LateUpdate", "class_n_n_e_1_1_a_entity.html#a6a40de5b5b1f8265ceb08aece70a4c4b", null ],
     [ "Start", "class_n_n_e_1_1_a_entity.html#a0763b68c2daf7517472328603dca918c", null ],
-    [ "Update", "class_n_n_e_1_1_a_entity.html#a679cd61e1df30ee7fcdbfec3f734ff76", null ],
-    [ "_ID", "class_n_n_e_1_1_a_entity.html#a09198a703ce8eeded4b561142df2b633", null ],
-    [ "_Name", "class_n_n_e_1_1_a_entity.html#a405945bf5e164e20b9bb14ddab0e0cc2", null ],
-    [ "components", "class_n_n_e_1_1_a_entity.html#a2d6dd52ae1aff3bd2835f56cfed77207", null ],
-    [ "transform", "class_n_n_e_1_1_a_entity.html#aadeca0620c90ab5857176f2f18bae547", null ]
+    [ "Update", "class_n_n_e_1_1_a_entity.html#a679cd61e1df30ee7fcdbfec3f734ff76", null ]
 ];

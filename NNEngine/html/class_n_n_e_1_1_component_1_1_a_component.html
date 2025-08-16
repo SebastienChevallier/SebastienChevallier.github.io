@@ -106,13 +106,22 @@ Collaboration diagram for NNE::Component::AComponent:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a1037125ccfa517ec38d3e037ad2e92cd" id="r_a1037125ccfa517ec38d3e037ad2e92cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1037125ccfa517ec38d3e037ad2e92cd">AComponent</a> ()</td></tr>
+<tr class="memdesc:a1037125ccfa517ec38d3e037ad2e92cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de base du composant.  <br /></td></tr>
 <tr class="memitem:a84a0738cd9edf84a76d4f74cafa27380" id="r_a84a0738cd9edf84a76d4f74cafa27380"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84a0738cd9edf84a76d4f74cafa27380">Awake</a> ()</td></tr>
+<tr class="memdesc:a84a0738cd9edf84a76d4f74cafa27380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelé lorsque le composant est initialisé.  <br /></td></tr>
 <tr class="memitem:a46bdf7fd088e9e1d4ef13ea3a1239cdf" id="r_a46bdf7fd088e9e1d4ef13ea3a1239cdf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46bdf7fd088e9e1d4ef13ea3a1239cdf">Start</a> ()</td></tr>
+<tr class="memdesc:a46bdf7fd088e9e1d4ef13ea3a1239cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelé au démarrage du composant.  <br /></td></tr>
 <tr class="memitem:a57c4af3b556797069fbb92c81da5a9bd" id="r_a57c4af3b556797069fbb92c81da5a9bd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57c4af3b556797069fbb92c81da5a9bd">Update</a> (float deltaTime)</td></tr>
+<tr class="memdesc:a57c4af3b556797069fbb92c81da5a9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le composant chaque frame.  <br /></td></tr>
 <tr class="memitem:a4657a5b197f834c6552e069eccf87dfc" id="r_a4657a5b197f834c6552e069eccf87dfc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4657a5b197f834c6552e069eccf87dfc">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="memdesc:a4657a5b197f834c6552e069eccf87dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effectue les mises à jour après l'Update principal.  <br /></td></tr>
 <tr class="memitem:a9b007630709afa8c488c8c9e7e30f281" id="r_a9b007630709afa8c488c8c9e7e30f281"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b007630709afa8c488c8c9e7e30f281">GetID</a> ()</td></tr>
+<tr class="memdesc:a9b007630709afa8c488c8c9e7e30f281"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'identifiant du composant.  <br /></td></tr>
 <tr class="memitem:a095f2db4eacb317971da2b417513f813" id="r_a095f2db4eacb317971da2b417513f813"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a095f2db4eacb317971da2b417513f813">GetEntity</a> ()</td></tr>
+<tr class="memdesc:a095f2db4eacb317971da2b417513f813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient l'entité propriétaire.  <br /></td></tr>
 <tr class="memitem:aaa1a42a555d786b29df3717dcac826f1" id="r_aaa1a42a555d786b29df3717dcac826f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa1a42a555d786b29df3717dcac826f1">SetEntity</a> (<a class="el" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a> *entity)</td></tr>
+<tr class="memdesc:aaa1a42a555d786b29df3717dcac826f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associe le composant à une entité.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -138,7 +147,10 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00004">4</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
+<p>Constructeur de base du composant. </p>
+<p>Assigne un identifiant unique au composant. </p>
+
+<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00009">9</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -166,7 +178,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00009">9</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
+<p>Appelé lorsque le composant est initialisé. </p>
+<p>Appelé lors de l'initialisation du composant. </p>
+
+<p>Reimplemented in <a class="el" href="class_n_n_e_1_1_component_1_1_mono_component.html#a63a24b8ede2b8a1e89dc57026d82e8fe">NNE::Component::MonoComponent</a>, <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_box_collider_component.html#a6b3b73fb843c48ce761b982e9b362bd2">NNE::Component::Physics::BoxColliderComponent</a>, and <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_rigidbody_component.html#a7f68de1a7c6691df55a4c08708da6bda">NNE::Component::Physics::RigidbodyComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00019">19</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -185,7 +202,10 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00030">30</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
+<p>Obtient l'entité propriétaire. </p>
+<p>Retourne l'entité attachée à ce composant. </p>
+
+<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00065">65</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -204,7 +224,10 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00025">25</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
+<p>Retourne l'identifiant du composant. </p>
+<p>Renvoie l'identifiant du composant. </p>
+
+<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00055">55</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -231,7 +254,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00021">21</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
+<p>Effectue les mises à jour après l'Update principal. </p>
+<p>Réalise les mises à jour postérieures à l'Update principal. </p>
+
+<p>Reimplemented in <a class="el" href="class_n_n_e_1_1_component_1_1_mono_component.html#a69ca6dcc62fe3c172b054a6b232406d8">NNE::Component::MonoComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00046">46</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -250,7 +278,10 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00035">35</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
+<p>Associe le composant à une entité. </p>
+<p>Définit l'entité propriétaire du composant. </p>
+
+<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00075">75</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -277,7 +308,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00013">13</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
+<p>Appelé au démarrage du composant. </p>
+
+<p>Reimplemented in <a class="el" href="class_n_n_e_1_1_component_1_1_mono_component.html#aa3a9de6bcab391aaac21929041e8e30f">NNE::Component::MonoComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00028">28</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -304,7 +339,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00017">17</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
+<p>Met à jour le composant chaque frame. </p>
+
+<p>Reimplemented in <a class="el" href="class_n_n_e_1_1_component_1_1_mono_component.html#a88bf5d44f9ad447e19c48e40b6a677bf">NNE::Component::MonoComponent</a>, <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_rigidbody_component.html#a1ec0a967a4b801886929e653618aeec7">NNE::Component::Physics::RigidbodyComponent</a>, <a class="el" href="class_n_n_e_1_1_component_1_1_render_1_1_camera_component.html#a5cc85c99e2a93b2f86eafb9f344ad9f4">NNE::Component::Render::CameraComponent</a>, and <a class="el" href="class_n_n_e_1_1_component_1_1_transform_component.html#aeb03b0fdbea08161d2958fb61755753f">NNE::Component::TransformComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_a_component_8cpp_source.html#l00037">37</a> of file <a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -358,8 +397,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/schev/Documents/GitHub/NNEngine/src/include/<a class="el" href="_a_component_8h_source.html">AComponent.h</a></li>
-<li>C:/Users/schev/Documents/GitHub/NNEngine/src/src/<a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a></li>
+<li>Documents/GitHub/NNEngine/src/include/<a class="el" href="_a_component_8h_source.html">AComponent.h</a></li>
+<li>Documents/GitHub/NNEngine/src/src/<a class="el" href="_a_component_8cpp_source.html">AComponent.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>No Name Engine: C:/Users/schev/Documents/GitHub/NNEngine/src/src/PlaneCollider.cpp Source File</title>
+<title>No Name Engine: Documents/GitHub/NNEngine/src/src/PlaneCollider.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,23 +95,29 @@ $(function(){initNavTree('_plane_collider_8cpp_source.html','',''); });
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;PlaneCollider.h&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;Jolt/Physics/Collision/Shape/PlaneShape.h&gt;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>NNE::Component::Physics::PlaneCollider::PlaneCollider(<span class="keyword">const</span> glm::vec3&amp; normal, <span class="keywordtype">float</span> distance)</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>        plane = JPH::Plane(JPH::Vec3(normal.x, normal.y, normal.z), distance);</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">void</span> NNE::Component::Physics::PlaneCollider::CreateShape()</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_component_1_1_physics_1_1_plane_collider.html#a49e3cdb5491b77d155fa47c3e72b2533">    9</a></span><a class="code hl_function" href="class_n_n_e_1_1_component_1_1_physics_1_1_plane_collider.html#a49e3cdb5491b77d155fa47c3e72b2533">NNE::Component::Physics::PlaneCollider::PlaneCollider</a>(<span class="keyword">const</span> glm::vec3&amp; normal, <span class="keywordtype">float</span> distance)</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        shape = <span class="keyword">new</span> JPH::PlaneShape(plane);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        plane = JPH::Plane(JPH::Vec3(normal.x, normal.y, normal.z), distance);</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>}</div>
+</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_component_1_1_physics_1_1_plane_collider.html#a9d920ed77d8f3fd7efccbbb308090431">   19</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_n_n_e_1_1_component_1_1_physics_1_1_plane_collider.html#a9d920ed77d8f3fd7efccbbb308090431">NNE::Component::Physics::PlaneCollider::CreateShape</a>()</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        shape = <span class="keyword">new</span> JPH::PlaneShape(plane);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+</div>
+<div class="ttc" id="aclass_n_n_e_1_1_component_1_1_physics_1_1_plane_collider_html_a49e3cdb5491b77d155fa47c3e72b2533"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_physics_1_1_plane_collider.html#a49e3cdb5491b77d155fa47c3e72b2533">NNE::Component::Physics::PlaneCollider::PlaneCollider</a></div><div class="ttdeci">PlaneCollider(const glm::vec3 &amp;normal, float distance)</div><div class="ttdoc">Crée un collider plan avec une normale et une distance.</div><div class="ttdef"><b>Definition</b> <a href="#l00009">PlaneCollider.cpp:9</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_component_1_1_physics_1_1_plane_collider_html_a9d920ed77d8f3fd7efccbbb308090431"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_physics_1_1_plane_collider.html#a9d920ed77d8f3fd7efccbbb308090431">NNE::Component::Physics::PlaneCollider::CreateShape</a></div><div class="ttdeci">void CreateShape() override</div><div class="ttdoc">Génère la forme physique correspondant au plan.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">PlaneCollider.cpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a href="dir_28ec0923cd5f4909746e02b1d01882b1.html">schev</a></li><li class="navelem"><a href="dir_be1b1ee13a3730b28a3657d1b6891184.html">Documents</a></li><li class="navelem"><a href="dir_db58707b0dced63b2cb83685fcd8fe4f.html">GitHub</a></li><li class="navelem"><a href="dir_ffa1128351d3b3833c7d8f7855a6f894.html">NNEngine</a></li><li class="navelem"><a href="dir_77c888fdf7e75dcc51282b224e809b23.html">src</a></li><li class="navelem"><a href="dir_47415388eb753b6591c956b82849adf0.html">src</a></li><li class="navelem"><b>PlaneCollider.cpp</b></li>
+    <li class="navelem"><a href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a href="dir_128e06206b93dec99d285449e8310545.html">NNEngine</a></li><li class="navelem"><a href="dir_20be70f3ef24ea08f47f81dc019e9c1d.html">src</a></li><li class="navelem"><a href="dir_9f9ef306432d77a07076bf2b14e2fdc8.html">src</a></li><li class="navelem"><b>PlaneCollider.cpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

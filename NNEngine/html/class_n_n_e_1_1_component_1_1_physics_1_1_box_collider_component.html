@@ -107,20 +107,41 @@ Collaboration diagram for NNE::Component::Physics::BoxColliderComponent:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a18bede3a3cea770dd575c7c21606ec7d" id="r_a18bede3a3cea770dd575c7c21606ec7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18bede3a3cea770dd575c7c21606ec7d">BoxColliderComponent</a> (const glm::vec3 &amp;size)</td></tr>
+<tr class="memdesc:a18bede3a3cea770dd575c7c21606ec7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée un collider de type boîte avec une taille donnée.  <br /></td></tr>
 <tr class="memitem:a6b3b73fb843c48ce761b982e9b362bd2" id="r_a6b3b73fb843c48ce761b982e9b362bd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b3b73fb843c48ce761b982e9b362bd2">Awake</a> () override</td></tr>
+<tr class="memdesc:a6b3b73fb843c48ce761b982e9b362bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prépare le collider lors de l'initialisation.  <br /></td></tr>
 <tr class="memitem:acc7ad6a4cba9eadeec2487669084f166" id="r_acc7ad6a4cba9eadeec2487669084f166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc7ad6a4cba9eadeec2487669084f166">CreateShape</a> () override</td></tr>
+<tr class="memdesc:acc7ad6a4cba9eadeec2487669084f166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit la forme physique correspondant à la boîte.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html">NNE::Component::Physics::ColliderComponent</a></td></tr>
+<tr class="memitem:a41e521f1915d2edd736368ba3ca6f983 inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component" id="r_a41e521f1915d2edd736368ba3ca6f983"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>ColliderComponent</b> ()=default</td></tr>
+<tr class="memdesc:a41e521f1915d2edd736368ba3ca6f983 inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur par défaut du collider. <br /></td></tr>
+<tr class="memitem:ac6a2257af3b49233c761cc4fee64b73c inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component" id="r_ac6a2257af3b49233c761cc4fee64b73c"><td class="memItemLeft" align="right" valign="top">
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ColliderComponent</b> ()=default</td></tr>
+<tr class="memdesc:ac6a2257af3b49233c761cc4fee64b73c inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel pour un nettoyage adéquat. <br /></td></tr>
 <tr class="memitem:a73dc1915ea3107b8f8534016a572783e inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component" id="r_a73dc1915ea3107b8f8534016a572783e"><td class="memItemLeft" align="right" valign="top">JPH::ShapeRefC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html#a73dc1915ea3107b8f8534016a572783e">GetShape</a> () const</td></tr>
+<tr class="memdesc:a73dc1915ea3107b8f8534016a572783e inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la forme associée au collider.  <br /></td></tr>
 <tr class="memitem:a31a4004b59595b168b699624c302d07b inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component" id="r_a31a4004b59595b168b699624c302d07b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html#a31a4004b59595b168b699624c302d07b">OnHit</a> (<a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html">ColliderComponent</a> *other)</td></tr>
+<tr class="memdesc:a31a4004b59595b168b699624c302d07b inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réagit lorsqu'une collision est détectée.  <br /></td></tr>
 <tr class="memitem:ae5b1d0fd2193a7769e7af17f8dc446b8 inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component" id="r_ae5b1d0fd2193a7769e7af17f8dc446b8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html#ae5b1d0fd2193a7769e7af17f8dc446b8">OnTriggerHit</a> (<a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html">ColliderComponent</a> *other)</td></tr>
+<tr class="memdesc:ae5b1d0fd2193a7769e7af17f8dc446b8 inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réagit lorsqu'une collision de type trigger survient.  <br /></td></tr>
 <tr class="memitem:a262aa149855868344f7ab0cd08b848af inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component" id="r_a262aa149855868344f7ab0cd08b848af"><td class="memItemLeft" align="right" valign="top">JPH::BodyID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html#a262aa149855868344f7ab0cd08b848af">GetBodyID</a> () const</td></tr>
+<tr class="memdesc:a262aa149855868344f7ab0cd08b848af inherit pub_methods_class_n_n_e_1_1_component_1_1_physics_1_1_collider_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient l'identifiant physique du corps associé.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_n_n_e_1_1_component_1_1_a_component')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html">NNE::Component::AComponent</a></td></tr>
+<tr class="memitem:a1037125ccfa517ec38d3e037ad2e92cd inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a1037125ccfa517ec38d3e037ad2e92cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a1037125ccfa517ec38d3e037ad2e92cd">AComponent</a> ()</td></tr>
+<tr class="memdesc:a1037125ccfa517ec38d3e037ad2e92cd inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de base du composant.  <br /></td></tr>
 <tr class="memitem:a46bdf7fd088e9e1d4ef13ea3a1239cdf inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a46bdf7fd088e9e1d4ef13ea3a1239cdf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a46bdf7fd088e9e1d4ef13ea3a1239cdf">Start</a> ()</td></tr>
+<tr class="memdesc:a46bdf7fd088e9e1d4ef13ea3a1239cdf inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelé au démarrage du composant.  <br /></td></tr>
 <tr class="memitem:a57c4af3b556797069fbb92c81da5a9bd inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a57c4af3b556797069fbb92c81da5a9bd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a57c4af3b556797069fbb92c81da5a9bd">Update</a> (float deltaTime)</td></tr>
+<tr class="memdesc:a57c4af3b556797069fbb92c81da5a9bd inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le composant chaque frame.  <br /></td></tr>
 <tr class="memitem:a4657a5b197f834c6552e069eccf87dfc inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a4657a5b197f834c6552e069eccf87dfc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a4657a5b197f834c6552e069eccf87dfc">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="memdesc:a4657a5b197f834c6552e069eccf87dfc inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effectue les mises à jour après l'Update principal.  <br /></td></tr>
 <tr class="memitem:a9b007630709afa8c488c8c9e7e30f281 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a9b007630709afa8c488c8c9e7e30f281"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a9b007630709afa8c488c8c9e7e30f281">GetID</a> ()</td></tr>
+<tr class="memdesc:a9b007630709afa8c488c8c9e7e30f281 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'identifiant du composant.  <br /></td></tr>
 <tr class="memitem:a095f2db4eacb317971da2b417513f813 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a095f2db4eacb317971da2b417513f813"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a095f2db4eacb317971da2b417513f813">GetEntity</a> ()</td></tr>
+<tr class="memdesc:a095f2db4eacb317971da2b417513f813 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient l'entité propriétaire.  <br /></td></tr>
 <tr class="memitem:aaa1a42a555d786b29df3717dcac826f1 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_aaa1a42a555d786b29df3717dcac826f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#aaa1a42a555d786b29df3717dcac826f1">SetEntity</a> (<a class="el" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a> *entity)</td></tr>
+<tr class="memdesc:aaa1a42a555d786b29df3717dcac826f1 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associe le composant à une entité.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -151,7 +172,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_box_collider_component_8cpp_source.html#l00006">6</a> of file <a class="el" href="_box_collider_component_8cpp_source.html">BoxColliderComponent.cpp</a>.</p>
+<p>Crée un collider de type boîte avec une taille donnée. </p>
+<p>Initialise un collider boîte avec la taille spécifiée. </p>
+
+<p class="definition">Definition at line <a class="el" href="_box_collider_component_8cpp_source.html#l00011">11</a> of file <a class="el" href="_box_collider_component_8cpp_source.html">BoxColliderComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -179,9 +203,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html">NNE::Component::AComponent</a>.</p>
+<p>Prépare le collider lors de l'initialisation. </p>
+<p>Crée la forme lors de l'activation du composant. </p>
 
-<p class="definition">Definition at line <a class="el" href="_box_collider_component_8cpp_source.html#l00010">10</a> of file <a class="el" href="_box_collider_component_8cpp_source.html">BoxColliderComponent.cpp</a>.</p>
+<p>Reimplemented from <a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a84a0738cd9edf84a76d4f74cafa27380">NNE::Component::AComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_box_collider_component_8cpp_source.html#l00020">20</a> of file <a class="el" href="_box_collider_component_8cpp_source.html">BoxColliderComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -208,15 +235,18 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html">NNE::Component::Physics::ColliderComponent</a>.</p>
+<p>Construit la forme physique correspondant à la boîte. </p>
+<p>Construit et enregistre la forme physique de la boîte. </p>
 
-<p class="definition">Definition at line <a class="el" href="_box_collider_component_8cpp_source.html#l00015">15</a> of file <a class="el" href="_box_collider_component_8cpp_source.html">BoxColliderComponent.cpp</a>.</p>
+<p>Implements <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html#a1930de75fe48f2619a82b9d052f44f09">NNE::Component::Physics::ColliderComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_box_collider_component_8cpp_source.html#l00030">30</a> of file <a class="el" href="_box_collider_component_8cpp_source.html">BoxColliderComponent.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/schev/Documents/GitHub/NNEngine/src/include/<a class="el" href="_box_collider_component_8h_source.html">BoxColliderComponent.h</a></li>
-<li>C:/Users/schev/Documents/GitHub/NNEngine/src/src/<a class="el" href="_box_collider_component_8cpp_source.html">BoxColliderComponent.cpp</a></li>
+<li>Documents/GitHub/NNEngine/src/include/<a class="el" href="_box_collider_component_8h_source.html">BoxColliderComponent.h</a></li>
+<li>Documents/GitHub/NNEngine/src/src/<a class="el" href="_box_collider_component_8cpp_source.html">BoxColliderComponent.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

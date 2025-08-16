@@ -107,17 +107,32 @@ Collaboration diagram for NNE::Component::Physics::RigidbodyComponent:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acdfc3232484b1b164a6c328735a02972" id="r_acdfc3232484b1b164a6c328735a02972"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdfc3232484b1b164a6c328735a02972">RigidbodyComponent</a> (float mass=1.0f, bool kinematic=false)</td></tr>
+<tr class="memdesc:acdfc3232484b1b164a6c328735a02972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise un rigidbody avec masse et type souhaités.  <br /></td></tr>
+<tr class="memitem:abd89459a980a45cb08cd6e697f4487cf" id="r_abd89459a980a45cb08cd6e697f4487cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd89459a980a45cb08cd6e697f4487cf">~RigidbodyComponent</a> ()</td></tr>
+<tr class="memdesc:abd89459a980a45cb08cd6e697f4487cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libère les ressources du rigidbody.  <br /></td></tr>
 <tr class="memitem:a7f68de1a7c6691df55a4c08708da6bda" id="r_a7f68de1a7c6691df55a4c08708da6bda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f68de1a7c6691df55a4c08708da6bda">Awake</a> () override</td></tr>
+<tr class="memdesc:a7f68de1a7c6691df55a4c08708da6bda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crée le corps physique au démarrage.  <br /></td></tr>
 <tr class="memitem:a1ec0a967a4b801886929e653618aeec7" id="r_a1ec0a967a4b801886929e653618aeec7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ec0a967a4b801886929e653618aeec7">Update</a> (float deltaTime) override</td></tr>
+<tr class="memdesc:a1ec0a967a4b801886929e653618aeec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronise la physique à chaque frame.  <br /></td></tr>
 <tr class="memitem:adc27dfdf21c10b11715f7bd54f438daa" id="r_adc27dfdf21c10b11715f7bd54f438daa"><td class="memItemLeft" align="right" valign="top">JPH::BodyID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc27dfdf21c10b11715f7bd54f438daa">GetBodyID</a> () const</td></tr>
+<tr class="memdesc:adc27dfdf21c10b11715f7bd54f438daa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'identifiant du corps physique.  <br /></td></tr>
 <tr class="memitem:ae52e91e8b4ec20c6cc808bc6a6fd4d05" id="r_ae52e91e8b4ec20c6cc808bc6a6fd4d05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae52e91e8b4ec20c6cc808bc6a6fd4d05">SetLinearVelocity</a> (glm::vec3 velocity)</td></tr>
+<tr class="memdesc:ae52e91e8b4ec20c6cc808bc6a6fd4d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définit la vitesse linéaire du corps.  <br /></td></tr>
 <tr class="memitem:ae86d11518ea993e8c79de6a45a53c89f" id="r_ae86d11518ea993e8c79de6a45a53c89f"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae86d11518ea993e8c79de6a45a53c89f">GetLinearVelocity</a> () const</td></tr>
+<tr class="memdesc:ae86d11518ea993e8c79de6a45a53c89f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient la vitesse linéaire actuelle.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_n_n_e_1_1_component_1_1_a_component')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html">NNE::Component::AComponent</a></td></tr>
+<tr class="memitem:a1037125ccfa517ec38d3e037ad2e92cd inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a1037125ccfa517ec38d3e037ad2e92cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a1037125ccfa517ec38d3e037ad2e92cd">AComponent</a> ()</td></tr>
+<tr class="memdesc:a1037125ccfa517ec38d3e037ad2e92cd inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de base du composant.  <br /></td></tr>
 <tr class="memitem:a46bdf7fd088e9e1d4ef13ea3a1239cdf inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a46bdf7fd088e9e1d4ef13ea3a1239cdf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a46bdf7fd088e9e1d4ef13ea3a1239cdf">Start</a> ()</td></tr>
+<tr class="memdesc:a46bdf7fd088e9e1d4ef13ea3a1239cdf inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelé au démarrage du composant.  <br /></td></tr>
 <tr class="memitem:a4657a5b197f834c6552e069eccf87dfc inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a4657a5b197f834c6552e069eccf87dfc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a4657a5b197f834c6552e069eccf87dfc">LateUpdate</a> (float deltaTime)</td></tr>
+<tr class="memdesc:a4657a5b197f834c6552e069eccf87dfc inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effectue les mises à jour après l'Update principal.  <br /></td></tr>
 <tr class="memitem:a9b007630709afa8c488c8c9e7e30f281 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a9b007630709afa8c488c8c9e7e30f281"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a9b007630709afa8c488c8c9e7e30f281">GetID</a> ()</td></tr>
+<tr class="memdesc:a9b007630709afa8c488c8c9e7e30f281 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'identifiant du composant.  <br /></td></tr>
 <tr class="memitem:a095f2db4eacb317971da2b417513f813 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a095f2db4eacb317971da2b417513f813"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a095f2db4eacb317971da2b417513f813">GetEntity</a> ()</td></tr>
+<tr class="memdesc:a095f2db4eacb317971da2b417513f813 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient l'entité propriétaire.  <br /></td></tr>
 <tr class="memitem:aaa1a42a555d786b29df3717dcac826f1 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_aaa1a42a555d786b29df3717dcac826f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#aaa1a42a555d786b29df3717dcac826f1">SetEntity</a> (<a class="el" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a> *entity)</td></tr>
+<tr class="memdesc:aaa1a42a555d786b29df3717dcac826f1 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Associe le composant à une entité.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -148,7 +163,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00008">8</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
+<p>Initialise un rigidbody avec masse et type souhaités. </p>
+<p>Instancie un corps rigide avec masse et type kinematic. </p>
+
+<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00013">13</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -167,7 +185,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00012">12</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
+<p>Libère les ressources du rigidbody. </p>
+<p>Supprime le corps physique lors de la destruction. </p>
+
+<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00022">22</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -195,9 +216,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html">NNE::Component::AComponent</a>.</p>
+<p>Crée le corps physique au démarrage. </p>
+<p>Crée le corps physique et l'ajoute au monde. </p>
 
-<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00019">19</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
+<p>Reimplemented from <a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a84a0738cd9edf84a76d4f74cafa27380">NNE::Component::AComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00034">34</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -216,7 +240,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00057">57</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
+<p>Renvoie l'identifiant du corps physique. </p>
+<p>Obtient l'identifiant du corps rigide. </p>
+
+<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00072">72</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -235,7 +262,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00069">69</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
+<p>Obtient la vitesse linéaire actuelle. </p>
+<p>Retourne la vitesse linéaire actuelle du corps. </p>
+
+<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00094">94</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -254,7 +284,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00061">61</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
+<p>Définit la vitesse linéaire du corps. </p>
+<p>Applique une vitesse linéaire au corps. </p>
+
+<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00081">81</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -281,15 +314,18 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html">NNE::Component::AComponent</a>.</p>
+<p>Synchronise la physique à chaque frame. </p>
+<p>Met à jour l'état physique si nécessaire. </p>
 
-<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00043">43</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
+<p>Reimplemented from <a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a57c4af3b556797069fbb92c81da5a9bd">NNE::Component::AComponent</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_rigidbody_component_8cpp_source.html#l00063">63</a> of file <a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/schev/Documents/GitHub/NNEngine/src/include/<a class="el" href="_rigidbody_component_8h_source.html">RigidbodyComponent.h</a></li>
-<li>C:/Users/schev/Documents/GitHub/NNEngine/src/src/<a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a></li>
+<li>Documents/GitHub/NNEngine/src/include/<a class="el" href="_rigidbody_component_8h_source.html">RigidbodyComponent.h</a></li>
+<li>Documents/GitHub/NNEngine/src/src/<a class="el" href="_rigidbody_component_8cpp_source.html">RigidbodyComponent.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

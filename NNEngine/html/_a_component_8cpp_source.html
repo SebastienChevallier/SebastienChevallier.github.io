@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>No Name Engine: C:/Users/schev/Documents/GitHub/NNEngine/src/src/AComponent.cpp Source File</title>
+<title>No Name Engine: Documents/GitHub/NNEngine/src/src/AComponent.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,49 +95,76 @@ $(function(){initNavTree('_a_component_8cpp_source.html','',''); });
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;AComponent.h&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Application.h&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>NNE::Component::AComponent::AComponent()</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>        _id = NNE::Systems::Application::GetInstance()-&gt;GenerateID();</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keywordtype">void</span> NNE::Component::AComponent::Awake()</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_component_1_1_a_component.html#a1037125ccfa517ec38d3e037ad2e92cd">    9</a></span><a class="code hl_function" href="class_n_n_e_1_1_component_1_1_a_component.html#a1037125ccfa517ec38d3e037ad2e92cd">NNE::Component::AComponent::AComponent</a>()</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> NNE::Component::AComponent::Start()</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">void</span> NNE::Component::AComponent::Update(<span class="keywordtype">float</span> deltaTime)</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> NNE::Component::AComponent::LateUpdate(<span class="keywordtype">float</span> deltaTime)</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">int</span> NNE::Component::AComponent::GetID()</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> _id;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>NNE::AEntity* NNE::Component::AComponent::GetEntity()</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> _entity;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">void</span> NNE::Component::AComponent::SetEntity(NNE::AEntity* entity)</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        _entity = entity;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        _id = <a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_application.html#aba83525b2cc86acc24174f4e8f264835">NNE::Systems::Application::GetInstance</a>()-&gt;<a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_application.html#ae85498e50b18503e5272b281e6ec252c">GenerateID</a>();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>}</div>
+</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_component_1_1_a_component.html#a84a0738cd9edf84a76d4f74cafa27380">   19</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_n_n_e_1_1_component_1_1_a_component.html#a84a0738cd9edf84a76d4f74cafa27380">NNE::Component::AComponent::Awake</a>()</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_component_1_1_a_component.html#a46bdf7fd088e9e1d4ef13ea3a1239cdf">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_n_n_e_1_1_component_1_1_a_component.html#a46bdf7fd088e9e1d4ef13ea3a1239cdf">NNE::Component::AComponent::Start</a>()</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_component_1_1_a_component.html#a57c4af3b556797069fbb92c81da5a9bd">   37</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_n_n_e_1_1_component_1_1_a_component.html#a57c4af3b556797069fbb92c81da5a9bd">NNE::Component::AComponent::Update</a>(<span class="keywordtype">float</span> deltaTime)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_component_1_1_a_component.html#a4657a5b197f834c6552e069eccf87dfc">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_n_n_e_1_1_component_1_1_a_component.html#a4657a5b197f834c6552e069eccf87dfc">NNE::Component::AComponent::LateUpdate</a>(<span class="keywordtype">float</span> deltaTime)</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_component_1_1_a_component.html#a9b007630709afa8c488c8c9e7e30f281">   55</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="class_n_n_e_1_1_component_1_1_a_component.html#a9b007630709afa8c488c8c9e7e30f281">NNE::Component::AComponent::GetID</a>()</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> _id;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_component_1_1_a_component.html#a095f2db4eacb317971da2b417513f813">   65</a></span><a class="code hl_class" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a>* <a class="code hl_function" href="class_n_n_e_1_1_component_1_1_a_component.html#a095f2db4eacb317971da2b417513f813">NNE::Component::AComponent::GetEntity</a>()</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordflow">return</span> _entity;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_component_1_1_a_component.html#aaa1a42a555d786b29df3717dcac826f1">   75</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_n_n_e_1_1_component_1_1_a_component.html#aaa1a42a555d786b29df3717dcac826f1">NNE::Component::AComponent::SetEntity</a>(<a class="code hl_class" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a>* entity)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>{</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        _entity = entity;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+</div>
+<div class="ttc" id="aclass_n_n_e_1_1_a_entity_html"><div class="ttname"><a href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a></div><div class="ttdef"><b>Definition</b> <a href="_a_entity_8h_source.html#l00010">AEntity.h:11</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_component_1_1_a_component_html_a095f2db4eacb317971da2b417513f813"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_a_component.html#a095f2db4eacb317971da2b417513f813">NNE::Component::AComponent::GetEntity</a></div><div class="ttdeci">NNE::AEntity * GetEntity()</div><div class="ttdoc">Obtient l&#39;entité propriétaire.</div><div class="ttdef"><b>Definition</b> <a href="#l00065">AComponent.cpp:65</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_component_1_1_a_component_html_a1037125ccfa517ec38d3e037ad2e92cd"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_a_component.html#a1037125ccfa517ec38d3e037ad2e92cd">NNE::Component::AComponent::AComponent</a></div><div class="ttdeci">AComponent()</div><div class="ttdoc">Constructeur de base du composant.</div><div class="ttdef"><b>Definition</b> <a href="#l00009">AComponent.cpp:9</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_component_1_1_a_component_html_a4657a5b197f834c6552e069eccf87dfc"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_a_component.html#a4657a5b197f834c6552e069eccf87dfc">NNE::Component::AComponent::LateUpdate</a></div><div class="ttdeci">virtual void LateUpdate(float deltaTime)</div><div class="ttdoc">Effectue les mises à jour après l&#39;Update principal.</div><div class="ttdef"><b>Definition</b> <a href="#l00046">AComponent.cpp:46</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_component_1_1_a_component_html_a46bdf7fd088e9e1d4ef13ea3a1239cdf"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_a_component.html#a46bdf7fd088e9e1d4ef13ea3a1239cdf">NNE::Component::AComponent::Start</a></div><div class="ttdeci">virtual void Start()</div><div class="ttdoc">Appelé au démarrage du composant.</div><div class="ttdef"><b>Definition</b> <a href="#l00028">AComponent.cpp:28</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_component_1_1_a_component_html_a57c4af3b556797069fbb92c81da5a9bd"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_a_component.html#a57c4af3b556797069fbb92c81da5a9bd">NNE::Component::AComponent::Update</a></div><div class="ttdeci">virtual void Update(float deltaTime)</div><div class="ttdoc">Met à jour le composant chaque frame.</div><div class="ttdef"><b>Definition</b> <a href="#l00037">AComponent.cpp:37</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_component_1_1_a_component_html_a84a0738cd9edf84a76d4f74cafa27380"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_a_component.html#a84a0738cd9edf84a76d4f74cafa27380">NNE::Component::AComponent::Awake</a></div><div class="ttdeci">virtual void Awake()</div><div class="ttdoc">Appelé lorsque le composant est initialisé.</div><div class="ttdef"><b>Definition</b> <a href="#l00019">AComponent.cpp:19</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_component_1_1_a_component_html_a9b007630709afa8c488c8c9e7e30f281"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_a_component.html#a9b007630709afa8c488c8c9e7e30f281">NNE::Component::AComponent::GetID</a></div><div class="ttdeci">int GetID()</div><div class="ttdoc">Retourne l&#39;identifiant du composant.</div><div class="ttdef"><b>Definition</b> <a href="#l00055">AComponent.cpp:55</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_component_1_1_a_component_html_aaa1a42a555d786b29df3717dcac826f1"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_a_component.html#aaa1a42a555d786b29df3717dcac826f1">NNE::Component::AComponent::SetEntity</a></div><div class="ttdeci">void SetEntity(NNE::AEntity *entity)</div><div class="ttdoc">Associe le composant à une entité.</div><div class="ttdef"><b>Definition</b> <a href="#l00075">AComponent.cpp:75</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_application_html_aba83525b2cc86acc24174f4e8f264835"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_application.html#aba83525b2cc86acc24174f4e8f264835">NNE::Systems::Application::GetInstance</a></div><div class="ttdeci">static Application * GetInstance()</div><div class="ttdoc">Retourne l&#39;instance unique de l&#39;application.</div><div class="ttdef"><b>Definition</b> <a href="_application_8cpp_source.html#l00193">Application.cpp:193</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_application_html_ae85498e50b18503e5272b281e6ec252c"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_application.html#ae85498e50b18503e5272b281e6ec252c">NNE::Systems::Application::GenerateID</a></div><div class="ttdeci">int GenerateID()</div><div class="ttdoc">Génère un identifiant unique pour les entités.</div><div class="ttdef"><b>Definition</b> <a href="_application_8cpp_source.html#l00156">Application.cpp:156</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_d522931ffa1371640980b621734a4381.html">Users</a></li><li class="navelem"><a href="dir_28ec0923cd5f4909746e02b1d01882b1.html">schev</a></li><li class="navelem"><a href="dir_be1b1ee13a3730b28a3657d1b6891184.html">Documents</a></li><li class="navelem"><a href="dir_db58707b0dced63b2cb83685fcd8fe4f.html">GitHub</a></li><li class="navelem"><a href="dir_ffa1128351d3b3833c7d8f7855a6f894.html">NNEngine</a></li><li class="navelem"><a href="dir_77c888fdf7e75dcc51282b224e809b23.html">src</a></li><li class="navelem"><a href="dir_47415388eb753b6591c956b82849adf0.html">src</a></li><li class="navelem"><b>AComponent.cpp</b></li>
+    <li class="navelem"><a href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a href="dir_128e06206b93dec99d285449e8310545.html">NNEngine</a></li><li class="navelem"><a href="dir_20be70f3ef24ea08f47f81dc019e9c1d.html">src</a></li><li class="navelem"><a href="dir_9f9ef306432d77a07076bf2b14e2fdc8.html">src</a></li><li class="navelem"><b>AComponent.cpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

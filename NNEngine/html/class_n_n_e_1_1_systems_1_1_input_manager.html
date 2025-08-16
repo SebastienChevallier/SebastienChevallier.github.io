@@ -97,12 +97,19 @@ $(function(){initNavTree('class_n_n_e_1_1_systems_1_1_input_manager.html','','cl
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad3b6b29aa74ee835be1bb246bbeaa1f4" id="r_ad3b6b29aa74ee835be1bb246bbeaa1f4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3b6b29aa74ee835be1bb246bbeaa1f4">Init</a> (GLFWwindow *win)</td></tr>
+<tr class="memdesc:ad3b6b29aa74ee835be1bb246bbeaa1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la gestion des entrées avec la fenêtre donnée.  <br /></td></tr>
 <tr class="memitem:ac3551ee2878d1f132def5271c6e560a7" id="r_ac3551ee2878d1f132def5271c6e560a7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3551ee2878d1f132def5271c6e560a7">Update</a> ()</td></tr>
+<tr class="memdesc:ac3551ee2878d1f132def5271c6e560a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour l'état des entrées chaque frame.  <br /></td></tr>
 <tr class="memitem:aaeff4fb7f2b4d4a630e7f687544247ca" id="r_aaeff4fb7f2b4d4a630e7f687544247ca"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaeff4fb7f2b4d4a630e7f687544247ca">IsKeyPressed</a> (int key)</td></tr>
+<tr class="memdesc:aaeff4fb7f2b4d4a630e7f687544247ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une touche est maintenue enfoncée.  <br /></td></tr>
 <tr class="memitem:a1aec12924fe8aabb2f894e4d59085613" id="r_a1aec12924fe8aabb2f894e4d59085613"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1aec12924fe8aabb2f894e4d59085613">IsKeyJustPressed</a> (int key)</td></tr>
+<tr class="memdesc:a1aec12924fe8aabb2f894e4d59085613"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une touche vient d'être pressée.  <br /></td></tr>
 <tr class="memitem:aa3da80aa0742fdf2d9fe783335074dfa" id="r_aa3da80aa0742fdf2d9fe783335074dfa"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3da80aa0742fdf2d9fe783335074dfa">IsKeyJustReleased</a> (int key)</td></tr>
+<tr class="memdesc:aa3da80aa0742fdf2d9fe783335074dfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une touche vient d'être relâchée.  <br /></td></tr>
 <tr class="memitem:a8531088b7488acb9fd85b8b0429967a6" id="r_a8531088b7488acb9fd85b8b0429967a6"><td class="memItemLeft" align="right" valign="top">static glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8531088b7488acb9fd85b8b0429967a6">GetMousePosition</a> ()</td></tr>
+<tr class="memdesc:a8531088b7488acb9fd85b8b0429967a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la position actuelle de la souris.  <br /></td></tr>
 <tr class="memitem:afee55df7bc1b26e8709dee734cdffad4" id="r_afee55df7bc1b26e8709dee734cdffad4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afee55df7bc1b26e8709dee734cdffad4">IsMouseButtonPressed</a> (int button)</td></tr>
+<tr class="memdesc:afee55df7bc1b26e8709dee734cdffad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si un bouton de souris est pressé.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -131,7 +138,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00028">28</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<p>Retourne la position actuelle de la souris. </p>
+<p>Retourne la position actuelle du curseur de la souris. </p>
+
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00058">58</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -158,7 +168,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00005">5</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<p>Initialise la gestion des entrées avec la fenêtre donnée. </p>
+<p>Initialise l'<a class="el" href="class_n_n_e_1_1_systems_1_1_input_manager.html">InputManager</a> avec la fenêtre GLFW. </p>
+
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00010">10</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -185,7 +198,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00020">20</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<p>Vérifie si une touche vient d'être pressée. </p>
+<p>Détecte si la touche vient d'être enfoncée cette frame. </p>
+
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00040">40</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -212,7 +228,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00024">24</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<p>Vérifie si une touche vient d'être relâchée. </p>
+<p>Indique si la touche vient d'être relâchée. </p>
+
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00049">49</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -239,7 +258,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00016">16</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<p>Vérifie si une touche est maintenue enfoncée. </p>
+<p>Indique si la touche est actuellement maintenue. </p>
+
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00031">31</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -266,7 +288,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00034">34</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<p>Indique si un bouton de souris est pressé. </p>
+<p>Vérifie si un bouton de la souris est pressé. </p>
+
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00069">69</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -293,13 +318,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00009">9</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
+<p>Met à jour l'état des entrées chaque frame. </p>
+<p>Met à jour l'état des touches et de la souris. </p>
+
+<p class="definition">Definition at line <a class="el" href="_input_manager_8cpp_source.html#l00019">19</a> of file <a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/schev/Documents/GitHub/NNEngine/src/include/<a class="el" href="_input_manager_8h_source.html">InputManager.h</a></li>
-<li>C:/Users/schev/Documents/GitHub/NNEngine/src/src/<a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a></li>
+<li>Documents/GitHub/NNEngine/src/include/<a class="el" href="_input_manager_8h_source.html">InputManager.h</a></li>
+<li>Documents/GitHub/NNEngine/src/src/<a class="el" href="_input_manager_8cpp_source.html">InputManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
