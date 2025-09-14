@@ -12,4 +12,6 @@ digraph "NNE::Component::Physics::ColliderComponent"
   Node3 [id="Node000003",label="NNE::Component::Physics\l::BoxColliderComponent",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$class_n_n_e_1_1_component_1_1_physics_1_1_box_collider_component.html",tooltip=" "];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="NNE::Component::Physics\l::PlaneCollider",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$class_n_n_e_1_1_component_1_1_physics_1_1_plane_collider.html",tooltip=" "];
+  Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="NNE::Component::Physics\l::SphereCollider",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$class_n_n_e_1_1_component_1_1_physics_1_1_sphere_collider.html",tooltip=" "];
 }

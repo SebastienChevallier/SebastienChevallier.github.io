@@ -94,54 +94,64 @@ $(function(){initNavTree('_input_system_8cpp_source.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;InputSystem.h&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">using namespace </span>NNE::Systems;</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span></div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_systems_1_1_input_system.html#a0d3aebccc6a07899132b362ac14c6322">   10</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_system.html#a0d3aebccc6a07899132b362ac14c6322">InputSystem::Update</a>(<span class="keywordtype">float</span> deltaTime)</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    (void)deltaTime;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_manager.html#ac3551ee2878d1f132def5271c6e560a7">InputManager::Update</a>();</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>* input : _inputs)</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; pair : input-&gt;buttons)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            <span class="keyword">auto</span>&amp; btn = pair.second;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <span class="keywordtype">bool</span> pressed = <a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_manager.html#aaeff4fb7f2b4d4a630e7f687544247ca">InputManager::IsKeyPressed</a>(btn.key);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            btn.justPressed = pressed &amp;&amp; !btn.pressed;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            btn.justReleased = !pressed &amp;&amp; btn.pressed;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            btn.pressed = pressed;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; pair : input-&gt;axes)</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <span class="keyword">auto</span>&amp; axis = pair.second;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            <span class="keywordtype">float</span> value = 0.0f;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_manager.html#aaeff4fb7f2b4d4a630e7f687544247ca">InputManager::IsKeyPressed</a>(axis.positiveKey))</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                value += 1.0f;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_manager.html#aaeff4fb7f2b4d4a630e7f687544247ca">InputManager::IsKeyPressed</a>(axis.negativeKey))</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                value -= 1.0f;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            axis.value = value;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>}</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Application.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;VulkanManager.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span>NNE::Systems {</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_systems_1_1_input_system.html#aec99fc7c9dea9e13d1163c0c91d0c299">   12</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_system.html#aec99fc7c9dea9e13d1163c0c91d0c299">InputSystem::Update</a>(<span class="keywordtype">float</span> deltaTime)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    (void)deltaTime;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_manager.html#ac3551ee2878d1f132def5271c6e560a7">InputManager::Update</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>* input : _inputs)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; pair : input-&gt;buttons)</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="keyword">auto</span>&amp; btn = pair.second;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            <span class="keywordtype">bool</span> pressed = <a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_manager.html#aaeff4fb7f2b4d4a630e7f687544247ca">InputManager::IsKeyPressed</a>(btn.key);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            btn.justPressed = pressed &amp;&amp; !btn.pressed;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            btn.justReleased = !pressed &amp;&amp; btn.pressed;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            btn.pressed = pressed;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        }</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; pair : input-&gt;axes)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keyword">auto</span>&amp; axis = pair.second;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keywordtype">float</span> value = 0.0f;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_manager.html#aaeff4fb7f2b4d4a630e7f687544247ca">InputManager::IsKeyPressed</a>(axis.positiveKey))</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                value += 1.0f;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_manager.html#aaeff4fb7f2b4d4a630e7f687544247ca">InputManager::IsKeyPressed</a>(axis.negativeKey))</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                value -= 1.0f;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            axis.value = value;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_manager.html#a1aec12924fe8aabb2f894e4d59085613">InputManager::IsKeyJustPressed</a>(GLFW_KEY_F3))</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_application.html#aba83525b2cc86acc24174f4e8f264835">Application::GetInstance</a>()-&gt;VKManager-&gt;requestShadowDebug();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
 </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_systems_1_1_input_system.html#a1501e84cba5c69146f6f713a3a9a601c">   42</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_system.html#a1501e84cba5c69146f6f713a3a9a601c">InputSystem::RegisterComponent</a>(<a class="code hl_class" href="class_n_n_e_1_1_component_1_1_a_component.html">NNE::Component::AComponent</a>* component)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* input = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="class_n_n_e_1_1_component_1_1_input_1_1_input_component.html">NNE::Component::Input::InputComponent</a>*<span class="keyword">&gt;</span>(component))</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        _inputs.push_back(input);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_n_n_e_1_1_systems_1_1_input_system.html#a02e21e98d7b919a55b17ba029a821d4a">   49</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_n_n_e_1_1_systems_1_1_input_system.html#a02e21e98d7b919a55b17ba029a821d4a">InputSystem::RegisterComponent</a>(<a class="code hl_class" href="class_n_n_e_1_1_component_1_1_a_component.html">NNE::Component::AComponent</a>* component)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">if</span> (<span class="keyword">auto</span>* input = <span class="keyword">dynamic_cast&lt;</span><a class="code hl_class" href="class_n_n_e_1_1_component_1_1_input_1_1_input_component.html">NNE::Component::Input::InputComponent</a>*<span class="keyword">&gt;</span>(component))</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        _inputs.push_back(input);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>} <span class="comment">// namespace NNE::Systems</span></div>
 <div class="ttc" id="aclass_n_n_e_1_1_component_1_1_a_component_html"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_a_component.html">NNE::Component::AComponent</a></div><div class="ttdef"><b>Definition</b> <a href="_a_component_8h_source.html#l00006">AComponent.h:7</a></div></div>
 <div class="ttc" id="aclass_n_n_e_1_1_component_1_1_input_1_1_input_component_html"><div class="ttname"><a href="class_n_n_e_1_1_component_1_1_input_1_1_input_component.html">NNE::Component::Input::InputComponent</a></div><div class="ttdef"><b>Definition</b> <a href="_input_component_8h_source.html#l00022">InputComponent.h:22</a></div></div>
-<div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_input_manager_html_aaeff4fb7f2b4d4a630e7f687544247ca"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_input_manager.html#aaeff4fb7f2b4d4a630e7f687544247ca">NNE::Systems::InputManager::IsKeyPressed</a></div><div class="ttdeci">static bool IsKeyPressed(int key)</div><div class="ttdoc">Vérifie si une touche est maintenue enfoncée.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00031">InputManager.cpp:31</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_application_html_aba83525b2cc86acc24174f4e8f264835"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_application.html#aba83525b2cc86acc24174f4e8f264835">NNE::Systems::Application::GetInstance</a></div><div class="ttdeci">static Application * GetInstance()</div><div class="ttdoc">Retourne l&#39;instance unique de l&#39;application.</div><div class="ttdef"><b>Definition</b> <a href="_application_8cpp_source.html#l00169">Application.cpp:169</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_input_manager_html_a1aec12924fe8aabb2f894e4d59085613"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_input_manager.html#a1aec12924fe8aabb2f894e4d59085613">NNE::Systems::InputManager::IsKeyJustPressed</a></div><div class="ttdeci">static bool IsKeyJustPressed(int key)</div><div class="ttdoc">Vérifie si une touche vient d&#39;être pressée.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00044">InputManager.cpp:44</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_input_manager_html_aaeff4fb7f2b4d4a630e7f687544247ca"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_input_manager.html#aaeff4fb7f2b4d4a630e7f687544247ca">NNE::Systems::InputManager::IsKeyPressed</a></div><div class="ttdeci">static bool IsKeyPressed(int key)</div><div class="ttdoc">Vérifie si une touche est maintenue enfoncée.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00035">InputManager.cpp:35</a></div></div>
 <div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_input_manager_html_ac3551ee2878d1f132def5271c6e560a7"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_input_manager.html#ac3551ee2878d1f132def5271c6e560a7">NNE::Systems::InputManager::Update</a></div><div class="ttdeci">static void Update()</div><div class="ttdoc">Met à jour l&#39;état des entrées chaque frame.</div><div class="ttdef"><b>Definition</b> <a href="_input_manager_8cpp_source.html#l00019">InputManager.cpp:19</a></div></div>
-<div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_input_system_html_a0d3aebccc6a07899132b362ac14c6322"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_input_system.html#a0d3aebccc6a07899132b362ac14c6322">NNE::Systems::InputSystem::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdoc">Met à jour l&#39;état des composants d&#39;entrée.</div><div class="ttdef"><b>Definition</b> <a href="#l00010">InputSystem.cpp:10</a></div></div>
-<div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_input_system_html_a1501e84cba5c69146f6f713a3a9a601c"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_input_system.html#a1501e84cba5c69146f6f713a3a9a601c">NNE::Systems::InputSystem::RegisterComponent</a></div><div class="ttdeci">void RegisterComponent(NNE::Component::AComponent *component) override</div><div class="ttdoc">Ajoute un composant d&#39;entrée à la liste gérée.</div><div class="ttdef"><b>Definition</b> <a href="#l00042">InputSystem.cpp:42</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_input_system_html_a02e21e98d7b919a55b17ba029a821d4a"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_input_system.html#a02e21e98d7b919a55b17ba029a821d4a">NNE::Systems::InputSystem::RegisterComponent</a></div><div class="ttdeci">void RegisterComponent(NNE::Component::AComponent *component) override</div><div class="ttdoc">Ajoute un composant d&#39;entrée à la liste gérée.</div><div class="ttdef"><b>Definition</b> <a href="#l00049">InputSystem.cpp:49</a></div></div>
+<div class="ttc" id="aclass_n_n_e_1_1_systems_1_1_input_system_html_aec99fc7c9dea9e13d1163c0c91d0c299"><div class="ttname"><a href="class_n_n_e_1_1_systems_1_1_input_system.html#aec99fc7c9dea9e13d1163c0c91d0c299">NNE::Systems::InputSystem::Update</a></div><div class="ttdeci">void Update(float deltaTime) override</div><div class="ttdoc">Met à jour l&#39;état des composants d&#39;entrée.</div><div class="ttdef"><b>Definition</b> <a href="#l00012">InputSystem.cpp:12</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

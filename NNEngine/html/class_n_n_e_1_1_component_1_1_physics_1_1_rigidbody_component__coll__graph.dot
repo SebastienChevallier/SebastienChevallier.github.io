@@ -14,6 +14,9 @@ digraph "NNE::Component::Physics::RigidbodyComponent"
 </TABLE>> ,fontcolor="grey" ];
   Node4 [id="Node000004",label="NNE::Component::Transform\lComponent",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$class_n_n_e_1_1_component_1_1_transform_component.html",tooltip=" "];
   Node2 -> Node4 [id="edge4_Node000004_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 -> Node4 [id="edge5_Node000004_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=<<TABLE CELLBORDER="0" BORDER="0"><TR><TD VALIGN="top" ALIGN="LEFT" CELLPADDING="1" CELLSPACING="0">parent</TD></TR>
+  Node5 -> Node4 [id="edge5_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="NNE::IDebugUI",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$class_n_n_e_1_1_i_debug_u_i.html",tooltip=" "];
+  Node4 -> Node4 [id="edge6_Node000004_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=<<TABLE CELLBORDER="0" BORDER="0"><TR><TD VALIGN="top" ALIGN="LEFT" CELLPADDING="1" CELLSPACING="0">parent</TD></TR>
 </TABLE>> ,fontcolor="grey" ];
+  Node5 -> Node1 [id="edge7_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

@@ -12,6 +12,8 @@ digraph "NNE::AEntity"
   Node3 [id="Node000003",label="NNE::Component::AComponent",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$class_n_n_e_1_1_component_1_1_a_component.html",tooltip=" "];
   Node1 -> Node3 [id="edge3_Node000003_Node000001",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=<<TABLE CELLBORDER="0" BORDER="0"><TR><TD VALIGN="top" ALIGN="LEFT" CELLPADDING="1" CELLSPACING="0">_entity</TD></TR>
 </TABLE>> ,fontcolor="grey" ];
-  Node2 -> Node2 [id="edge4_Node000002_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=<<TABLE CELLBORDER="0" BORDER="0"><TR><TD VALIGN="top" ALIGN="LEFT" CELLPADDING="1" CELLSPACING="0">parent</TD></TR>
+  Node4 -> Node2 [id="edge4_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="NNE::IDebugUI",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$class_n_n_e_1_1_i_debug_u_i.html",tooltip=" "];
+  Node2 -> Node2 [id="edge5_Node000002_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=<<TABLE CELLBORDER="0" BORDER="0"><TR><TD VALIGN="top" ALIGN="LEFT" CELLPADDING="1" CELLSPACING="0">parent</TD></TR>
 </TABLE>> ,fontcolor="grey" ];
 }

@@ -3,6 +3,7 @@ var class_n_n_e_1_1_component_1_1_transform_component =
     [ "TransformComponent", "class_n_n_e_1_1_component_1_1_transform_component.html#a6baaf19a486c32d55938494c5e7d068e", null ],
     [ "GetForward", "class_n_n_e_1_1_component_1_1_transform_component.html#a6f7d52c9bf34769c53a64eb2511f6f82", null ],
     [ "getModelMatrix", "class_n_n_e_1_1_component_1_1_transform_component.html#a0392d12a38524a71f09e936acebd03a2", null ],
+    [ "GetRight", "class_n_n_e_1_1_component_1_1_transform_component.html#afa557209bcc7d66f5c15b800cbd10dde", null ],
     [ "GetUp", "class_n_n_e_1_1_component_1_1_transform_component.html#a31669eeb959d923b14616d23de291b86", null ],
     [ "getWorldMatrix", "class_n_n_e_1_1_component_1_1_transform_component.html#a8a9a89bbdb5ab4a479d00c4e8c96e15b", null ],
     [ "GetWorldPosition", "class_n_n_e_1_1_component_1_1_transform_component.html#a958f4ea0833a139ef326d56100bb4f87", null ],

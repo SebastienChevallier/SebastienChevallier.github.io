@@ -102,6 +102,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a7de51714f9f65255816a503b51d0eeb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fournit la liste des systèmes enregistrés.  <br /></td></tr>
 <tr class="memitem:a5548a23948007e979709e98473e8998c" id="r_a5548a23948007e979709e98473e8998c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5548a23948007e979709e98473e8998c">RegisterComponent</a> (<a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html">NNE::Component::AComponent</a> *component)</td></tr>
 <tr class="memdesc:a5548a23948007e979709e98473e8998c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enregistre un composant auprès des systèmes concernés.  <br /></td></tr>
+<tr class="memitem:a373026618364f62cfe2eeb10ca031d68" id="r_a373026618364f62cfe2eeb10ca031d68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a373026618364f62cfe2eeb10ca031d68">AwakeAll</a> ()</td></tr>
+<tr class="memdesc:a373026618364f62cfe2eeb10ca031d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réveille tous les systèmes enregistrés.  <br /></td></tr>
+<tr class="memitem:a927fc3d9c140bac9960a4861dcb12233" id="r_a927fc3d9c140bac9960a4861dcb12233"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a927fc3d9c140bac9960a4861dcb12233">StartAll</a> ()</td></tr>
+<tr class="memdesc:a927fc3d9c140bac9960a4861dcb12233"><td class="mdescLeft">&#160;</td><td class="mdescRight">Démarre tous les systèmes enregistrés.  <br /></td></tr>
+<tr class="memitem:a9fcc04c86f5537397376b1eea1c18dd6" id="r_a9fcc04c86f5537397376b1eea1c18dd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fcc04c86f5537397376b1eea1c18dd6">UpdateAll</a> (float deltaTime)</td></tr>
+<tr class="memdesc:a9fcc04c86f5537397376b1eea1c18dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour tous les systèmes enregistrés.  <br /></td></tr>
+<tr class="memitem:a5a16345c15e669b708767a3a000dc2bb" id="r_a5a16345c15e669b708767a3a000dc2bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a16345c15e669b708767a3a000dc2bb">LateUpdateAll</a> (float deltaTime)</td></tr>
+<tr class="memdesc:a5a16345c15e669b708767a3a000dc2bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique les mises à jour tardives de tous les systèmes.  <br /></td></tr>
+<tr class="memitem:a13fb76712fcbcb41dcd7dcd812509b5c" id="r_a13fb76712fcbcb41dcd7dcd812509b5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13fb76712fcbcb41dcd7dcd812509b5c">Clear</a> ()</td></tr>
+<tr class="memdesc:a13fb76712fcbcb41dcd7dcd812509b5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime et nettoie tous les systèmes.  <br /></td></tr>
+<tr class="memitem:a193ca61e7f5813b89c41005f50cbbace" id="r_a193ca61e7f5813b89c41005f50cbbace"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a193ca61e7f5813b89c41005f50cbbace template"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a193ca61e7f5813b89c41005f50cbbace">GetSystem</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -111,7 +123,27 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="_system_manager_8h_source.html#l00010">10</a> of file <a class="el" href="_system_manager_8h_source.html">SystemManager.h</a>.</p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a43c8f3a1c9349440d7ade0c09cc23235" name="a43c8f3a1c9349440d7ade0c09cc23235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43c8f3a1c9349440d7ade0c09cc23235">&#9670;&#160;</a></span>~SystemManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">NNE::Systems::SystemManager::~SystemManager </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00095">95</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="af8d6faa24c3c5274ee804657a3fa049f" name="af8d6faa24c3c5274ee804657a3fa049f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af8d6faa24c3c5274ee804657a3fa049f">&#9670;&#160;</a></span>AddSystem()</h2>
 
@@ -131,6 +163,48 @@ Static Public Member Functions</h2></td></tr>
 <p>Ajoute un système à la collection gérée. </p>
 
 <p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00026">26</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a373026618364f62cfe2eeb10ca031d68" name="a373026618364f62cfe2eeb10ca031d68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a373026618364f62cfe2eeb10ca031d68">&#9670;&#160;</a></span>AwakeAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNE::Systems::SystemManager::AwakeAll </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réveille tous les systèmes enregistrés. </p>
+
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00054">54</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a13fb76712fcbcb41dcd7dcd812509b5c" name="a13fb76712fcbcb41dcd7dcd812509b5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13fb76712fcbcb41dcd7dcd812509b5c">&#9670;&#160;</a></span>Clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNE::Systems::SystemManager::Clear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supprime et nettoie tous les systèmes. </p>
+
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00086">86</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -164,6 +238,35 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a193ca61e7f5813b89c41005f50cbbace" name="a193ca61e7f5813b89c41005f50cbbace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a193ca61e7f5813b89c41005f50cbbace">&#9670;&#160;</a></span>GetSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T * NNE::Systems::SystemManager::GetSystem </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_system_manager_8h_source.html#l00077">77</a> of file <a class="el" href="_system_manager_8h_source.html">SystemManager.h</a>.</p>
+
+</div>
+</div>
 <a id="a7de51714f9f65255816a503b51d0eeb1" name="a7de51714f9f65255816a503b51d0eeb1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7de51714f9f65255816a503b51d0eeb1">&#9670;&#160;</a></span>GetSystems()</h2>
 
@@ -186,6 +289,27 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a5a16345c15e669b708767a3a000dc2bb" name="a5a16345c15e669b708767a3a000dc2bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a16345c15e669b708767a3a000dc2bb">&#9670;&#160;</a></span>LateUpdateAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNE::Systems::SystemManager::LateUpdateAll </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applique les mises à jour tardives de tous les systèmes. </p>
+
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00078">78</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a5548a23948007e979709e98473e8998c" name="a5548a23948007e979709e98473e8998c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5548a23948007e979709e98473e8998c">&#9670;&#160;</a></span>RegisterComponent()</h2>
 
@@ -205,6 +329,48 @@ Static Public Member Functions</h2></td></tr>
 <p>Inscrit un composant auprès de chaque système. </p>
 
 <p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00046">46</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a927fc3d9c140bac9960a4861dcb12233" name="a927fc3d9c140bac9960a4861dcb12233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a927fc3d9c140bac9960a4861dcb12233">&#9670;&#160;</a></span>StartAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNE::Systems::SystemManager::StartAll </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Démarre tous les systèmes enregistrés. </p>
+
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00062">62</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9fcc04c86f5537397376b1eea1c18dd6" name="a9fcc04c86f5537397376b1eea1c18dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fcc04c86f5537397376b1eea1c18dd6">&#9670;&#160;</a></span>UpdateAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNE::Systems::SystemManager::UpdateAll </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>deltaTime</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Met à jour tous les systèmes enregistrés. </p>
+
+<p class="definition">Definition at line <a class="el" href="_system_manager_8cpp_source.html#l00070">70</a> of file <a class="el" href="_system_manager_8cpp_source.html">SystemManager.cpp</a>.</p>
 
 </div>
 </div>

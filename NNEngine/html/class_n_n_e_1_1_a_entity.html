@@ -107,9 +107,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5929de0fcc70bfafaea3b99965628add"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit l'entité et ses composants.  <br /></td></tr>
 <tr class="memitem:ab77bfbde10bbfeb03a63c2a6e6057bab" id="r_ab77bfbde10bbfeb03a63c2a6e6057bab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab77bfbde10bbfeb03a63c2a6e6057bab">GetID</a> ()</td></tr>
 <tr class="memdesc:ab77bfbde10bbfeb03a63c2a6e6057bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'identifiant unique de l'entité.  <br /></td></tr>
-<tr class="memitem:a27f1dc8bda47a3f73a7d01e671895c97" id="r_a27f1dc8bda47a3f73a7d01e671895c97"><td class="memItemLeft" align="right" valign="top"><a id="a27f1dc8bda47a3f73a7d01e671895c97" name="a27f1dc8bda47a3f73a7d01e671895c97"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> ()</td></tr>
-<tr class="memdesc:a27f1dc8bda47a3f73a7d01e671895c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie le nom de l'entité. <br /></td></tr>
+<tr class="memitem:a27f1dc8bda47a3f73a7d01e671895c97" id="r_a27f1dc8bda47a3f73a7d01e671895c97"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27f1dc8bda47a3f73a7d01e671895c97">GetName</a> ()</td></tr>
+<tr class="memdesc:a27f1dc8bda47a3f73a7d01e671895c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie le nom de l'entité.  <br /></td></tr>
+<tr class="memitem:a19d651d3aaa5cd5a5c371a3e84afab46" id="r_a19d651d3aaa5cd5a5c371a3e84afab46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19d651d3aaa5cd5a5c371a3e84afab46">SetName</a> (const std::string &amp;name)</td></tr>
 <tr class="memitem:a22965aef7e89ecd83d24bad31123ac03" id="r_a22965aef7e89ecd83d24bad31123ac03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22965aef7e89ecd83d24bad31123ac03">Awake</a> ()</td></tr>
 <tr class="memdesc:a22965aef7e89ecd83d24bad31123ac03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appelée lors de l'initialisation de l'entité.  <br /></td></tr>
 <tr class="memitem:a0763b68c2daf7517472328603dca918c" id="r_a0763b68c2daf7517472328603dca918c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0763b68c2daf7517472328603dca918c">Start</a> ()</td></tr>
@@ -158,9 +158,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Construit une entité vide. </p>
-<p>Initialise l'entité avec un identifiant et un transform. </p>
 
-<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00011">11</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00015">15</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
 
 </div>
 </div>
@@ -182,7 +181,7 @@ Protected Attributes</h2></td></tr>
 <p>Détruit l'entité et ses composants. </p>
 <p>Détruit tous les composants attachés à l'entité. </p>
 
-<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00022">22</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00025">25</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
 
 </div>
 </div>
@@ -207,7 +206,7 @@ template&lt;typename T, typename... Args&gt; </div>
 <p>Ajoute un composant de type T à l'entité. </p>
 <p>Instancie et attache un composant à l'entité. </p>
 
-<p class="definition">Definition at line <a class="el" href="_a_entity_8h_source.html#l00102">102</a> of file <a class="el" href="_a_entity_8h_source.html">AEntity.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_entity_8h_source.html#l00104">104</a> of file <a class="el" href="_a_entity_8h_source.html">AEntity.h</a>.</p>
 
 </div>
 </div>
@@ -229,7 +228,7 @@ template&lt;typename T, typename... Args&gt; </div>
 <p>Appelée lors de l'initialisation de l'entité. </p>
 <p>Appelle Awake sur chaque composant. </p>
 
-<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00046">46</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00064">64</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
 
 </div>
 </div>
@@ -253,7 +252,7 @@ template&lt;typename T&gt; </div>
 <p>Récupère le premier composant du type demandé. </p>
 <p>Recherche un composant du type donné. </p>
 
-<p class="definition">Definition at line <a class="el" href="_a_entity_8h_source.html#l00117">117</a> of file <a class="el" href="_a_entity_8h_source.html">AEntity.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_entity_8h_source.html#l00119">119</a> of file <a class="el" href="_a_entity_8h_source.html">AEntity.h</a>.</p>
 
 </div>
 </div>
@@ -277,7 +276,7 @@ template&lt;typename T&gt; </div>
 <p>Renvoie tous les composants du type demandé. </p>
 <p>Collecte tous les composants correspondant au type donné. </p>
 
-<p class="definition">Definition at line <a class="el" href="_a_entity_8h_source.html#l00134">134</a> of file <a class="el" href="_a_entity_8h_source.html">AEntity.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_entity_8h_source.html#l00136">136</a> of file <a class="el" href="_a_entity_8h_source.html">AEntity.h</a>.</p>
 
 </div>
 </div>
@@ -299,7 +298,29 @@ template&lt;typename T&gt; </div>
 <p>Retourne l'identifiant unique de l'entité. </p>
 <p>Retourne l'identifiant de l'entité. </p>
 
-<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00035">35</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00038">38</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a27f1dc8bda47a3f73a7d01e671895c97" name="a27f1dc8bda47a3f73a7d01e671895c97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27f1dc8bda47a3f73a7d01e671895c97">&#9670;&#160;</a></span>GetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string NNE::AEntity::GetName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie le nom de l'entité. </p>
+<p>Renvoie le nom attribué à l'entité. </p>
+
+<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00049">49</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
 
 </div>
 </div>
@@ -321,7 +342,26 @@ template&lt;typename T&gt; </div>
 <p>Effectue les mises à jour tardives de l'entité. </p>
 <p>Exécute les mises à jour tardives des composants non mono. </p>
 
-<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00089">89</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00107">107</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a19d651d3aaa5cd5a5c371a3e84afab46" name="a19d651d3aaa5cd5a5c371a3e84afab46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19d651d3aaa5cd5a5c371a3e84afab46">&#9670;&#160;</a></span>SetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNE::AEntity::SetName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00054">54</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
 
 </div>
 </div>
@@ -343,7 +383,7 @@ template&lt;typename T&gt; </div>
 <p>Appelée au démarrage de l'entité. </p>
 <p>Appelle Start sur tous les composants. </p>
 
-<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00060">60</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00078">78</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
 
 </div>
 </div>
@@ -365,7 +405,7 @@ template&lt;typename T&gt; </div>
 <p>Met à jour l'entité à chaque frame. </p>
 <p>Met à jour les composants non mono chaque frame. </p>
 
-<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00074">74</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_entity_8cpp_source.html#l00092">92</a> of file <a class="el" href="_a_entity_8cpp_source.html">AEntity.cpp</a>.</p>
 
 </div>
 </div>

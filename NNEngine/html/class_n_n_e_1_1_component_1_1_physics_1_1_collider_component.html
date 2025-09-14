@@ -106,16 +106,22 @@ Collaboration diagram for NNE::Component::Physics::ColliderComponent:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a41e521f1915d2edd736368ba3ca6f983" id="r_a41e521f1915d2edd736368ba3ca6f983"><td class="memItemLeft" align="right" valign="top"><a id="a41e521f1915d2edd736368ba3ca6f983" name="a41e521f1915d2edd736368ba3ca6f983"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ColliderComponent</b> ()=default</td></tr>
-<tr class="memdesc:a41e521f1915d2edd736368ba3ca6f983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur par défaut du collider. <br /></td></tr>
-<tr class="memitem:ac6a2257af3b49233c761cc4fee64b73c" id="r_ac6a2257af3b49233c761cc4fee64b73c"><td class="memItemLeft" align="right" valign="top"><a id="ac6a2257af3b49233c761cc4fee64b73c" name="ac6a2257af3b49233c761cc4fee64b73c"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ColliderComponent</b> ()=default</td></tr>
-<tr class="memdesc:ac6a2257af3b49233c761cc4fee64b73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel pour un nettoyage adéquat. <br /></td></tr>
+<tr class="memitem:a12024f9e1ff458ce664c218dbd51cf63" id="r_a12024f9e1ff458ce664c218dbd51cf63"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12024f9e1ff458ce664c218dbd51cf63">ColliderComponent</a> (bool isTrigger=false)</td></tr>
+<tr class="memdesc:a12024f9e1ff458ce664c218dbd51cf63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur du collider, permet de définir s'il est trigger.  <br /></td></tr>
+<tr class="memitem:a9cfa1c341d8310cc8f8e3205c04a4107" id="r_a9cfa1c341d8310cc8f8e3205c04a4107"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cfa1c341d8310cc8f8e3205c04a4107">~ColliderComponent</a> ()</td></tr>
+<tr class="memdesc:a9cfa1c341d8310cc8f8e3205c04a4107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel pour un nettoyage adéquat.  <br /></td></tr>
 <tr class="memitem:a1930de75fe48f2619a82b9d052f44f09" id="r_a1930de75fe48f2619a82b9d052f44f09"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1930de75fe48f2619a82b9d052f44f09">CreateShape</a> ()=0</td></tr>
 <tr class="memdesc:a1930de75fe48f2619a82b9d052f44f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère la forme physique utilisée par le collider.  <br /></td></tr>
 <tr class="memitem:a73dc1915ea3107b8f8534016a572783e" id="r_a73dc1915ea3107b8f8534016a572783e"><td class="memItemLeft" align="right" valign="top">JPH::ShapeRefC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73dc1915ea3107b8f8534016a572783e">GetShape</a> () const</td></tr>
 <tr class="memdesc:a73dc1915ea3107b8f8534016a572783e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la forme associée au collider.  <br /></td></tr>
+<tr class="memitem:ae8a078bb6973bf67cc0af9443e78139d" id="r_ae8a078bb6973bf67cc0af9443e78139d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8a078bb6973bf67cc0af9443e78139d">IsTrigger</a> () const</td></tr>
+<tr class="memdesc:ae8a078bb6973bf67cc0af9443e78139d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si ce collider est un trigger (n'engendre pas de collision physique).  <br /></td></tr>
+<tr class="memitem:a0f295b6bc502f528aab3c503078a81a0" id="r_a0f295b6bc502f528aab3c503078a81a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f295b6bc502f528aab3c503078a81a0">SetTrigger</a> (bool trigger)</td></tr>
+<tr class="memdesc:a0f295b6bc502f528aab3c503078a81a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définit ce collider comme trigger ou non.  <br /></td></tr>
+<tr class="memitem:a56cb6765526bb5282dd02d5663ab2f74" id="r_a56cb6765526bb5282dd02d5663ab2f74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56cb6765526bb5282dd02d5663ab2f74">SetLayer</a> (JPH::ObjectLayer objectLayer)</td></tr>
+<tr class="memdesc:a56cb6765526bb5282dd02d5663ab2f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définit la couche de collision de ce collider.  <br /></td></tr>
+<tr class="memitem:a34e0e3abb2c4ff831e27d77ff84bbefc" id="r_a34e0e3abb2c4ff831e27d77ff84bbefc"><td class="memItemLeft" align="right" valign="top">JPH::ObjectLayer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34e0e3abb2c4ff831e27d77ff84bbefc">GetLayer</a> () const</td></tr>
+<tr class="memdesc:a34e0e3abb2c4ff831e27d77ff84bbefc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne la couche de collision actuelle.  <br /></td></tr>
 <tr class="memitem:a31a4004b59595b168b699624c302d07b" id="r_a31a4004b59595b168b699624c302d07b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31a4004b59595b168b699624c302d07b">OnHit</a> (<a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html">ColliderComponent</a> *other)</td></tr>
 <tr class="memdesc:a31a4004b59595b168b699624c302d07b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réagit lorsqu'une collision est détectée.  <br /></td></tr>
 <tr class="memitem:ae5b1d0fd2193a7769e7af17f8dc446b8" id="r_ae5b1d0fd2193a7769e7af17f8dc446b8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5b1d0fd2193a7769e7af17f8dc446b8">OnTriggerHit</a> (<a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_collider_component.html">ColliderComponent</a> *other)</td></tr>
@@ -133,8 +139,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~ColliderComponent
 <tr class="memdesc:a57c4af3b556797069fbb92c81da5a9bd inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le composant chaque frame.  <br /></td></tr>
 <tr class="memitem:a4657a5b197f834c6552e069eccf87dfc inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a4657a5b197f834c6552e069eccf87dfc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a4657a5b197f834c6552e069eccf87dfc">LateUpdate</a> (float deltaTime)</td></tr>
 <tr class="memdesc:a4657a5b197f834c6552e069eccf87dfc inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effectue les mises à jour après l'Update principal.  <br /></td></tr>
-<tr class="memitem:a9b007630709afa8c488c8c9e7e30f281 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a9b007630709afa8c488c8c9e7e30f281"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a9b007630709afa8c488c8c9e7e30f281">GetID</a> ()</td></tr>
-<tr class="memdesc:a9b007630709afa8c488c8c9e7e30f281 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'identifiant du composant.  <br /></td></tr>
+<tr class="memitem:a4114c70ba3b952c5090d61cf103091b1 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a4114c70ba3b952c5090d61cf103091b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a4114c70ba3b952c5090d61cf103091b1">GetID</a> () const</td></tr>
+<tr class="memdesc:a4114c70ba3b952c5090d61cf103091b1 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'identifiant du composant.  <br /></td></tr>
 <tr class="memitem:a095f2db4eacb317971da2b417513f813 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_a095f2db4eacb317971da2b417513f813"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a095f2db4eacb317971da2b417513f813">GetEntity</a> ()</td></tr>
 <tr class="memdesc:a095f2db4eacb317971da2b417513f813 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient l'entité propriétaire.  <br /></td></tr>
 <tr class="memitem:aaa1a42a555d786b29df3717dcac826f1 inherit pub_methods_class_n_n_e_1_1_component_1_1_a_component" id="r_aaa1a42a555d786b29df3717dcac826f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#aaa1a42a555d786b29df3717dcac826f1">SetEntity</a> (<a class="el" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a> *entity)</td></tr>
@@ -147,6 +153,8 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aad6568e4bef25384311b62296d3df344" id="r_aad6568e4bef25384311b62296d3df344"><td class="memItemLeft" align="right" valign="top">JPH::ShapeRefC&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad6568e4bef25384311b62296d3df344">shape</a></td></tr>
+<tr class="memitem:aa40992240414d1886be1bd66a646ce29" id="r_aa40992240414d1886be1bd66a646ce29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa40992240414d1886be1bd66a646ce29">isTrigger</a> = false</td></tr>
+<tr class="memitem:aafa1e73c94b38d21db1b4de8bbbf1a2f" id="r_aafa1e73c94b38d21db1b4de8bbbf1a2f"><td class="memItemLeft" align="right" valign="top">JPH::ObjectLayer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafa1e73c94b38d21db1b4de8bbbf1a2f">layer</a> = 0</td></tr>
 <tr class="inherit_header pro_attribs_class_n_n_e_1_1_component_1_1_a_component"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_n_n_e_1_1_component_1_1_a_component')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html">NNE::Component::AComponent</a></td></tr>
 <tr class="memitem:ab1f6adc7a242a5a279bba61bd2379578 inherit pro_attribs_class_n_n_e_1_1_component_1_1_a_component" id="r_ab1f6adc7a242a5a279bba61bd2379578"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#ab1f6adc7a242a5a279bba61bd2379578">_id</a></td></tr>
 <tr class="memitem:a5ecad9329d54165dd0e4a3eb8d79e273 inherit pro_attribs_class_n_n_e_1_1_component_1_1_a_component" id="r_a5ecad9329d54165dd0e4a3eb8d79e273"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_n_n_e_1_1_a_entity.html">NNE::AEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_n_e_1_1_component_1_1_a_component.html#a5ecad9329d54165dd0e4a3eb8d79e273">_entity</a></td></tr>
@@ -154,7 +162,66 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00009">9</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a12024f9e1ff458ce664c218dbd51cf63" name="a12024f9e1ff458ce664c218dbd51cf63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12024f9e1ff458ce664c218dbd51cf63">&#9670;&#160;</a></span>ColliderComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">NNE::Component::Physics::ColliderComponent::ColliderComponent </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isTrigger</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructeur du collider, permet de définir s'il est trigger. </p>
+
+<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00024">24</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
+
+</div>
+</div>
+<a id="a9cfa1c341d8310cc8f8e3205c04a4107" name="a9cfa1c341d8310cc8f8e3205c04a4107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cfa1c341d8310cc8f8e3205c04a4107">&#9670;&#160;</a></span>~ColliderComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">NNE::Component::Physics::ColliderComponent::~ColliderComponent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructeur virtuel pour un nettoyage adéquat. </p>
+
+<p class="definition">Definition at line <a class="el" href="_collider_component_8cpp_source.html#l00009">9</a> of file <a class="el" href="_collider_component_8cpp_source.html">ColliderComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a1930de75fe48f2619a82b9d052f44f09" name="a1930de75fe48f2619a82b9d052f44f09"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1930de75fe48f2619a82b9d052f44f09">&#9670;&#160;</a></span>CreateShape()</h2>
 
@@ -180,7 +247,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Génère la forme physique utilisée par le collider. </p>
 
-<p>Implemented in <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_box_collider_component.html#acc7ad6a4cba9eadeec2487669084f166">NNE::Component::Physics::BoxColliderComponent</a>, and <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_plane_collider.html#a9d920ed77d8f3fd7efccbbb308090431">NNE::Component::Physics::PlaneCollider</a>.</p>
+<p>Implemented in <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_box_collider_component.html#acc7ad6a4cba9eadeec2487669084f166">NNE::Component::Physics::BoxColliderComponent</a>, <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_plane_collider.html#a9d920ed77d8f3fd7efccbbb308090431">NNE::Component::Physics::PlaneCollider</a>, and <a class="el" href="class_n_n_e_1_1_component_1_1_physics_1_1_sphere_collider.html#aced0d406d69bbbd9642b09da6f963373">NNE::Component::Physics::SphereCollider</a>.</p>
 
 </div>
 </div>
@@ -209,7 +276,36 @@ Protected Attributes</h2></td></tr>
 
 <p>Obtient l'identifiant physique du corps associé. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00063">63</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00093">93</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
+
+</div>
+</div>
+<a id="a34e0e3abb2c4ff831e27d77ff84bbefc" name="a34e0e3abb2c4ff831e27d77ff84bbefc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34e0e3abb2c4ff831e27d77ff84bbefc">&#9670;&#160;</a></span>GetLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">JPH::ObjectLayer NNE::Component::Physics::ColliderComponent::GetLayer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retourne la couche de collision actuelle. </p>
+
+<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00072">72</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
 
 </div>
 </div>
@@ -238,7 +334,36 @@ Protected Attributes</h2></td></tr>
 
 <p>Retourne la forme associée au collider. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00042">42</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00044">44</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
+
+</div>
+</div>
+<a id="ae8a078bb6973bf67cc0af9443e78139d" name="ae8a078bb6973bf67cc0af9443e78139d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8a078bb6973bf67cc0af9443e78139d">&#9670;&#160;</a></span>IsTrigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NNE::Component::Physics::ColliderComponent::IsTrigger </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indique si ce collider est un trigger (n'engendre pas de collision physique). </p>
+
+<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00051">51</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
 
 </div>
 </div>
@@ -268,7 +393,7 @@ Protected Attributes</h2></td></tr>
 <p>Réagit lorsqu'une collision est détectée. </p>
 <p>Notifie les composants mono lors d'une collision physique. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collider_component_8cpp_source.html#l00010">10</a> of file <a class="el" href="_collider_component_8cpp_source.html">ColliderComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collider_component_8cpp_source.html#l00030">30</a> of file <a class="el" href="_collider_component_8cpp_source.html">ColliderComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -298,7 +423,65 @@ Protected Attributes</h2></td></tr>
 <p>Réagit lorsqu'une collision de type trigger survient. </p>
 <p>Notifie les composants mono lors d'une collision trigger. </p>
 
-<p class="definition">Definition at line <a class="el" href="_collider_component_8cpp_source.html#l00028">28</a> of file <a class="el" href="_collider_component_8cpp_source.html">ColliderComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collider_component_8cpp_source.html#l00047">47</a> of file <a class="el" href="_collider_component_8cpp_source.html">ColliderComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a56cb6765526bb5282dd02d5663ab2f74" name="a56cb6765526bb5282dd02d5663ab2f74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56cb6765526bb5282dd02d5663ab2f74">&#9670;&#160;</a></span>SetLayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNE::Component::Physics::ColliderComponent::SetLayer </td>
+          <td>(</td>
+          <td class="paramtype">JPH::ObjectLayer</td>          <td class="paramname"><span class="paramname"><em>objectLayer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Définit la couche de collision de ce collider. </p>
+
+<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00065">65</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
+
+</div>
+</div>
+<a id="a0f295b6bc502f528aab3c503078a81a0" name="a0f295b6bc502f528aab3c503078a81a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f295b6bc502f528aab3c503078a81a0">&#9670;&#160;</a></span>SetTrigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNE::Component::Physics::ColliderComponent::SetTrigger </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>trigger</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Définit ce collider comme trigger ou non. </p>
+
+<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00058">58</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
 
 </div>
 </div>
@@ -315,7 +498,55 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00015">15</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00017">17</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
+
+</div>
+</div>
+<a id="aa40992240414d1886be1bd66a646ce29" name="aa40992240414d1886be1bd66a646ce29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa40992240414d1886be1bd66a646ce29">&#9670;&#160;</a></span>isTrigger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NNE::Component::Physics::ColliderComponent::isTrigger = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00013">13</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
+
+</div>
+</div>
+<a id="aafa1e73c94b38d21db1b4de8bbbf1a2f" name="aafa1e73c94b38d21db1b4de8bbbf1a2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafa1e73c94b38d21db1b4de8bbbf1a2f">&#9670;&#160;</a></span>layer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">JPH::ObjectLayer NNE::Component::Physics::ColliderComponent::layer = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_collider_component_8h_source.html#l00014">14</a> of file <a class="el" href="_collider_component_8h_source.html">ColliderComponent.h</a>.</p>
 
 </div>
 </div>
