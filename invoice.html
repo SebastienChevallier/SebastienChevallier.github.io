@@ -1185,16 +1185,26 @@
           html2canvas: { scale: 2, useCORS: true },
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
         };
-        invoiceDocument.classList.add("is-exporting");
-        invoiceDocument.setAttribute("aria-hidden", "false");
+
+        const exportDocument = invoiceDocument.cloneNode(true);
+        exportDocument.removeAttribute("id");
+        exportDocument.classList.remove("is-exporting");
+        exportDocument.setAttribute("aria-hidden", "false");
+        exportDocument.style.position = "absolute";
+        exportDocument.style.left = "-9999px";
+        exportDocument.style.top = "0";
+        exportDocument.style.display = "block";
+        exportDocument.style.transform = "none";
+        exportDocument.style.boxShadow = "none";
+
+        document.body.appendChild(exportDocument);
 
         await new Promise((resolve) => requestAnimationFrame(resolve));
 
         try {
-          await html2pdf().set(options).from(invoiceDocument).save();
+          await html2pdf().set(options).from(exportDocument).save();
         } finally {
-          invoiceDocument.classList.remove("is-exporting");
-          invoiceDocument.setAttribute("aria-hidden", "true");
+          document.body.removeChild(exportDocument);
         }
       });
 
