@@ -80,6 +80,13 @@
         min-width: 220px;
       }
 
+      .panel-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+
       .panel h2 {
         font-size: 1rem;
         text-transform: uppercase;
@@ -107,6 +114,11 @@
         font: inherit;
         resize: vertical;
       }
+
+      .panel-grid label {
+        margin-bottom: 0;
+      }
+
 
       .panel textarea {
         min-height: 120px;
@@ -165,8 +177,28 @@
         transition: border 0.2s ease, background 0.2s ease;
       }
 
+
+      tbody textarea {
+        width: 100%;
+        border: 1px solid transparent;
+        background: transparent;
+        padding: 0.4rem 0.2rem;
+        font: inherit;
+        color: inherit;
+        border-radius: 8px;
+        transition: border 0.2s ease, background 0.2s ease;
+        resize: none;
+        min-height: 48px;
+        line-height: 1.4;
+        overflow: hidden;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
       tbody input[type="text"]:focus,
-      tbody input[type="number"]:focus {
+      tbody input[type="number"]:focus,
+      tbody textarea:focus {
+
         outline: none;
         border-color: var(--accent);
         background: rgba(79, 70, 229, 0.08);
@@ -282,17 +314,185 @@
         <section class="flex">
           <div class="panel">
             <h2>Émetteur</h2>
-            <textarea
-              id="issuer-details"
-              placeholder="Votre nom\nAdresse\nSIRET\nEmail"
-            ></textarea>
+
+            <div class="panel-grid">
+              <label>
+                Nom
+                <input
+                  type="text"
+                  id="issuer-last-name"
+                  data-field-group="issuer"
+                  placeholder="Dupont"
+                  autocomplete="family-name"
+                />
+              </label>
+              <label>
+                Prénom
+                <input
+                  type="text"
+                  id="issuer-first-name"
+                  data-field-group="issuer"
+                  placeholder="Marie"
+                  autocomplete="given-name"
+                />
+              </label>
+              <label>
+                Structure / Société
+                <input
+                  type="text"
+                  id="issuer-company"
+                  data-field-group="issuer"
+                  placeholder="Freelance Studio"
+                  autocomplete="organization"
+                />
+              </label>
+              <label>
+                Adresse
+                <input
+                  type="text"
+                  id="issuer-address"
+                  data-field-group="issuer"
+                  placeholder="12 rue des Lilas"
+                  autocomplete="street-address"
+                />
+              </label>
+              <label>
+                Code postal
+                <input
+                  type="text"
+                  id="issuer-postcode"
+                  data-field-group="issuer"
+                  placeholder="75000"
+                  inputmode="numeric"
+                  autocomplete="postal-code"
+                />
+              </label>
+              <label>
+                Ville
+                <input
+                  type="text"
+                  id="issuer-city"
+                  data-field-group="issuer"
+                  placeholder="Paris"
+                  autocomplete="address-level2"
+                />
+              </label>
+              <label>
+                SIRET
+                <input
+                  type="text"
+                  id="issuer-siret"
+                  data-field-group="issuer"
+                  placeholder="123 456 789 00010"
+                  inputmode="numeric"
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  type="email"
+                  id="issuer-email"
+                  data-field-group="issuer"
+                  placeholder="vous@exemple.fr"
+                  autocomplete="email"
+                />
+              </label>
+              <label>
+                Téléphone
+                <input
+                  type="tel"
+                  id="issuer-phone"
+                  data-field-group="issuer"
+                  placeholder="06 12 34 56 78"
+                  autocomplete="tel"
+                />
+              </label>
+            </div>
           </div>
           <div class="panel">
             <h2>Client</h2>
-            <textarea
-              id="client-details"
-              placeholder="Nom du client\nAdresse\nContact"
-            ></textarea>
+            <div class="panel-grid">
+              <label>
+                Nom / Raison sociale
+                <input
+                  type="text"
+                  id="client-name"
+                  data-field-group="client"
+                  placeholder="Société Exemple"
+                  autocomplete="organization"
+                />
+              </label>
+              <label>
+                Contact
+                <input
+                  type="text"
+                  id="client-contact"
+                  data-field-group="client"
+                  placeholder="Paul Martin"
+                />
+              </label>
+              <label>
+                Adresse
+                <input
+                  type="text"
+                  id="client-address"
+                  data-field-group="client"
+                  placeholder="5 avenue de la République"
+                  autocomplete="street-address"
+                />
+              </label>
+              <label>
+                Code postal
+                <input
+                  type="text"
+                  id="client-postcode"
+                  data-field-group="client"
+                  placeholder="31000"
+                  inputmode="numeric"
+                  autocomplete="postal-code"
+                />
+              </label>
+              <label>
+                Ville
+                <input
+                  type="text"
+                  id="client-city"
+                  data-field-group="client"
+                  placeholder="Toulouse"
+                  autocomplete="address-level2"
+                />
+              </label>
+              <label>
+                SIRET / TVA
+                <input
+                  type="text"
+                  id="client-siret"
+                  data-field-group="client"
+                  placeholder="FR 01 234 567 890"
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  type="email"
+                  id="client-email"
+                  data-field-group="client"
+                  placeholder="contact@client.fr"
+                  autocomplete="email"
+                />
+              </label>
+              <label>
+                Téléphone
+                <input
+                  type="tel"
+                  id="client-phone"
+                  data-field-group="client"
+                  placeholder="01 23 45 67 89"
+                  autocomplete="tel"
+                />
+              </label>
+            </div>
+
           </div>
         </section>
 
@@ -366,11 +566,12 @@
     <template id="service-row-template">
       <tr>
         <td>
-          <input
-            type="text"
+          <textarea
             class="service-description"
             placeholder="Intitulé de la prestation"
-          />
+            rows="2"
+            spellcheck="true"
+          ></textarea>
         </td>
         <td>
           <input
@@ -429,6 +630,14 @@
       const pdfButton = document.getElementById("download-pdf");
       const invoiceNumberInput = document.getElementById("invoice-number");
 
+      const issuerFields = document.querySelectorAll(
+        "[data-field-group='issuer']"
+      );
+      const clientFields = document.querySelectorAll(
+        "[data-field-group='client']"
+      );
+
+
       const currencyFormatter = new Intl.NumberFormat("fr-FR", {
         style: "currency",
         currency: "EUR",
@@ -439,6 +648,14 @@
         const value = parseFloat(input.value.replace(",", "."));
         return Number.isFinite(value) ? value : 0;
       }
+
+
+      function autoResizeTextArea(element) {
+        if (!element) return;
+        element.style.height = "auto";
+        element.style.height = `${element.scrollHeight}px`;
+      }
+
 
       function updateTotals() {
         const rows = serviceBody.querySelectorAll("tr");
@@ -479,6 +696,11 @@
         days.value = initialData.days ?? 0;
 
         row.addEventListener("input", (event) => {
+
+          if (event.target.matches(".service-description")) {
+            autoResizeTextArea(event.target);
+          }
+
           if (event.target.matches("input")) {
             updateTotals();
           }
@@ -493,6 +715,9 @@
         });
 
         serviceBody.appendChild(clone);
+
+        autoResizeTextArea(description);
+
         updateTotals();
       }
 
@@ -506,8 +731,14 @@
             "Voulez-vous vraiment réinitialiser la facture ? Toutes les données seront perdues."
           )
         ) {
-          document.getElementById("issuer-details").value = "";
-          document.getElementById("client-details").value = "";
+
+          issuerFields.forEach((field) => {
+            field.value = "";
+          });
+          clientFields.forEach((field) => {
+            field.value = "";
+          });
+
           document.getElementById("invoice-date").value = "";
           document.getElementById("invoice-due").value = "";
           document.getElementById("invoice-notes").value = "";
@@ -519,6 +750,11 @@
 
       pdfButton.addEventListener("click", () => {
         updateTotals();
+
+        serviceBody
+          .querySelectorAll(".service-description")
+          .forEach((textarea) => autoResizeTextArea(textarea));
+
         const invoiceElement = document.getElementById("invoice-preview");
         const invoiceNumber = invoiceNumberInput.value.trim() || "freelance";
         const options = {
