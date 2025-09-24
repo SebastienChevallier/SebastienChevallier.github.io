@@ -86,6 +86,7 @@
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
 
+
       .panel h2 {
         font-size: 1rem;
         text-transform: uppercase;
@@ -117,6 +118,7 @@
       .panel-grid label {
         margin-bottom: 0;
       }
+
 
       .panel textarea {
         min-height: 120px;
@@ -175,6 +177,7 @@
         transition: border 0.2s ease, background 0.2s ease;
       }
 
+
       tbody textarea {
         width: 100%;
         border: 1px solid transparent;
@@ -195,6 +198,7 @@
       tbody input[type="text"]:focus,
       tbody input[type="number"]:focus,
       tbody textarea:focus {
+
         outline: none;
         border-color: var(--accent);
         background: rgba(79, 70, 229, 0.08);
@@ -310,6 +314,7 @@
         <section class="flex">
           <div class="panel">
             <h2>Émetteur</h2>
+
             <div class="panel-grid">
               <label>
                 Nom
@@ -487,6 +492,7 @@
                 />
               </label>
             </div>
+
           </div>
         </section>
 
@@ -613,6 +619,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
     <script>
       const serviceBody = document.getElementById("service-body");
       const addLineButton = document.getElementById("add-line");
@@ -622,12 +629,14 @@
       const resetButton = document.getElementById("reset-invoice");
       const pdfButton = document.getElementById("download-pdf");
       const invoiceNumberInput = document.getElementById("invoice-number");
+
       const issuerFields = document.querySelectorAll(
         "[data-field-group='issuer']"
       );
       const clientFields = document.querySelectorAll(
         "[data-field-group='client']"
       );
+
 
       const currencyFormatter = new Intl.NumberFormat("fr-FR", {
         style: "currency",
@@ -640,11 +649,13 @@
         return Number.isFinite(value) ? value : 0;
       }
 
+
       function autoResizeTextArea(element) {
         if (!element) return;
         element.style.height = "auto";
         element.style.height = `${element.scrollHeight}px`;
       }
+
 
       function updateTotals() {
         const rows = serviceBody.querySelectorAll("tr");
@@ -685,9 +696,11 @@
         days.value = initialData.days ?? 0;
 
         row.addEventListener("input", (event) => {
+
           if (event.target.matches(".service-description")) {
             autoResizeTextArea(event.target);
           }
+
           if (event.target.matches("input")) {
             updateTotals();
           }
@@ -702,7 +715,9 @@
         });
 
         serviceBody.appendChild(clone);
+
         autoResizeTextArea(description);
+
         updateTotals();
       }
 
@@ -716,12 +731,14 @@
             "Voulez-vous vraiment réinitialiser la facture ? Toutes les données seront perdues."
           )
         ) {
+
           issuerFields.forEach((field) => {
             field.value = "";
           });
           clientFields.forEach((field) => {
             field.value = "";
           });
+
           document.getElementById("invoice-date").value = "";
           document.getElementById("invoice-due").value = "";
           document.getElementById("invoice-notes").value = "";
@@ -733,9 +750,11 @@
 
       pdfButton.addEventListener("click", () => {
         updateTotals();
+
         serviceBody
           .querySelectorAll(".service-description")
           .forEach((textarea) => autoResizeTextArea(textarea));
+
         const invoiceElement = document.getElementById("invoice-preview");
         const invoiceNumber = invoiceNumberInput.value.trim() || "freelance";
         const options = {
