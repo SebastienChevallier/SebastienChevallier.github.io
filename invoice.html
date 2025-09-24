@@ -86,7 +86,6 @@
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
 
-
       .panel h2 {
         font-size: 1rem;
         text-transform: uppercase;
@@ -118,7 +117,6 @@
       .panel-grid label {
         margin-bottom: 0;
       }
-
 
       .panel textarea {
         min-height: 120px;
@@ -177,7 +175,6 @@
         transition: border 0.2s ease, background 0.2s ease;
       }
 
-
       tbody textarea {
         width: 100%;
         border: 1px solid transparent;
@@ -198,7 +195,6 @@
       tbody input[type="text"]:focus,
       tbody input[type="number"]:focus,
       tbody textarea:focus {
-
         outline: none;
         border-color: var(--accent);
         background: rgba(79, 70, 229, 0.08);
@@ -296,9 +292,12 @@
 
       .invoice-document.is-exporting {
         display: block;
-        position: absolute;
-        top: 0;
-        left: -9999px;
+        position: fixed;
+        inset: 0;
+        margin: auto;
+        pointer-events: none;
+        opacity: 0;
+        z-index: -1;
       }
 
       .document-header {
@@ -455,8 +454,6 @@
         margin: 0;
         white-space: pre-wrap;
       }
-
-
       @media (max-width: 720px) {
         th,
         td {
@@ -490,7 +487,6 @@
         <section class="flex">
           <div class="panel">
             <h2>Émetteur</h2>
-
             <div class="panel-grid">
               <label>
                 Nom
@@ -668,7 +664,6 @@
                 />
               </label>
             </div>
-
           </div>
         </section>
 
@@ -728,7 +723,6 @@
           </div>
         </section>
       </div>
-
 
       <div id="invoice-document" class="invoice-document" aria-hidden="true">
         <div class="document-header">
@@ -794,7 +788,6 @@
           <p id="doc-notes"></p>
         </section>
       </div>
-
 
       <div class="actions" style="justify-content: flex-start">
         <button class="btn-primary" id="download-pdf" type="button">
@@ -862,7 +855,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
     <script>
       const serviceBody = document.getElementById("service-body");
       const addLineButton = document.getElementById("add-line");
@@ -872,7 +864,6 @@
       const resetButton = document.getElementById("reset-invoice");
       const pdfButton = document.getElementById("download-pdf");
       const invoiceNumberInput = document.getElementById("invoice-number");
-
       const invoiceDocument = document.getElementById("invoice-document");
       const invoiceDateInput = document.getElementById("invoice-date");
       const invoiceDueInput = document.getElementById("invoice-due");
@@ -887,7 +878,6 @@
       const docGrandTotal = document.getElementById("doc-grand-total");
       const docNotesSection = document.getElementById("doc-notes-section");
       const docNotes = document.getElementById("doc-notes");
-
       const issuerFields = document.querySelectorAll(
         "[data-field-group='issuer']"
       );
@@ -895,31 +885,25 @@
         "[data-field-group='client']"
       );
 
-
       const currencyFormatter = new Intl.NumberFormat("fr-FR", {
         style: "currency",
         currency: "EUR",
         minimumFractionDigits: 2,
       });
-
       const numberFormatter = new Intl.NumberFormat("fr-FR", {
         minimumFractionDigits: 0,
         maximumFractionDigits: 2,
       });
-
-
       function parseInputValue(input) {
         const value = parseFloat(input.value.replace(",", "."));
         return Number.isFinite(value) ? value : 0;
       }
-
 
       function autoResizeTextArea(element) {
         if (!element) return;
         element.style.height = "auto";
         element.style.height = `${element.scrollHeight}px`;
       }
-
 
       function getValue(id) {
         const field = document.getElementById(id);
@@ -1099,7 +1083,6 @@
         }
       }
 
-
       function updateTotals() {
         const rows = serviceBody.querySelectorAll("tr");
         let sum = 0;
@@ -1123,7 +1106,6 @@
         grandTotal.textContent = currencyFormatter.format(sum);
 
         return sum;
-
       }
 
       function addRow(initialData = {}) {
@@ -1142,11 +1124,9 @@
         days.value = initialData.days ?? 0;
 
         row.addEventListener("input", (event) => {
-
           if (event.target.matches(".service-description")) {
             autoResizeTextArea(event.target);
           }
-
           if (event.target.matches("input")) {
             updateTotals();
           }
@@ -1175,7 +1155,6 @@
             "Voulez-vous vraiment réinitialiser la facture ? Toutes les données seront perdues."
           )
         ) {
-
           issuerFields.forEach((field) => {
             field.value = "";
           });
@@ -1191,14 +1170,12 @@
         }
       });
 
-      pdfButton.addEventListener("click", () => {
-
+      pdfButton.addEventListener("click", async () => {
         const total = updateTotals();
         serviceBody
           .querySelectorAll(".service-description")
           .forEach((textarea) => autoResizeTextArea(textarea));
         populateInvoiceDocument(total);
-
 
         const invoiceNumber = invoiceNumberInput.value.trim() || "freelance";
         const options = {
@@ -1210,14 +1187,15 @@
         };
         invoiceDocument.classList.add("is-exporting");
         invoiceDocument.setAttribute("aria-hidden", "false");
-        html2pdf()
-          .set(options)
-          .from(invoiceDocument)
-          .save()
-          .finally(() => {
-            invoiceDocument.classList.remove("is-exporting");
-            invoiceDocument.setAttribute("aria-hidden", "true");
-          });
+
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+
+        try {
+          await html2pdf().set(options).from(invoiceDocument).save();
+        } finally {
+          invoiceDocument.classList.remove("is-exporting");
+          invoiceDocument.setAttribute("aria-hidden", "true");
+        }
       });
 
       // Initialize with a single empty row
