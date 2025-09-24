@@ -454,7 +454,6 @@
         margin: 0;
         white-space: pre-wrap;
       }
-
       @media (max-width: 720px) {
         th,
         td {
@@ -895,7 +894,6 @@
         minimumFractionDigits: 0,
         maximumFractionDigits: 2,
       });
-
       function parseInputValue(input) {
         const value = parseFloat(input.value.replace(",", "."));
         return Number.isFinite(value) ? value : 0;
@@ -1187,7 +1185,6 @@
           html2canvas: { scale: 2, useCORS: true },
           jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
         };
-
         invoiceDocument.classList.add("is-exporting");
         invoiceDocument.setAttribute("aria-hidden", "false");
 
