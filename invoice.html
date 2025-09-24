@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Créateur de factures freelance</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        --bg: #f5f5f7;
+        --card: #ffffff;
+        --border: #d6d6dd;
+        --text: #1f1f24;
+        --muted: #5f5f6b;
+        --accent: #4f46e5;
+        --accent-contrast: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+
+      header h1 {
+        font-size: clamp(2.25rem, 4vw, 3rem);
+        margin: 0 0 0.5rem;
+        font-weight: 700;
+      }
+
+      header p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 65ch;
+      }
+
+      .invoice-card {
+        background: var(--card);
+        border-radius: 20px;
+        box-shadow: 0 20px 35px rgba(15, 23, 42, 0.08);
+        padding: clamp(1.5rem, 3vw, 2.5rem);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .panel {
+        flex: 1 1 250px;
+        min-width: 220px;
+      }
+
+      .panel-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .panel h2 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+        margin: 0 0 0.75rem;
+      }
+
+      .panel p,
+      .panel textarea,
+      .panel input {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .panel textarea,
+      .panel input,
+      .panel [contenteditable="true"] {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        background: #fafafa;
+        color: inherit;
+        font: inherit;
+        resize: vertical;
+      }
+
+      .panel-grid label {
+        margin-bottom: 0;
+      }
+
+      .panel textarea {
+        min-height: 120px;
+      }
+
+      .panel input[type="date"],
+      .panel input[type="text"] {
+        height: 46px;
+      }
+
+      label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 1rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 0 0 1px var(--border);
+      }
+
+      thead {
+        background: #f3f3f8;
+        color: var(--muted);
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+      }
+
+      th,
+      td {
+        padding: 0.95rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+      }
+
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      tbody input[type="text"],
+      tbody input[type="number"] {
+        width: 100%;
+        border: 1px solid transparent;
+        background: transparent;
+        padding: 0.4rem 0.2rem;
+        font: inherit;
+        color: inherit;
+        border-radius: 8px;
+        transition: border 0.2s ease, background 0.2s ease;
+      }
+
+      tbody textarea {
+        width: 100%;
+        border: 1px solid transparent;
+        background: transparent;
+        padding: 0.4rem 0.2rem;
+        font: inherit;
+        color: inherit;
+        border-radius: 8px;
+        transition: border 0.2s ease, background 0.2s ease;
+        resize: none;
+        min-height: 48px;
+        line-height: 1.4;
+        overflow: hidden;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
+      tbody input[type="text"]:focus,
+      tbody input[type="number"]:focus,
+      tbody textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        background: rgba(79, 70, 229, 0.08);
+      }
+
+      tbody input[type="number"]::-webkit-outer-spin-button,
+      tbody input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      tbody input[type="number"] {
+        appearance: textfield;
+        text-align: right;
+      }
+
+      .line-total {
+        font-weight: 600;
+        text-align: right;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: flex-end;
+      }
+
+      button {
+        border: none;
+        border-radius: 999px;
+        padding: 0.8rem 1.6rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 1rem;
+      }
+
+      .btn-secondary {
+        background: #e8e8f6;
+        color: var(--accent);
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: var(--accent-contrast);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
+      }
+
+      .btn-danger {
+        background: #fee2e2;
+        color: #b91c1c;
+        font-size: 0.95rem;
+        padding: 0.45rem 0.9rem;
+      }
+
+      .totals {
+        margin-left: auto;
+        width: min(320px, 100%);
+        display: grid;
+        gap: 0.5rem;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        background: #fafaff;
+      }
+
+      .totals-row {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      .grand-total {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      .invoice-document {
+        display: none;
+        background: #ffffff;
+        color: #1f1f24;
+        width: 210mm;
+        padding: 20mm;
+        box-sizing: border-box;
+        margin: 0 auto;
+        border-radius: 16px;
+        box-shadow: 0 25px 40px rgba(15, 23, 42, 0.12);
+        font-size: 0.95rem;
+      }
+
+      .invoice-document.is-exporting {
+        display: block;
+        position: fixed;
+        top: -200vh;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .document-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        align-items: flex-start;
+        margin-bottom: 1.75rem;
+      }
+
+      .document-title {
+        font-size: 2.1rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin: 0 0 0.35rem;
+      }
+
+      .document-reference {
+        margin: 0;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      .document-meta {
+        display: grid;
+        gap: 0.35rem;
+        min-width: 180px;
+      }
+
+      .document-meta p {
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      .document-columns {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.75rem;
+      }
+
+      .document-section {
+        flex: 1 1 240px;
+      }
+
+      .document-section h2 {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 0 0 0.75rem;
+        color: var(--muted);
+      }
+
+      .document-info p {
+        margin: 0 0 0.35rem;
+      }
+
+      .doc-label {
+        font-weight: 600;
+        color: var(--muted);
+        margin-right: 0.5rem;
+      }
+
+      .doc-muted {
+        color: var(--muted);
+      }
+
+      .document-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0 0 1px var(--border);
+        margin-bottom: 1.5rem;
+      }
+
+      .document-table thead {
+        background: #f3f3f8;
+        color: var(--muted);
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .document-table th,
+      .document-table td {
+        padding: 0.85rem 1rem;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+
+      .document-table td:nth-child(n + 2),
+      .document-table th:nth-child(n + 2) {
+        text-align: right;
+      }
+
+      .document-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .doc-description {
+        white-space: pre-line;
+      }
+
+      .doc-empty {
+        text-align: center;
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      .document-totals {
+        margin-left: auto;
+        width: min(280px, 100%);
+        display: grid;
+        gap: 0.75rem;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        background: #f7f7ff;
+      }
+
+      .document-totals-row {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      .document-totals-row.grand span:last-child {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      .document-notes {
+        margin-top: 2rem;
+        border-top: 1px solid var(--border);
+        padding-top: 1.5rem;
+      }
+
+      .document-notes h2 {
+        margin: 0 0 0.75rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .document-notes p {
+        margin: 0;
+        white-space: pre-wrap;
+      }
+
+      @media (max-width: 720px) {
+        th,
+        td {
+          padding: 0.75rem 0.8rem;
+        }
+
+        .panel input,
+        .panel textarea,
+        .panel [contenteditable="true"] {
+          padding: 0.65rem 0.8rem;
+        }
+
+        .invoice-card {
+          padding: 1.5rem;
+          gap: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Outil de création de factures freelance</h1>
+        <p>
+          Préparez votre facture en ajoutant vos missions et prestations. Les
+          données restent sur votre appareil : rien n'est stocké côté serveur.
+        </p>
+      </header>
+
+      <div class="invoice-card" id="invoice-preview">
+        <section class="flex">
+          <div class="panel">
+            <h2>Émetteur</h2>
+            <div class="panel-grid">
+              <label>
+                Nom
+                <input
+                  type="text"
+                  id="issuer-last-name"
+                  data-field-group="issuer"
+                  placeholder="Dupont"
+                  autocomplete="family-name"
+                />
+              </label>
+              <label>
+                Prénom
+                <input
+                  type="text"
+                  id="issuer-first-name"
+                  data-field-group="issuer"
+                  placeholder="Marie"
+                  autocomplete="given-name"
+                />
+              </label>
+              <label>
+                Structure / Société
+                <input
+                  type="text"
+                  id="issuer-company"
+                  data-field-group="issuer"
+                  placeholder="Freelance Studio"
+                  autocomplete="organization"
+                />
+              </label>
+              <label>
+                Adresse
+                <input
+                  type="text"
+                  id="issuer-address"
+                  data-field-group="issuer"
+                  placeholder="12 rue des Lilas"
+                  autocomplete="street-address"
+                />
+              </label>
+              <label>
+                Code postal
+                <input
+                  type="text"
+                  id="issuer-postcode"
+                  data-field-group="issuer"
+                  placeholder="75000"
+                  inputmode="numeric"
+                  autocomplete="postal-code"
+                />
+              </label>
+              <label>
+                Ville
+                <input
+                  type="text"
+                  id="issuer-city"
+                  data-field-group="issuer"
+                  placeholder="Paris"
+                  autocomplete="address-level2"
+                />
+              </label>
+              <label>
+                SIRET
+                <input
+                  type="text"
+                  id="issuer-siret"
+                  data-field-group="issuer"
+                  placeholder="123 456 789 00010"
+                  inputmode="numeric"
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  type="email"
+                  id="issuer-email"
+                  data-field-group="issuer"
+                  placeholder="vous@exemple.fr"
+                  autocomplete="email"
+                />
+              </label>
+              <label>
+                Téléphone
+                <input
+                  type="tel"
+                  id="issuer-phone"
+                  data-field-group="issuer"
+                  placeholder="06 12 34 56 78"
+                  autocomplete="tel"
+                />
+              </label>
+            </div>
+          </div>
+          <div class="panel">
+            <h2>Client</h2>
+            <div class="panel-grid">
+              <label>
+                Nom / Raison sociale
+                <input
+                  type="text"
+                  id="client-name"
+                  data-field-group="client"
+                  placeholder="Société Exemple"
+                  autocomplete="organization"
+                />
+              </label>
+              <label>
+                Contact
+                <input
+                  type="text"
+                  id="client-contact"
+                  data-field-group="client"
+                  placeholder="Paul Martin"
+                />
+              </label>
+              <label>
+                Adresse
+                <input
+                  type="text"
+                  id="client-address"
+                  data-field-group="client"
+                  placeholder="5 avenue de la République"
+                  autocomplete="street-address"
+                />
+              </label>
+              <label>
+                Code postal
+                <input
+                  type="text"
+                  id="client-postcode"
+                  data-field-group="client"
+                  placeholder="31000"
+                  inputmode="numeric"
+                  autocomplete="postal-code"
+                />
+              </label>
+              <label>
+                Ville
+                <input
+                  type="text"
+                  id="client-city"
+                  data-field-group="client"
+                  placeholder="Toulouse"
+                  autocomplete="address-level2"
+                />
+              </label>
+              <label>
+                SIRET / TVA
+                <input
+                  type="text"
+                  id="client-siret"
+                  data-field-group="client"
+                  placeholder="FR 01 234 567 890"
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  type="email"
+                  id="client-email"
+                  data-field-group="client"
+                  placeholder="contact@client.fr"
+                  autocomplete="email"
+                />
+              </label>
+              <label>
+                Téléphone
+                <input
+                  type="tel"
+                  id="client-phone"
+                  data-field-group="client"
+                  placeholder="01 23 45 67 89"
+                  autocomplete="tel"
+                />
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="flex">
+          <div class="panel">
+            <h2>Facture</h2>
+            <label for="invoice-number">Numéro de facture</label>
+            <input
+              type="text"
+              id="invoice-number"
+              placeholder="2024-001"
+              autocomplete="off"
+            />
+            <label for="invoice-date">Date d'émission</label>
+            <input type="date" id="invoice-date" />
+            <label for="invoice-due">Date d'échéance</label>
+            <input type="date" id="invoice-due" />
+          </div>
+          <div class="panel">
+            <h2>Notes</h2>
+            <textarea
+              id="invoice-notes"
+              placeholder="Conditions de paiement, informations complémentaires..."
+            ></textarea>
+          </div>
+        </section>
+
+        <section>
+          <table aria-label="Lignes de facturation">
+            <thead>
+              <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Taux horaire (€)</th>
+                <th scope="col">Heures / jour</th>
+                <th scope="col">Nombre de jours</th>
+                <th scope="col">Total de la ligne</th>
+                <th scope="col" aria-label="Actions"></th>
+              </tr>
+            </thead>
+            <tbody id="service-body"></tbody>
+          </table>
+          <div class="actions">
+            <button class="btn-secondary" id="add-line" type="button">
+              ➕ Ajouter une ligne
+            </button>
+          </div>
+        </section>
+
+        <section class="totals" aria-live="polite">
+          <div class="totals-row">
+            <span>Total HT</span>
+            <span id="total-amount">0,00 €</span>
+          </div>
+          <div class="totals-row grand-total">
+            <span>Total à payer</span>
+            <span id="grand-total">0,00 €</span>
+          </div>
+        </section>
+      </div>
+
+      <div id="invoice-document" class="invoice-document" aria-hidden="true">
+        <div class="document-header">
+          <div>
+            <h1 class="document-title">Facture</h1>
+            <p class="document-reference">
+              Facture n° <span id="doc-invoice-number">—</span>
+            </p>
+          </div>
+          <div class="document-meta">
+            <p>
+              <span class="doc-label">Date d'émission</span>
+              <span id="doc-invoice-date">—</span>
+            </p>
+            <p>
+              <span class="doc-label">Date d'échéance</span>
+              <span id="doc-invoice-due">—</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="document-columns">
+          <section class="document-section">
+            <h2>Émetteur</h2>
+            <div id="doc-issuer-info" class="document-info"></div>
+          </section>
+          <section class="document-section">
+            <h2>Client</h2>
+            <div id="doc-client-info" class="document-info"></div>
+          </section>
+        </div>
+
+        <section class="document-section">
+          <table class="document-table" aria-label="Résumé des prestations">
+            <thead>
+              <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Taux horaire</th>
+                <th scope="col">Heures / jour</th>
+                <th scope="col">Jours</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody id="doc-service-body"></tbody>
+          </table>
+        </section>
+
+        <section class="document-section">
+          <div class="document-totals">
+            <div class="document-totals-row">
+              <span>Total HT</span>
+              <span id="doc-total-amount">0,00 €</span>
+            </div>
+            <div class="document-totals-row grand">
+              <span>Total à payer</span>
+              <span id="doc-grand-total">0,00 €</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="document-notes" id="doc-notes-section" hidden>
+          <h2>Notes</h2>
+          <p id="doc-notes"></p>
+        </section>
+      </div>
+
+      <div class="actions" style="justify-content: flex-start">
+        <button class="btn-primary" id="download-pdf" type="button">
+          📄 Exporter en PDF
+        </button>
+        <button class="btn-secondary" id="reset-invoice" type="button">
+          ♻️ Réinitialiser
+        </button>
+      </div>
+    </main>
+
+    <template id="service-row-template">
+      <tr>
+        <td>
+          <textarea
+            class="service-description"
+            placeholder="Intitulé de la prestation"
+            rows="2"
+            spellcheck="true"
+          ></textarea>
+        </td>
+        <td>
+          <input
+            type="number"
+            class="service-rate"
+            inputmode="decimal"
+            step="0.01"
+            min="0"
+            value="0"
+            aria-label="Taux horaire"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            class="service-hours"
+            inputmode="decimal"
+            step="0.25"
+            min="0"
+            value="0"
+            aria-label="Heures par jour"
+          />
+        </td>
+        <td>
+          <input
+            type="number"
+            class="service-days"
+            inputmode="decimal"
+            step="0.5"
+            min="0"
+            value="0"
+            aria-label="Nombre de jours"
+          />
+        </td>
+        <td class="line-total">0,00 €</td>
+        <td>
+          <button type="button" class="btn-danger remove-line">✕</button>
+        </td>
+      </tr>
+    </template>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
+      integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      const serviceBody = document.getElementById("service-body");
+      const addLineButton = document.getElementById("add-line");
+      const template = document.getElementById("service-row-template");
+      const totalAmount = document.getElementById("total-amount");
+      const grandTotal = document.getElementById("grand-total");
+      const resetButton = document.getElementById("reset-invoice");
+      const pdfButton = document.getElementById("download-pdf");
+      const invoiceNumberInput = document.getElementById("invoice-number");
+      const invoiceDocument = document.getElementById("invoice-document");
+      const invoiceDateInput = document.getElementById("invoice-date");
+      const invoiceDueInput = document.getElementById("invoice-due");
+      const invoiceNotesInput = document.getElementById("invoice-notes");
+      const docInvoiceNumber = document.getElementById("doc-invoice-number");
+      const docInvoiceDate = document.getElementById("doc-invoice-date");
+      const docInvoiceDue = document.getElementById("doc-invoice-due");
+      const docIssuerInfo = document.getElementById("doc-issuer-info");
+      const docClientInfo = document.getElementById("doc-client-info");
+      const docServiceBody = document.getElementById("doc-service-body");
+      const docTotalAmount = document.getElementById("doc-total-amount");
+      const docGrandTotal = document.getElementById("doc-grand-total");
+      const docNotesSection = document.getElementById("doc-notes-section");
+      const docNotes = document.getElementById("doc-notes");
+      const issuerFields = document.querySelectorAll(
+        "[data-field-group='issuer']"
+      );
+      const clientFields = document.querySelectorAll(
+        "[data-field-group='client']"
+      );
+
+      const currencyFormatter = new Intl.NumberFormat("fr-FR", {
+        style: "currency",
+        currency: "EUR",
+        minimumFractionDigits: 2,
+      });
+      const numberFormatter = new Intl.NumberFormat("fr-FR", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2,
+      });
+
+      function parseInputValue(input) {
+        const value = parseFloat(input.value.replace(",", "."));
+        return Number.isFinite(value) ? value : 0;
+      }
+
+      function autoResizeTextArea(element) {
+        if (!element) return;
+        element.style.height = "auto";
+        element.style.height = `${element.scrollHeight}px`;
+      }
+
+      function getValue(id) {
+        const field = document.getElementById(id);
+        return field ? field.value.trim() : "";
+      }
+
+      function formatDateForDocument(value) {
+        if (!value) return "—";
+        const [year, month, day] = value.split("-");
+        if (!year || !month || !day) return value;
+        return `${day}/${month}/${year}`;
+      }
+
+      function fillContactInfo(container, lines) {
+        container.innerHTML = "";
+        const fragment = document.createDocumentFragment();
+
+        lines.forEach((line) => {
+          const content = line.value.trim();
+          if (!content) return;
+
+          const paragraph = document.createElement("p");
+          if (line.label) {
+            const labelSpan = document.createElement("span");
+            labelSpan.className = "doc-label";
+            labelSpan.textContent = `${line.label} :`;
+            const valueSpan = document.createElement("span");
+            valueSpan.textContent = content;
+            paragraph.append(labelSpan, valueSpan);
+          } else {
+            paragraph.textContent = content;
+          }
+
+          fragment.appendChild(paragraph);
+        });
+
+        if (!fragment.childNodes.length) {
+          const placeholder = document.createElement("p");
+          placeholder.className = "doc-muted";
+          placeholder.textContent = "—";
+          fragment.appendChild(placeholder);
+        }
+
+        container.appendChild(fragment);
+      }
+
+      function populateInvoiceDocument(total) {
+        const invoiceNumber = invoiceNumberInput.value.trim();
+        docInvoiceNumber.textContent = invoiceNumber || "—";
+        docInvoiceDate.textContent = formatDateForDocument(
+          invoiceDateInput.value
+        );
+        docInvoiceDue.textContent = formatDateForDocument(
+          invoiceDueInput.value
+        );
+
+        const issuerName = [
+          getValue("issuer-first-name"),
+          getValue("issuer-last-name"),
+        ]
+          .filter(Boolean)
+          .join(" ");
+
+        const issuerLines = [
+          { label: "", value: getValue("issuer-company") },
+          { label: "", value: issuerName },
+          { label: "", value: getValue("issuer-address") },
+          {
+            label: "",
+            value: [getValue("issuer-postcode"), getValue("issuer-city")]
+              .filter(Boolean)
+              .join(" "),
+          },
+          { label: "SIRET", value: getValue("issuer-siret") },
+          { label: "Email", value: getValue("issuer-email") },
+          { label: "Téléphone", value: getValue("issuer-phone") },
+        ];
+
+        const clientLines = [
+          { label: "", value: getValue("client-name") },
+          { label: "", value: getValue("client-contact") },
+          { label: "", value: getValue("client-address") },
+          {
+            label: "",
+            value: [getValue("client-postcode"), getValue("client-city")]
+              .filter(Boolean)
+              .join(" "),
+          },
+          { label: "SIRET", value: getValue("client-siret") },
+          { label: "Email", value: getValue("client-email") },
+          { label: "Téléphone", value: getValue("client-phone") },
+        ];
+
+        fillContactInfo(docIssuerInfo, issuerLines);
+        fillContactInfo(docClientInfo, clientLines);
+
+        const rows = Array.from(serviceBody.querySelectorAll("tr"));
+        const services = rows
+          .map((row) => {
+            const description =
+              row.querySelector(".service-description")?.value.trim() || "";
+            const rateInput = row.querySelector(".service-rate");
+            const hoursInput = row.querySelector(".service-hours");
+            const daysInput = row.querySelector(".service-days");
+            const rate = rateInput ? parseInputValue(rateInput) : 0;
+            const hours = hoursInput ? parseInputValue(hoursInput) : 0;
+            const days = daysInput ? parseInputValue(daysInput) : 0;
+            const lineTotal = rate * hours * days;
+
+            return {
+              description,
+              rate,
+              hours,
+              days,
+              total: lineTotal,
+            };
+          })
+          .filter(
+            (service) =>
+              service.description ||
+              service.rate > 0 ||
+              service.hours > 0 ||
+              service.days > 0 ||
+              service.total > 0
+          );
+
+        docServiceBody.innerHTML = "";
+
+        if (!services.length) {
+          const emptyRow = document.createElement("tr");
+          const emptyCell = document.createElement("td");
+          emptyCell.colSpan = 5;
+          emptyCell.className = "doc-empty";
+          emptyCell.textContent = "Aucune prestation renseignée";
+          emptyRow.appendChild(emptyCell);
+          docServiceBody.appendChild(emptyRow);
+        } else {
+          services.forEach((service) => {
+            const docRow = document.createElement("tr");
+            const descriptionCell = document.createElement("td");
+            descriptionCell.className = "doc-description";
+            descriptionCell.textContent = service.description || "—";
+
+            const rateCell = document.createElement("td");
+            rateCell.textContent = currencyFormatter.format(service.rate);
+
+            const hoursCell = document.createElement("td");
+            hoursCell.textContent = numberFormatter.format(service.hours);
+
+            const daysCell = document.createElement("td");
+            daysCell.textContent = numberFormatter.format(service.days);
+
+            const totalCell = document.createElement("td");
+            totalCell.textContent = currencyFormatter.format(service.total);
+
+            docRow.append(
+              descriptionCell,
+              rateCell,
+              hoursCell,
+              daysCell,
+              totalCell
+            );
+            docServiceBody.appendChild(docRow);
+          });
+        }
+
+        docTotalAmount.textContent = currencyFormatter.format(total);
+        docGrandTotal.textContent = currencyFormatter.format(total);
+
+        const notesValue = invoiceNotesInput.value.trim();
+        if (notesValue) {
+          docNotesSection.hidden = false;
+          docNotes.textContent = notesValue;
+        } else {
+          docNotesSection.hidden = true;
+          docNotes.textContent = "";
+        }
+      }
+
+      function updateTotals() {
+        const rows = serviceBody.querySelectorAll("tr");
+        let sum = 0;
+
+        rows.forEach((row) => {
+          const rateInput = row.querySelector(".service-rate");
+          const hoursInput = row.querySelector(".service-hours");
+          const daysInput = row.querySelector(".service-days");
+          const lineTotalCell = row.querySelector(".line-total");
+
+          const rate = parseInputValue(rateInput);
+          const hours = parseInputValue(hoursInput);
+          const days = parseInputValue(daysInput);
+
+          const total = rate * hours * days;
+          lineTotalCell.textContent = currencyFormatter.format(total);
+          sum += total;
+        });
+
+        totalAmount.textContent = currencyFormatter.format(sum);
+        grandTotal.textContent = currencyFormatter.format(sum);
+
+        return sum;
+      }
+
+      function addRow(initialData = {}) {
+        const clone = template.content.cloneNode(true);
+        const row = clone.querySelector("tr");
+        const [description, rate, hours, days] = [
+          row.querySelector(".service-description"),
+          row.querySelector(".service-rate"),
+          row.querySelector(".service-hours"),
+          row.querySelector(".service-days"),
+        ];
+
+        description.value = initialData.description || "";
+        rate.value = initialData.rate ?? 0;
+        hours.value = initialData.hours ?? 0;
+        days.value = initialData.days ?? 0;
+
+        row.addEventListener("input", (event) => {
+          if (event.target.matches(".service-description")) {
+            autoResizeTextArea(event.target);
+          }
+          if (event.target.matches("input")) {
+            updateTotals();
+          }
+        });
+
+        row.querySelector(".remove-line").addEventListener("click", () => {
+          row.remove();
+          if (!serviceBody.children.length) {
+            addRow();
+          }
+          updateTotals();
+        });
+
+        serviceBody.appendChild(clone);
+        autoResizeTextArea(description);
+        updateTotals();
+      }
+
+      addLineButton.addEventListener("click", () => {
+        addRow();
+      });
+
+      resetButton.addEventListener("click", () => {
+        if (
+          window.confirm(
+            "Voulez-vous vraiment réinitialiser la facture ? Toutes les données seront perdues."
+          )
+        ) {
+          issuerFields.forEach((field) => {
+            field.value = "";
+          });
+          clientFields.forEach((field) => {
+            field.value = "";
+          });
+          invoiceDateInput.value = "";
+          invoiceDueInput.value = "";
+          invoiceNotesInput.value = "";
+          invoiceNumberInput.value = "";
+          serviceBody.innerHTML = "";
+          addRow();
+        }
+      });
+
+      pdfButton.addEventListener("click", async () => {
+        const total = updateTotals();
+        serviceBody
+          .querySelectorAll(".service-description")
+          .forEach((textarea) => autoResizeTextArea(textarea));
+        populateInvoiceDocument(total);
+
+        const invoiceNumber = invoiceNumberInput.value.trim() || "freelance";
+        const options = {
+          margin: [12, 12, 12, 12],
+          filename: `facture-${invoiceNumber}.pdf`,
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true },
+          jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        };
+
+        invoiceDocument.classList.add("is-exporting");
+        invoiceDocument.setAttribute("aria-hidden", "false");
+
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+
+        try {
+          await html2pdf().set(options).from(invoiceDocument).save();
+        } finally {
+          invoiceDocument.classList.remove("is-exporting");
+          invoiceDocument.setAttribute("aria-hidden", "true");
+        }
+      });
+
+      // Initialize with a single empty row
+      addRow();
+    </script>
+  </body>
+</html>
