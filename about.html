@@ -51,121 +51,155 @@
   <div class="container">
     <div class="line-reveal"><span class="about-eyebrow">About</span></div>
     <div class="line-reveal line-reveal--d1"><h1 class="about-hero-name">Sébastien<br>Chevallier</h1></div>
-    <div class="line-reveal line-reveal--d2"><p class="about-hero-role">Gameplay &amp; Engine Developer &mdash; Lyon, France</p></div>
+    <div class="line-reveal line-reveal--d2"><p class="about-hero-role">Gameplay &amp; Engine Developer · Lyon, France</p></div>
   </div>
 </section>
 
-<!-- =====================  BIO  ===================== -->
-<div class="about-bio">
-  <div class="about-bio__text reveal">
-    <p>
-      I'm a 27-year-old gameplay and engine developer based in Lyon.
-      I like games — but I prefer <strong>making</strong> them.
-      Giving life to ideas through code is what drives me.
-    </p>
-    <p>
-      I'm currently building <strong>NNEngine</strong>, my personal
-      C++/Vulkan game engine focused on gameplay systems, GLSL shaders
-      and high-end rendering.
-    </p>
-    <p>
-      Find my work on <a href="https://github.com/SebastienChevallier" target="_blank" rel="noopener">GitHub</a>
-      or explore the <a href="./NNEngine/html/index.html">engine documentation</a>.
-    </p>
-  </div>
-  <div class="about-bio__photo reveal">
-    <img src="./assets/images/profil.jpg" alt="Sébastien Chevallier" loading="lazy">
+<!-- =====================  SKILLS MARQUEE  ===================== -->
+<div class="skills-marquee" aria-label="Technical skills">
+  <div class="skills-marquee__track">
+    <!-- Set A -->
+    <div class="skills-marquee__item"><span class="sk">C++</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Vulkan</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">GLSL</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">C#</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Unity</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Unreal Engine</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">XR / VR / AR</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Vuforia</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Physics Systems</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Shader Programming</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Gameplay Architecture</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Real-time 3D</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">HTML / CSS / JS</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Java</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Android</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">SQL</span><span class="sep"></span></div>
+    <!-- Set B — identical copy for seamless loop -->
+    <div class="skills-marquee__item"><span class="sk">C++</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Vulkan</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">GLSL</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">C#</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Unity</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Unreal Engine</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">XR / VR / AR</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Vuforia</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Physics Systems</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Shader Programming</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Gameplay Architecture</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Real-time 3D</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">HTML / CSS / JS</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Java</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">Android</span><span class="sep"></span></div>
+    <div class="skills-marquee__item"><span class="sk">SQL</span><span class="sep"></span></div>
   </div>
 </div>
 
-<!-- =====================  EXPERIENCE  ===================== -->
-<section class="about-section">
-  <h2 class="about-section-title reveal">Professional Experience</h2>
-  <div class="timeline">
+<!-- =====================  TAB NAV  ===================== -->
+<nav class="about-tabs" role="tablist" aria-label="About sections">
+  <button class="about-tab-btn is-active" role="tab" id="tab-about"
+          aria-selected="true" aria-controls="panel-about">About</button>
+  <button class="about-tab-btn" role="tab" id="tab-exp"
+          aria-selected="false" aria-controls="panel-exp">Experience</button>
+  <button class="about-tab-btn" role="tab" id="tab-edu"
+          aria-selected="false" aria-controls="panel-edu">Education</button>
+</nav>
 
-    <div class="timeline-item reveal">
-      <p class="timeline-period">Nov 2025 — Present</p>
-      <h3 class="timeline-role">Real-time Developer</h3>
-      <p class="timeline-place">EVAVEO · Saint-Didier-au-Mont-d'Or · On site</p>
-      <p class="timeline-desc">Real-time 3D development for a digital innovation studio producing VR training experiences, AR applications and interactive serious games for enterprise and cultural clients.</p>
+<!-- =====================  PANEL : ABOUT  ===================== -->
+<section class="about-tab-panel is-active" id="panel-about"
+         role="tabpanel" aria-labelledby="tab-about">
+  <div class="about-bio">
+    <div class="about-bio__text">
+      <p>
+        I'm a 27-year-old gameplay and engine developer based in Lyon.
+        I like games — but I prefer <strong>making</strong> them.
+        Giving life to ideas through code is what drives me.
+      </p>
+      <p>
+        I'm currently building <strong>NNEngine</strong>, my personal
+        C++/Vulkan game engine focused on gameplay systems, GLSL shaders
+        and high-end rendering.
+      </p>
+      <p>
+        Find my work on <a href="https://github.com/SebastienChevallier" target="_blank" rel="noopener">GitHub</a>
+        or explore the <a href="./NNEngine/html/index.html">engine documentation</a>.
+      </p>
     </div>
-
-    <div class="timeline-item reveal">
-      <p class="timeline-period">Oct 2024 — Oct 2025</p>
-      <h3 class="timeline-role">Software Engineer — Apprentice</h3>
-      <p class="timeline-place">Volvo Group · Vénissieux · Hybrid</p>
-      <p class="timeline-desc">Software engineering on industrial tools. C#, Unity, real-time systems and collaborative development in an automotive engineering context.</p>
+    <div class="about-bio__photo">
+      <img src="./assets/images/profil.jpg" alt="Sébastien Chevallier" loading="lazy">
     </div>
-
-    <div class="timeline-item reveal">
-      <p class="timeline-period">Sept 2023 — Jul 2024</p>
-      <h3 class="timeline-role">Technical Game Designer — Apprentice</h3>
-      <p class="timeline-place">LaZag Studio · Hybrid</p>
-      <p class="timeline-desc">Game design and technical implementation: gameplay systems, object-oriented programming and cross-discipline collaboration.</p>
-    </div>
-
-    <div class="timeline-item reveal">
-      <p class="timeline-period">Sept 2022 — Sept 2023</p>
-      <h3 class="timeline-role">Serious Game Designer — Apprentice</h3>
-      <p class="timeline-place">Boehringer Ingelheim · Lyon</p>
-      <p class="timeline-desc">Virtual reality training modules: lab environment modeling, Unity VR development, user feedback collection and iteration.</p>
-    </div>
-
   </div>
 </section>
 
-<!-- =====================  EDUCATION  ===================== -->
-<section class="about-section">
-  <h2 class="about-section-title reveal">Education</h2>
-  <div class="timeline">
+<!-- =====================  PANEL : EXPERIENCE  ===================== -->
+<section class="about-tab-panel" id="panel-exp"
+         role="tabpanel" aria-labelledby="tab-exp">
+  <div class="about-section">
+    <div class="timeline">
 
-    <div class="timeline-item reveal">
-      <p class="timeline-period">2023 — 2026</p>
-      <h3 class="timeline-role">Game Programming — Master's Degree</h3>
-      <p class="timeline-place">Ynov Lyon</p>
+      <div class="timeline-item">
+        <p class="timeline-period">Nov 2025 — Present</p>
+        <h3 class="timeline-role">Real-time Developer</h3>
+        <p class="timeline-place">EVAVEO · Saint-Didier-au-Mont-d'Or · On site</p>
+        <p class="timeline-desc">Real-time 3D development for a digital innovation studio producing VR training experiences, AR applications and interactive serious games for enterprise and cultural clients.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-period">Oct 2024 — Oct 2025</p>
+        <h3 class="timeline-role">Software Engineer — Apprentice</h3>
+        <p class="timeline-place">Volvo Group · Vénissieux · Hybrid</p>
+        <p class="timeline-desc">Software engineering on industrial tools. C#, Unity, real-time systems and collaborative development in an automotive engineering context.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-period">Sept 2023 — Jul 2024</p>
+        <h3 class="timeline-role">Technical Game Designer — Apprentice</h3>
+        <p class="timeline-place">LaZag Studio · Hybrid</p>
+        <p class="timeline-desc">Game design and technical implementation: gameplay systems, object-oriented programming and cross-discipline collaboration.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-period">Sept 2022 — Sept 2023</p>
+        <h3 class="timeline-role">Serious Game Designer — Apprentice</h3>
+        <p class="timeline-place">Boehringer Ingelheim · Lyon</p>
+        <p class="timeline-desc">Virtual reality training modules: lab environment modeling, Unity VR development, user feedback collection and iteration.</p>
+      </div>
+
     </div>
-
-    <div class="timeline-item reveal">
-      <p class="timeline-period">2020 — 2023</p>
-      <h3 class="timeline-role">Game Design &amp; Creative Coding — Bachelor</h3>
-      <p class="timeline-place">E-artsup Lyon</p>
-    </div>
-
-    <div class="timeline-item reveal">
-      <p class="timeline-period">2016 — 2019</p>
-      <h3 class="timeline-role">BTS SIO — SLAM option</h3>
-      <p class="timeline-place">Lycée la Martinière Duchère · Lyon</p>
-    </div>
-
-    <div class="timeline-item reveal">
-      <p class="timeline-period">2012 — 2016</p>
-      <h3 class="timeline-role">BAC STI2D — SIN option</h3>
-      <p class="timeline-place">Lycée St Marc · Nivolas-Vermelle</p>
-    </div>
-
   </div>
 </section>
 
-<!-- =====================  SKILLS  ===================== -->
-<section class="about-section">
-  <h2 class="about-section-title reveal">Technical Skills</h2>
-  <div class="skills-grid reveal">
-    <span class="skill-chip skill-chip--featured">C++</span>
-    <span class="skill-chip skill-chip--featured">Vulkan</span>
-    <span class="skill-chip skill-chip--featured">GLSL</span>
-    <span class="skill-chip skill-chip--featured">C#</span>
-    <span class="skill-chip skill-chip--featured">Unity</span>
-    <span class="skill-chip">Unreal Engine</span>
-    <span class="skill-chip">XR / VR / AR</span>
-    <span class="skill-chip">Vuforia</span>
-    <span class="skill-chip">Physics Systems</span>
-    <span class="skill-chip">Shader Programming</span>
-    <span class="skill-chip">Gameplay Architecture</span>
-    <span class="skill-chip">HTML / CSS / JS</span>
-    <span class="skill-chip">Java</span>
-    <span class="skill-chip">Android</span>
-    <span class="skill-chip">PHP</span>
-    <span class="skill-chip">SQL</span>
+<!-- =====================  PANEL : EDUCATION  ===================== -->
+<section class="about-tab-panel" id="panel-edu"
+         role="tabpanel" aria-labelledby="tab-edu">
+  <div class="about-section">
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <p class="timeline-period">2023 — 2026</p>
+        <h3 class="timeline-role">Game Programming — Master's Degree</h3>
+        <p class="timeline-place">Ynov Lyon</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-period">2020 — 2023</p>
+        <h3 class="timeline-role">Game Design &amp; Creative Coding — Bachelor</h3>
+        <p class="timeline-place">E-artsup Lyon</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-period">2016 — 2019</p>
+        <h3 class="timeline-role">BTS SIO — SLAM option</h3>
+        <p class="timeline-place">Lycée la Martinière Duchère · Lyon</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-period">2012 — 2016</p>
+        <h3 class="timeline-role">BAC STI2D — SIN option</h3>
+        <p class="timeline-place">Lycée St Marc · Nivolas-Vermelle</p>
+      </div>
+
+    </div>
   </div>
 </section>
 

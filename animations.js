@@ -81,6 +81,32 @@
     });
   }
 
+  /* ---- About tabs ------------------------------------------ */
+  function setupAboutTabs() {
+    var btns   = document.querySelectorAll(".about-tab-btn");
+    var panels = document.querySelectorAll(".about-tab-panel");
+    if (!btns.length) return;
+
+    btns.forEach(function (btn, i) {
+      btn.addEventListener("click", function () {
+        btns.forEach(function (b) {
+          b.classList.remove("is-active");
+          b.setAttribute("aria-selected", "false");
+        });
+        panels.forEach(function (p) { p.classList.remove("is-active"); });
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-selected", "true");
+        if (panels[i]) panels[i].classList.add("is-active");
+        /* re-assign stagger indices for freshly shown panel */
+        if (panels[i]) {
+          panels[i].querySelectorAll(".timeline-item").forEach(function (item, j) {
+            item.style.setProperty("--ti", j);
+          });
+        }
+      });
+    });
+  }
+
   /* ---- Hero Carousel --------------------------------------- */
   function setupHeroCarousel() {
     var slides  = document.querySelectorAll(".hero-slide");
@@ -133,5 +159,6 @@
     setupReveal();
     setupTimelineStagger();
     setupHeroCarousel();
+    setupAboutTabs();
   });
 })();

@@ -472,6 +472,130 @@ body { animation: pageFadeIn 0.45s ease both; }
   background: rgba(37,99,235,.05);
 }
 
+/* ============================================================
+   SKILLS MARQUEE BAND
+   ============================================================ */
+.skills-marquee {
+  background: #0c0c0e;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+/* Edge fade — hides start/end for seamless illusion */
+.skills-marquee::before,
+.skills-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.skills-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #0c0c0e 30%, transparent);
+}
+.skills-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #0c0c0e 30%, transparent);
+}
+
+.skills-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marqueeRoll 32s linear infinite;
+  padding: 20px 0;
+}
+.skills-marquee__track:hover { animation-play-state: paused; }
+
+@keyframes marqueeRoll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.skills-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  white-space: nowrap;
+}
+.skills-marquee__item .sk {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  transition: color .2s ease;
+}
+.skills-marquee__item:hover .sk { color: rgba(255,255,255,.9); }
+.skills-marquee__item .sep {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: .5;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   ABOUT TABS
+   ============================================================ */
+.about-tabs {
+  display: flex;
+  border-bottom: 1px solid #e2e2e2;
+  background: #fff;
+  position: sticky;
+  top: 50px;
+  z-index: 20;
+}
+
+.about-tab-btn {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #aaa;
+  padding: 0 32px;
+  height: 56px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: color .18s ease, border-color .18s ease;
+}
+.about-tab-btn:hover { color: var(--ink); }
+.about-tab-btn.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.about-tab-btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+  border-radius: 2px;
+}
+
+/* Panels */
+.about-tab-panel { display: none; }
+.about-tab-panel.is-active {
+  display: block;
+  animation: panelReveal .35s var(--ease-expo) both;
+}
+@keyframes panelReveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Stagger timeline items when panel opens */
+.about-tab-panel.is-active .timeline-item {
+  animation: panelReveal .45s var(--ease-expo) both;
+  animation-delay: calc(var(--ti, 0) * 90ms + 80ms);
+}
+
 /* ---- Reduced motion --------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   body,
@@ -486,4 +610,7 @@ body { animation: pageFadeIn 0.45s ease both; }
   }
   .reveal-left,
   .reveal-right { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .skills-marquee__track { animation: none !important; }
+  .about-tab-panel.is-active,
+  .about-tab-panel.is-active .timeline-item { animation: none !important; }
 }
