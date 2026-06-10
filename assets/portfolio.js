@@ -1,8 +1,8 @@
 /* ============================================================
-   portfolio.js — data-driven grids + dynamic motion
-   - Renders Projects & Tools from data/projects.json
-   - Scroll reveal (staggered), 3D tilt, hero parallax,
-     micro-interactions. Serverless, GitHub-Pages friendly.
+   portfolio.js — data-driven grids + motion
+   Renders Projects & Tools from data/projects.json.
+   Motion: scroll reveal (IntersectionObserver), 3D tilt.
+   No window.addEventListener('scroll') — parallax is CSS-only.
    ============================================================ */
 (function () {
   "use strict";
@@ -38,14 +38,14 @@
     var ext = item.external ? ' target="_blank" rel="noopener"' : "";
 
     return (
-      '<a class="proj-card reveal" data-tilt style="--i:' + idx + '" href="' + esc(item.link) + '"' + ext + ">" +
+      '<a class="proj-card reveal" data-tilt data-proj-id="' + esc(item.id) + '" style="--i:' + idx + '" href="' + esc(item.link) + '"' + ext + ">" +
         media +
         '<div class="card-body">' +
           '<h3 class="card-title">' + esc(item.title) + "</h3>" +
           '<p class="card-desc">' + esc(item.description) + "</p>" +
           '<div class="card-meta">' + chips + "</div>" +
           '<span class="card-cta">' + esc(item.cta || "Learn more") +
-            ' <span class="arrow">&rarr;</span></span>' +
+            ' <span class="arrow" aria-hidden="true">&rarr;</span></span>' +
         "</div>" +
       "</a>"
     );
@@ -58,7 +58,7 @@
       .join("");
   }
 
-  /* ---------- motion: scroll reveal ---------- */
+  /* ---------- scroll reveal (IntersectionObserver only) ------- */
   function setupReveal(scope) {
     var els = (scope || document).querySelectorAll(".reveal:not(.is-visible)");
     if (!("IntersectionObserver" in window)) {
@@ -72,75 +72,48 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
     els.forEach(function (e) { io.observe(e); });
   }
 
-  /* ---------- motion: 3D tilt ---------- */
+  /* ---------- 3D tilt (pointer only, RAF-throttled) ----------- */
   function setupTilt(scope) {
-    if (window.matchMedia && window.matchMedia("(hover: none)").matches) return;
-    var cards = (scope || document).querySelectorAll("[data-tilt]");
-    var MAX = 9; // degrees
-    cards.forEach(function (card) {
+    if (window.matchMedia("(hover: none)").matches) return;
+    var MAX = 8;
+    (scope || document).querySelectorAll("[data-tilt]").forEach(function (card) {
       var raf = null;
-      function onMove(e) {
+      card.addEventListener("mousemove", function (e) {
         var r = card.getBoundingClientRect();
         var px = (e.clientX - r.left) / r.width;
         var py = (e.clientY - r.top) / r.height;
-        var rx = (0.5 - py) * MAX * 2;
-        var ry = (px - 0.5) * MAX * 2;
         if (raf) cancelAnimationFrame(raf);
         raf = requestAnimationFrame(function () {
+          var rx = (0.5 - py) * MAX * 2;
+          var ry = (px - 0.5) * MAX * 2;
           card.style.transform =
             "perspective(900px) rotateX(" + rx.toFixed(2) + "deg) rotateY(" +
             ry.toFixed(2) + "deg) translateY(-6px)";
           card.style.setProperty("--mx", (px * 100).toFixed(1) + "%");
           card.style.setProperty("--my", (py * 100).toFixed(1) + "%");
         });
-      }
-      function reset() {
+      });
+      card.addEventListener("mouseleave", function () {
         if (raf) cancelAnimationFrame(raf);
         card.style.transform = "";
-      }
-      card.addEventListener("mousemove", onMove);
-      card.addEventListener("mouseleave", reset);
+      });
     });
-  }
-
-  /* ---------- motion: hero parallax ---------- */
-  function setupParallax() {
-    var hero = document.querySelector(".hero-full-container");
-    var text = hero && hero.querySelector(".text-content");
-    if (!hero) return;
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var ticking = false;
-    function update() {
-      var y = window.scrollY || window.pageYOffset;
-      hero.style.backgroundPositionY = (y * 0.25).toFixed(1) + "px";
-      if (text) {
-        text.style.transform = "translateY(" + (y * 0.18).toFixed(1) + "px)";
-        text.style.opacity = Math.max(0, 1 - y / 600).toFixed(3);
-      }
-      ticking = false;
-    }
-    window.addEventListener("scroll", function () {
-      if (!ticking) { ticking = true; requestAnimationFrame(update); }
-    }, { passive: true });
-    update();
   }
 
   /* ---------- boot ---------- */
   function boot(data) {
     renderInto(document.getElementById("projects-grid"), data.projects || [], "project");
     renderInto(document.getElementById("tools-grid"), data.tools || [], "tool");
-    // category headers are already in the DOM with .reveal
     setupReveal(document);
     setupTilt(document);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    setupParallax();
-    setupReveal(document); // reveal static elements (headers, featured)
+    setupReveal(document);
 
     fetch(DATA_URL, { cache: "no-cache" })
       .then(function (r) {
@@ -151,12 +124,9 @@
       .catch(function (err) {
         console.error("portfolio: could not load projects.json", err);
         var pg = document.getElementById("projects-grid");
-        if (pg) {
-          pg.innerHTML =
-            '<p style="font-family:Roboto Mono,monospace;color:#6b6b6b">' +
-            "Projects are loading from data/projects.json — open this page through a server " +
-            "(GitHub Pages or a local http server), not via file://.</p>";
-        }
+        if (pg) pg.innerHTML =
+          '<p style="font-family:\'Roboto Mono\',monospace;color:#6b6b6b;padding:20px">' +
+          "Open via a local http server or GitHub Pages, not file://.</p>";
       });
   });
 })();

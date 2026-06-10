@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,74 +5,79 @@
   <meta charset="UTF-8">
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
-
-  <!-- Disable tap highlight on IE -->
+  <meta name="description" content="Sébastien Chevallier — Gameplay & Engine Developer. C++/Vulkan, Unity, game systems.">
+  <meta name="google" content="notranslate">
   <meta name="msapplication-tap-highlight" content="no">
 
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
   <link href="./assets/favicon.ico" rel="icon">
 
-  <title>Portfolio</title>
+  <title>Sébastien Chevallier — Gameplay &amp; Engine Developer</title>
 
-<link href="./main.3f6952e4.css" rel="stylesheet">
-<link href="./portfolio.css" rel="stylesheet"></head>
+  <link href="./main.3f6952e4.css" rel="stylesheet">
+  <link href="./portfolio.css" rel="stylesheet">
+  <link href="./animations.css" rel="stylesheet">
+</head>
 
 <body class="minimal">
 <div id="site-border-left"></div>
 <div id="site-border-right"></div>
 <div id="site-border-top"></div>
 <div id="site-border-bottom"></div>
-<!-- Add your content of header -->
-<header>
-  <nav class="navbar  navbar-fixed-top navbar-inverse">
-    <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
 
+<header>
+  <nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav ">
-          <li><a href="./index.html" title="">01 : Home</a></li>
-          <li><a href="./index.html#projects" title="">02 : Projects</a></li>
-          <li><a href="./index.html#tools" title="">03 : Tools</a></li>
-          <li><a href="./about.html" title="">04 : About me</a></li>
+        <ul class="nav navbar-nav">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./index.html#projects">Projects</a></li>
+          <li><a href="./index.html#tools">Tools</a></li>
+          <li><a href="./about.html">About</a></li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
-<!-- Add your site or app content here -->
-  <div class="hero-full-container background-image-container white-text-container" style="background-image: url('./assets/images/BG.png')">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="hero-full-wrapper">
-            <div class="text-content">
-              <h1>Sébastien Chevallier<br>
-                  <span>Gameplay &amp; Engine Developer</span>
-              </h1>
+
+<div class="hero-full-container background-image-container white-text-container hero-parallax" style="background-image: url('./assets/images/BG.png')">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="hero-full-wrapper">
+          <div class="text-content">
+            <div class="line-reveal"><h1 class="hero-name">Sébastien Chevallier</h1></div>
+            <div class="line-reveal line-reveal--d1"><p class="hero-role">Gameplay &amp; Engine Developer</p></div>
+            <div class="line-reveal line-reveal--d2">
+              <div class="hero-actions">
+                <a href="#projects" class="hero-btn hero-btn--solid">View Projects</a>
+                <a href="./about.html" class="hero-btn hero-btn--ghost">About</a>
+              </div>
             </div>
+          </div>
+          <div class="scroll-indicator" aria-hidden="true">
+            <div class="scroll-indicator__mouse"></div>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
-<!-- =========================  FEATURED : NNEngine  ========================= -->
-<div class="section-container" id="featured">
+<!-- =====================  FEATURED : NNEngine  ===================== -->
+<div class="section-container featured-section" id="featured">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
         <img src="./assets/images/NNE.png" class="img-responsive reveal" alt="NNEngine logo">
-
         <div class="card-container reveal">
           <div class="text-center">
-            <span class="cat-index" style="color:#001aff;letter-spacing:2px;font-size:13px;">FEATURED PROJECT</span>
             <h1 class="h2">NNEngine : Custom Game Engine</h1>
           </div>
           <h4>NNEngine is my personal C++/Vulkan engine focused on gameplay, shaders and high-end rendering.</h4>
@@ -86,30 +90,24 @@
   </div>
 </div>
 
-<!-- =========================  CATEGORY : PROJECTS  ========================= -->
+<!-- =====================  PROJECTS  ===================== -->
 <div class="projects-section" id="projects">
   <div class="category-header reveal">
-    <span class="cat-index">02 — Projects</span>
     <h2 class="cat-title">Games &amp; Personal Projects</h2>
     <p class="cat-sub">Game prototypes and systems I designed and programmed, from solo personal projects to game jams and school productions.</p>
     <div class="cat-rule"></div>
   </div>
-
-  <!-- Cards injected from data/projects.json by portfolio.js -->
-  <div class="card-grid" id="projects-grid"></div>
+  <div class="card-grid card-grid--projects" id="projects-grid"></div>
 </div>
 
-<!-- =========================  CATEGORY : TOOLS  ========================= -->
+<!-- =====================  TOOLS  ===================== -->
 <div class="tools-section" id="tools">
   <div class="category-header reveal">
-    <span class="cat-index">03 — Tools</span>
     <h2 class="cat-title">Tools &amp; Systems</h2>
-    <p class="cat-sub">Reusable systems and standalone utilities I built to speed up production — from engine-level Unity frameworks to handy in-browser web tools.</p>
+    <p class="cat-sub">Reusable systems and standalone utilities I built to speed up production, from engine-level Unity frameworks to in-browser web tools.</p>
     <div class="cat-rule"></div>
   </div>
-
-  <!-- Cards injected from data/projects.json by portfolio.js -->
-  <div class="card-grid" id="tools-grid"></div>
+  <div class="card-grid card-grid--tools" id="tools-grid"></div>
 </div>
 
 <script>
@@ -119,7 +117,8 @@
   });
 </script>
 
+<script type="text/javascript" src="./animations.js"></script>
 <script type="text/javascript" src="./assets/portfolio.js"></script>
-<script type="text/javascript" src="./main.70a66962.js"></script></body>
-
+<script type="text/javascript" src="./main.70a66962.js"></script>
+</body>
 </html>

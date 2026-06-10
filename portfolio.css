@@ -1,137 +1,227 @@
 /* ============================================================
-   Portfolio additions — categorized project / tool grid
-   Matches existing theme: Roboto Mono, accent #001aff
+   portfolio.css — UX pass applying Impeccable + Taste + UI-UX-Pro-Max rules
+
+   Key rules enforced:
+   - No numbered section markers (Impeccable ban)
+   - No eyebrow above every section (Taste: max 1 per 3 sections)
+   - No identical card grid repeated endlessly (Impeccable ban)
+   - No window.scroll listener — parallax is CSS-only (Taste ban)
+   - No em-dashes in visible text (Taste: zero tolerance)
+   - text-wrap: balance on headings (Impeccable)
+   - Body descriptions use readable sans, not mono (UX Pro Max)
+   - 65ch max-width on prose (Impeccable)
+   - Per-project cover identity (not one generic gradient)
+   - focus-visible keyboard styles (UX Pro Max: CRITICAL priority)
+   - 44px min touch targets (UX Pro Max: CRITICAL priority)
+   - prefers-reduced-motion mandatory (all three skills)
    ============================================================ */
 
 :root {
   --accent: #001aff;
-  --ink: #0a0a0a;
-  --muted: #6b6b6b;
-  --line: #e5e5e5;
+  --ink: #0d0d0d;
+  --muted: #666;
+  --line: #e2e2e2;
   --card-bg: #ffffff;
+  --card-radius: 5px;
 }
 
-/* ---- Category header ---------------------------------------- */
+/* ---- CSS-only hero parallax (no scroll listener) ----------- */
+.hero-parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center top;
+}
+@media (max-width: 768px) {
+  /* background-attachment:fixed is unreliable on iOS — degrade gracefully */
+  .hero-parallax { background-attachment: scroll; }
+}
+
+/* ---- Category header --------------------------------------- */
 .category-header {
   max-width: 1140px;
-  margin: 0 auto 36px;
-  padding: 0 20px;
-}
-.category-header .cat-index {
-  font-family: "Roboto Mono", monospace;
-  font-size: 13px;
-  letter-spacing: 2px;
-  color: var(--accent);
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 6px;
+  margin: 0 auto 40px;
+  padding: 0 24px;
 }
 .category-header .cat-title {
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
-  font-size: 28px;
-  margin: 0 0 10px;
+  font-size: clamp(22px, 3.5vw, 30px);
+  margin: 0 0 12px;
   color: var(--ink);
+  text-wrap: balance;
+  line-height: 1.15;
 }
 .category-header .cat-sub {
-  font-family: "Roboto Mono", monospace;
-  font-size: 13px;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
   color: var(--muted);
   margin: 0;
-  max-width: 720px;
+  max-width: 62ch;
+  line-height: 1.65;
 }
 .category-header .cat-rule {
   height: 2px;
-  width: 56px;
+  width: 40px;
   background: var(--accent);
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
-/* ---- Card grid --------------------------------------------- */
+/* ---- Card grids ------------------------------------------- */
 .card-grid {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 20px 20px;
+  padding: 0 24px 12px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 26px;
+  gap: 22px;
 }
 
-/* ---- Project card ------------------------------------------ */
+/* Projects grid: asymmetric — first card spans 2 cols (featured) */
+.card-grid--projects {
+  grid-template-columns: repeat(3, 1fr);
+}
+.card-grid--projects .proj-card:first-child {
+  grid-column: span 2;
+}
+.card-grid--projects .proj-card:first-child .card-media {
+  aspect-ratio: 21 / 9;
+}
+.card-grid--projects .proj-card:first-child .cover-mark {
+  font-size: 56px;
+  letter-spacing: 6px;
+}
+
+/* Tools grid: uniform 3-col — tools are peer utilities */
+.card-grid--tools {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 900px) {
+  .card-grid--projects,
+  .card-grid--tools { grid-template-columns: repeat(2, 1fr); }
+  .card-grid--projects .proj-card:first-child { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+  .card-grid--projects,
+  .card-grid--tools { grid-template-columns: 1fr; }
+  .card-grid--projects .proj-card:first-child {
+    grid-column: span 1;
+  }
+  .card-grid--projects .proj-card:first-child .card-media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ---- Base card -------------------------------------------- */
 .proj-card {
   position: relative;
   display: flex;
   flex-direction: column;
   background: var(--card-bg);
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: var(--card-radius);
   overflow: hidden;
   text-decoration: none;
   color: var(--ink);
+  transform-style: preserve-3d;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   min-height: 100%;
 }
 .proj-card:hover,
-.proj-card:focus {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 34px rgba(0, 26, 255, .14);
+.proj-card:focus-visible {
+  box-shadow: 0 12px 32px rgba(0, 26, 255, .12);
   border-color: var(--accent);
   text-decoration: none;
   color: var(--ink);
 }
+.proj-card:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  transform: translateY(-4px);
+}
 
-/* media area — image or generated cover */
+/* ---- Card media area -------------------------------------- */
 .proj-card .card-media {
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #111;
+  flex-shrink: 0;
 }
 .proj-card .card-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform .35s ease;
+  transition: transform .4s cubic-bezier(.2, .7, .2, 1);
 }
-.proj-card:hover .card-media img { transform: scale(1.05); }
+.proj-card:hover .card-media img { transform: scale(1.04); }
 
-/* text cover (no screenshot) */
+/* ---- Cover cards (no screenshot) — per-project identity --- */
 .card-media.cover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0b1020 0%, #001aff 140%);
-}
-.card-media.cover .cover-mark {
-  font-family: "Roboto Mono", monospace;
-  font-weight: 700;
-  font-size: 46px;
-  letter-spacing: 4px;
-  color: #fff;
-  opacity: .92;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, .45);
-}
-.card-media.cover.tool {
-  background: linear-gradient(135deg, #111 0%, #333 100%);
+  /* default dark neutral — overridden per project below */
+  background: #111;
 }
 
-/* tag chip top-left */
+/* Per-project cover colors — each has its own identity */
+[data-proj-id="noitero"]    .card-media.cover { background: linear-gradient(140deg, #04110e 0%, #0a3320 100%); }
+[data-proj-id="roguefps"]   .card-media.cover { background: linear-gradient(140deg, #130000 0%, #4a0800 100%); }
+[data-proj-id="flowsys"]    .card-media.cover { background: linear-gradient(140deg, #000d1a 0%, #003459 100%); }
+[data-proj-id="invoice"]    .card-media.cover { background: linear-gradient(140deg, #0a0a0a 0%, #1c1c1c 100%); }
+[data-proj-id="cardbuilder"].card-media.cover { background: linear-gradient(140deg, #0c0a00 0%, #2a2000 100%); }
+
+/* Tag chip */
 .proj-card .card-tag {
   position: absolute;
   top: 12px;
   left: 12px;
   font-family: "Roboto Mono", monospace;
   font-size: 10px;
-  letter-spacing: 1px;
+  letter-spacing: .8px;
   text-transform: uppercase;
-  background: rgba(0, 0, 0, .72);
+  background: rgba(0, 0, 0, .65);
   color: #fff;
   padding: 4px 9px;
   border-radius: 3px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-/* body */
+/* Cover mark */
+.card-media.cover .cover-mark {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: 4px;
+  color: #fff;
+  opacity: .9;
+  user-select: none;
+  transition: transform .35s cubic-bezier(.2, .7, .2, 1), letter-spacing .35s ease;
+}
+.proj-card:hover .card-media.cover .cover-mark {
+  transform: translateY(-3px) scale(1.03);
+  letter-spacing: 6px;
+}
+
+/* Cursor-following glow on cover */
+.proj-card .card-media.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    220px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, .18) 0%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.proj-card:hover .card-media.cover::after { opacity: 1; }
+
+/* ---- Card body -------------------------------------------- */
 .proj-card .card-body {
   padding: 20px 22px 22px;
   display: flex;
@@ -141,166 +231,119 @@
 .proj-card .card-title {
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
-  font-size: 18px;
-  margin: 0 0 8px;
+  font-size: 17px;
+  margin: 0 0 10px;
   color: var(--ink);
+  text-wrap: balance;
+  line-height: 1.25;
+  position: relative;
 }
+/* Accent underbar that grows on hover */
+.proj-card .card-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  transition: width .28s ease;
+}
+.proj-card:hover .card-title::after { width: 32px; }
+
+/* Descriptions: readable sans, not mono */
 .proj-card .card-desc {
-  font-family: "Roboto Mono", monospace;
-  font-size: 13px;
-  line-height: 1.6;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.72;
   color: var(--muted);
-  margin: 0 0 16px;
+  margin: 10px 0 16px;
   flex: 1;
+  max-width: 65ch;
 }
+
 .proj-card .card-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 14px;
+  gap: 7px;
+  margin-bottom: 16px;
 }
 .proj-card .stack-chip {
   font-family: "Roboto Mono", monospace;
   font-size: 10px;
-  letter-spacing: .5px;
+  letter-spacing: .4px;
   color: var(--accent);
   border: 1px solid var(--accent);
   border-radius: 3px;
-  padding: 2px 7px;
+  padding: 3px 8px;
+  transition: background .18s ease, color .18s ease;
 }
+.proj-card:hover .stack-chip {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* CTA link — min 44px touch area */
 .proj-card .card-cta {
   font-family: "Roboto Mono", monospace;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: .8px;
   text-transform: uppercase;
   color: var(--accent);
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  min-height: 44px;
+  padding-top: 8px;
 }
 .proj-card .card-cta .arrow { transition: transform .18s ease; }
-.proj-card:hover .card-cta .arrow { transform: translateX(4px); }
+.proj-card:hover .card-cta .arrow { transform: translateX(5px); }
 
-/* spacing between stacked sections */
-.projects-section { padding: 60px 0 20px; }
-.tools-section    { padding: 40px 0 70px; }
+/* ---- Section spacing -------------------------------------- */
+.featured-section { padding: 60px 0; }
+.projects-section { padding: 70px 0 24px; }
+.tools-section    { padding: 50px 0 80px; }
 
-@media (max-width: 600px) {
-  .card-grid { grid-template-columns: 1fr; }
-  .category-header .cat-title { font-size: 23px; }
-}
-
-/* ============================================================
-   MOTION — scroll reveal, 3D tilt, cursor glow, micro-interactions
-   ============================================================ */
-
-/* ---- Scroll reveal (staggered) ----------------------------- */
+/* ---- MOTION : scroll reveal (staggered) ------------------- */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1);
+  transform: translateY(28px);
+  transition:
+    opacity .55s ease,
+    transform .55s cubic-bezier(.2, .7, .2, 1);
 }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
-.category-header.reveal { transform: translateY(20px); }
+/* stagger via --i set by JS */
+.proj-card.reveal { transition-delay: calc(var(--i, 0) * 75ms); }
 
-/* cards stagger via --i set inline by JS */
-.proj-card.reveal {
-  transition-delay: calc(var(--i, 0) * 80ms);
-}
-
-/* keep the slow easing for entrance / reset, snappy on hover for tilt */
+/* Keep entrance easing slow; tilt fast */
 .proj-card.reveal:not(:hover) {
-  transition: opacity .6s ease,
-              transform .5s cubic-bezier(.2, .7, .2, 1),
-              box-shadow .3s ease,
-              border-color .3s ease;
+  transition:
+    opacity .55s ease,
+    transform .45s cubic-bezier(.2, .7, .2, 1),
+    box-shadow .2s ease,
+    border-color .2s ease;
 }
 .proj-card:hover {
-  transition: transform .1s ease,
-              box-shadow .2s ease,
-              border-color .2s ease;
+  transition: transform .1s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-/* ---- 3D tilt support --------------------------------------- */
-.proj-card { transform-style: preserve-3d; }
-.proj-card .card-body,
-.proj-card .card-media { transform: translateZ(0); }
-
-/* cursor-following glow on cover cards */
-.proj-card .card-media.cover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    240px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(255, 255, 255, .28),
-    rgba(255, 255, 255, 0) 60%
-  );
-  opacity: 0;
-  transition: opacity .3s ease;
-  pointer-events: none;
-}
-.proj-card:hover .card-media.cover::after { opacity: 1; }
-
-/* shine sweep on image covers */
-.proj-card .card-media::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 70%;
-  height: 100%;
-  background: linear-gradient(
-    100deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, .22) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-18deg);
-  transition: none;
-  pointer-events: none;
-  z-index: 2;
-}
-.proj-card:hover .card-media::before {
-  left: 130%;
-  transition: left .75s ease;
+/* ---- ACCESSIBILITY : focus & reduced motion --------------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* cover mark subtle float + accent shift on hover */
-.card-media.cover .cover-mark {
-  transition: transform .4s ease, letter-spacing .4s ease;
-}
-.proj-card:hover .card-media.cover .cover-mark {
-  transform: translateY(-4px) scale(1.04);
-  letter-spacing: 6px;
-}
-
-/* stack chips fill on hover */
-.proj-card .stack-chip { transition: background .2s ease, color .2s ease; }
-.proj-card:hover .stack-chip { background: var(--accent); color: #fff; }
-
-/* accent bar that grows under the title on hover */
-.proj-card .card-title { position: relative; }
-.proj-card .card-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  height: 2px;
-  width: 0;
-  background: var(--accent);
-  transition: width .3s ease;
-}
-.proj-card:hover .card-title::after { width: 38px; }
-
-/* ---- Accessibility: respect reduced motion ----------------- */
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1 !important; transform: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero-parallax { background-attachment: scroll !important; }
   .proj-card,
   .proj-card * { transition: none !important; }
-  .proj-card:hover { transform: translateY(-4px) !important; }
+  .proj-card:hover { transform: translateY(-3px) !important; }
 }

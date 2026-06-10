@@ -1,0 +1,421 @@
+/* ============================================================
+   animations.css — Modern motion system (all pages)
+   Taste: CSS keyframes + IntersectionObserver only.
+   No window.scroll listener. prefers-reduced-motion respected.
+   ============================================================ */
+
+:root {
+  --ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io:    cubic-bezier(0.65, 0, 0.35, 1);
+  --accent: #001aff;
+  --ink:    #0d0d0d;
+  --muted:  #666;
+}
+
+/* ---- Smooth scroll ---------------------------------------- */
+html { scroll-behavior: smooth; }
+
+/* ---- Page entrance (CSS, no JS dependency) ---------------- */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+body { animation: pageFadeIn 0.45s ease both; }
+
+/* ---- Line-reveal (hero text) ------------------------------ */
+.line-reveal {
+  display: block;
+  overflow: hidden;
+  line-height: 1.05;
+}
+.line-reveal > * {
+  display: block;
+  animation: lineSlideUp 1s var(--ease-expo) both;
+}
+.line-reveal--d1 > * { animation-delay: 0.12s; }
+.line-reveal--d2 > * { animation-delay: 0.26s; }
+.line-reveal--d3 > * { animation-delay: 0.44s; }
+.line-reveal--d4 > * { animation-delay: 0.60s; }
+
+@keyframes lineSlideUp {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+/* ---- Hero ------------------------------------------------- */
+.hero-full-wrapper { position: relative; }
+
+/* dot-grid overlay (pure CSS, no scroll listener) */
+.hero-full-container {
+  position: relative;
+  overflow: hidden;
+}
+.hero-full-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.065) 1px, transparent 1px);
+  background-size: 38px 38px;
+  animation: gridDrift 55s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-full-container .container { position: relative; z-index: 2; }
+
+@keyframes gridDrift {
+  from { background-position: 0 0; }
+  to   { background-position: 38px 38px; }
+}
+
+/* Hero name */
+.hero-name {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: clamp(38px, 6.5vw, 76px);
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin: 0;
+  line-height: 1.0;
+  text-shadow: 0 2px 30px rgba(0,0,0,.45);
+}
+
+/* Hero role */
+.hero-role {
+  font-family: "Roboto Mono", monospace;
+  font-size: clamp(12px, 1.6vw, 16px);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin: 18px 0 0;
+}
+
+/* Hero CTA row */
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+.hero-btn {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, color .15s ease;
+}
+.hero-btn:hover { transform: translateY(-2px); text-decoration: none; }
+.hero-btn--solid {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 22px rgba(0,26,255,.42);
+}
+.hero-btn--solid:hover { box-shadow: 0 8px 36px rgba(0,26,255,.58); color: #fff; }
+.hero-btn--ghost {
+  border: 1px solid rgba(255,255,255,.38);
+  color: rgba(255,255,255,.8);
+}
+.hero-btn--ghost:hover { border-color: rgba(255,255,255,.8); color: #fff; }
+
+/* ---- Scroll indicator ------------------------------------- */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  cursor: pointer;
+  opacity: 0;
+  animation: lineSlideUp .6s var(--ease-expo) .75s both;
+}
+.scroll-indicator__mouse {
+  width: 22px;
+  height: 36px;
+  border: 1.5px solid rgba(255,255,255,.4);
+  border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 6px;
+}
+.scroll-indicator__mouse::after {
+  content: '';
+  width: 3px;
+  height: 7px;
+  background: rgba(255,255,255,.65);
+  border-radius: 2px;
+  animation: scrollBounce 2.3s ease infinite;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  55%       { transform: translateY(10px); opacity: .15; }
+}
+
+/* ---- Nav: frosted glass when hero leaves viewport --------- */
+.navbar {
+  transition: background .3s ease, backdrop-filter .3s ease, box-shadow .3s ease;
+}
+.navbar--scrolled {
+  background: rgba(10,10,10,.9) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,.06) !important;
+}
+
+/* ---- Stagger reveal variants for about/sections ----------- */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity .6s ease, transform .6s var(--ease-expo);
+}
+.reveal-left.is-visible { opacity: 1; transform: none; }
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity .6s ease, transform .6s var(--ease-expo);
+}
+.reveal-right.is-visible { opacity: 1; transform: none; }
+
+/* Timeline items stagger */
+.timeline-item { --ti: 0; }
+.timeline-item.reveal {
+  transition-delay: calc(var(--ti) * 90ms);
+}
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+
+/* Mini-hero */
+.about-hero {
+  min-height: 38vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 110px 0 56px;
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+.about-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+  animation: gridDrift 55s linear infinite;
+  pointer-events: none;
+}
+.about-hero .container { position: relative; z-index: 2; }
+
+.about-eyebrow {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 18px;
+}
+.about-hero-name {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: clamp(42px, 6.5vw, 82px);
+  color: #fff;
+  margin: 0 0 14px;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.about-hero-role {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: clamp(14px, 1.8vw, 17px);
+  color: rgba(255,255,255,.48);
+  margin: 0;
+  letter-spacing: .02em;
+}
+
+/* Bio grid */
+.about-bio {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 24px;
+}
+.about-bio__text p {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.78;
+  color: #444;
+  margin: 0 0 14px;
+  max-width: 56ch;
+}
+.about-bio__text a { color: var(--accent); }
+.about-bio__text strong { color: var(--ink); }
+
+.about-bio__photo img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 3px;
+  display: block;
+  filter: grayscale(15%);
+  transition: filter .35s ease, transform .35s ease;
+}
+.about-bio__photo img:hover {
+  filter: none;
+  transform: scale(1.01);
+}
+
+@media (max-width: 768px) {
+  .about-bio { grid-template-columns: 1fr; gap: 36px; }
+  .about-bio__photo { order: -1; }
+  .about-bio__photo img { aspect-ratio: 4/3; }
+}
+
+/* Content sections */
+.about-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 72px;
+}
+.about-section-title {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0 0 36px;
+  color: var(--ink);
+  text-wrap: balance;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e2e2;
+  position: relative;
+}
+.about-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  width: 36px;
+  background: var(--accent);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent) 0%, #e8e8e8 80%, transparent 100%);
+}
+.timeline-item {
+  position: relative;
+  padding-bottom: 40px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -33px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,26,255,.14);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.timeline-item:hover::before {
+  box-shadow: 0 0 0 5px rgba(0,26,255,.2);
+  transform: scale(1.25);
+}
+.timeline-period {
+  font-family: "Roboto Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 5px;
+}
+.timeline-role {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  margin: 0 0 3px;
+}
+.timeline-place {
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  color: #999;
+  margin: 0 0 8px;
+}
+.timeline-desc {
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #555;
+  margin: 0;
+  max-width: 55ch;
+}
+
+/* Skills */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.skill-chip {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  color: var(--ink);
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  padding: 8px 14px;
+  cursor: default;
+  transition: border-color .18s ease, color .18s ease, background .18s ease;
+}
+.skill-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0,26,255,.04);
+}
+.skill-chip--featured {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0,26,255,.05);
+}
+
+/* ---- Reduced motion --------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .line-reveal > *,
+  .scroll-indicator,
+  .hero-full-container::after,
+  .about-hero::after {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .reveal-left,
+  .reveal-right { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
