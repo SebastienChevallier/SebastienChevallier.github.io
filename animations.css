@@ -59,9 +59,77 @@ body { animation: pageFadeIn 0.45s ease both; }
   background-size: 38px 38px;
   animation: gridDrift 55s linear infinite;
   pointer-events: none;
+  z-index: 3; /* above carousel + overlay */
+}
+.hero-full-container .container { position: relative; z-index: 4; }
+
+/* ---- Hero Carousel ---------------------------------------- */
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Dark gradient overlay — ensures text readability on any image */
+.hero-carousel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(0,0,0,.62) 0%,
+    rgba(0,0,0,.35) 55%,
+    rgba(0,0,0,.65) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  will-change: opacity;
   z-index: 1;
 }
-.hero-full-container .container { position: relative; z-index: 2; }
+.hero-slide.is-active { opacity: 1; }
+
+/* Dot indicators */
+.hero-dots {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+.hero-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.28);
+  border: 1.5px solid rgba(255,255,255,.45);
+  padding: 0;
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease, border-color .25s ease;
+}
+.hero-dot:hover  { background: rgba(255,255,255,.65); }
+.hero-dot.is-active {
+  background: #fff;
+  border-color: #fff;
+  transform: scale(1.35);
+}
+.hero-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { transition: none !important; }
+}
 
 @keyframes gridDrift {
   from { background-position: 0 0; }

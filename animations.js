@@ -81,11 +81,57 @@
     });
   }
 
+  /* ---- Hero Carousel --------------------------------------- */
+  function setupHeroCarousel() {
+    var slides  = document.querySelectorAll(".hero-slide");
+    if (slides.length < 2) return;
+
+    var dots    = document.querySelectorAll(".hero-dot");
+    var hero    = document.querySelector(".hero-full-container");
+    var current = 0;
+    var DELAY   = 5000;
+    var timer;
+
+    function goTo(idx) {
+      slides[current].classList.remove("is-active");
+      if (dots[current]) {
+        dots[current].classList.remove("is-active");
+        dots[current].removeAttribute("aria-current");
+      }
+      current = idx;
+      slides[current].classList.add("is-active");
+      if (dots[current]) {
+        dots[current].classList.add("is-active");
+        dots[current].setAttribute("aria-current", "true");
+      }
+    }
+
+    function next() { goTo((current + 1) % slides.length); }
+
+    timer = setInterval(next, DELAY);
+
+    /* pause on hover */
+    if (hero) {
+      hero.addEventListener("mouseenter", function () { clearInterval(timer); });
+      hero.addEventListener("mouseleave", function () { timer = setInterval(next, DELAY); });
+    }
+
+    /* dot clicks */
+    dots.forEach(function (dot, i) {
+      dot.addEventListener("click", function () {
+        clearInterval(timer);
+        goTo(i);
+        timer = setInterval(next, DELAY);
+      });
+    });
+  }
+
   /* ---- Boot ------------------------------------------------ */
   document.addEventListener("DOMContentLoaded", function () {
     setupNav();
     setupScrollIndicator();
     setupReveal();
     setupTimelineStagger();
+    setupHeroCarousel();
   });
 })();
