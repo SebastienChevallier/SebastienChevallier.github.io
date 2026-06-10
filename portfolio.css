@@ -17,7 +17,7 @@
    ============================================================ */
 
 :root {
-  --accent: #001aff;
+  --accent: #2563eb;
   --ink: #0d0d0d;
   --muted: #666;
   --line: #e2e2e2;
@@ -128,7 +128,7 @@
 }
 .proj-card:hover,
 .proj-card:focus-visible {
-  box-shadow: 0 12px 32px rgba(0, 26, 255, .12);
+  box-shadow: 0 12px 32px rgba(37, 99, 235, .12);
   border-color: var(--accent);
   text-decoration: none;
   color: var(--ink);
@@ -301,9 +301,208 @@
 .proj-card:hover .card-cta .arrow { transform: translateX(5px); }
 
 /* ---- Section spacing -------------------------------------- */
-.featured-section { padding: 60px 0; }
 .projects-section { padding: 70px 0 24px; }
 .tools-section    { padding: 50px 0 80px; }
+
+/* ============================================================
+   NNEngine Showcase Section
+   Dark cinematic treatment — distinct from the card grid below
+   ============================================================ */
+.nne-showcase {
+  background: #0c0c0e;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0 90px;
+}
+
+/* Subtle tech-grid overlay */
+.nne-showcase::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+}
+
+/* Accent glow top-left */
+.nne-showcase::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: -80px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(37,99,235,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.nne-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header: logo + meta side by side */
+.nne-header {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 48px;
+  align-items: flex-start;
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.nne-logo {
+  width: 100px;
+  height: auto;
+  display: block;
+  filter: brightness(1.05);
+  margin-top: 8px;
+}
+
+.nne-eyebrow {
+  font-family: "Roboto Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+
+.nne-title {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: clamp(38px, 5.5vw, 68px);
+  color: #fff;
+  margin: 0 0 20px;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.nne-desc {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255,255,255,.55);
+  max-width: 54ch;
+  margin: 0 0 26px;
+}
+
+/* Tech stack pills */
+.nne-specs {
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.nne-specs li {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  color: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 3px;
+  padding: 5px 13px;
+  transition: border-color .2s ease, color .2s ease;
+}
+.nne-specs li:hover {
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* CTA buttons */
+.nne-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.nne-btn {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 13px 26px;
+  border-radius: 3px;
+  text-decoration: none;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, color .15s ease;
+}
+.nne-btn:hover { transform: translateY(-2px); text-decoration: none; }
+.nne-btn--solid {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37,99,235,.4);
+}
+.nne-btn--solid:hover { color: #fff; box-shadow: 0 8px 30px rgba(37,99,235,.55); }
+.nne-btn--ghost {
+  border: 1px solid rgba(255,255,255,.25);
+  color: rgba(255,255,255,.75);
+}
+.nne-btn--ghost:hover { border-color: rgba(255,255,255,.7); color: #fff; }
+.nne-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* Videos grid */
+.nne-videos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.nne-video-item {
+  margin: 0;
+  background: #111;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.07);
+  transition: border-color .25s ease;
+}
+.nne-video-item:hover { border-color: rgba(37,99,235,.45); }
+
+.nne-video-item video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.nne-video-item figcaption {
+  font-family: "Roboto Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  padding: 10px 14px;
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nne-header {
+    grid-template-columns: 80px 1fr;
+    gap: 28px;
+  }
+}
+@media (max-width: 640px) {
+  .nne-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .nne-logo { width: 70px; }
+  .nne-videos { grid-template-columns: 1fr; }
+}
 
 /* ---- MOTION : scroll reveal (staggered) ------------------- */
 .reveal {

@@ -71,24 +71,44 @@
 </div>
 
 <!-- =====================  FEATURED : NNEngine  ===================== -->
-<div class="section-container featured-section" id="featured">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <img src="./assets/images/NNE.png" class="img-responsive reveal" alt="NNEngine logo">
-        <div class="card-container reveal">
-          <div class="text-center">
-            <h1 class="h2">NNEngine : Custom Game Engine</h1>
-          </div>
-          <h4>NNEngine is my personal C++/Vulkan engine focused on gameplay, shaders and high-end rendering.</h4>
-          <p>Discover the project on <a href="https://github.com/SebastienChevallier/NNEngine">GitHub</a> or explore the <a href="./NNEngine/html/index.html">documentation</a>.</p>
-          <video src="./assets/images/VideoNNe.mp4" class="img-responsive" controls></video>
-          <video src="./assets/images/PhysicsSystem.mp4" class="img-responsive" controls></video>
+<section class="nne-showcase" id="featured">
+  <div class="nne-inner">
+
+    <div class="nne-header reveal">
+      <img src="./assets/images/NNE.png" class="nne-logo" alt="NNEngine">
+      <div class="nne-meta">
+        <p class="nne-eyebrow">Flagship Engine Project</p>
+        <h2 class="nne-title">NNEngine</h2>
+        <p class="nne-desc">Personal C++/Vulkan game engine built from scratch — focused on gameplay architecture, advanced GLSL shaders and high-end real-time rendering.</p>
+        <ul class="nne-specs" aria-label="Tech stack">
+          <li>C++</li>
+          <li>Vulkan</li>
+          <li>GLSL</li>
+          <li>Physics Engine</li>
+          <li>Deferred Rendering</li>
+        </ul>
+        <div class="nne-ctas">
+          <a href="https://github.com/SebastienChevallier/NNEngine" class="nne-btn nne-btn--solid" target="_blank" rel="noopener">
+            View on GitHub <span aria-hidden="true">&rarr;</span>
+          </a>
+          <a href="./NNEngine/html/index.html" class="nne-btn nne-btn--ghost">Documentation</a>
         </div>
       </div>
     </div>
+
+    <div class="nne-videos reveal">
+      <figure class="nne-video-item">
+        <video src="./assets/images/VideoNNe.mp4" controls preload="none"></video>
+        <figcaption>Engine Overview</figcaption>
+      </figure>
+      <figure class="nne-video-item">
+        <video src="./assets/images/PhysicsSystem.mp4" controls preload="none"></video>
+        <figcaption>Physics System</figcaption>
+      </figure>
+    </div>
+
   </div>
-</div>
+</section>
 
 <!-- =====================  PROJECTS  ===================== -->
 <div class="projects-section" id="projects">

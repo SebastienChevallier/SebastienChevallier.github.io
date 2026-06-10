@@ -8,7 +8,7 @@
   --ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
   --ease-quint: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-io:    cubic-bezier(0.65, 0, 0.35, 1);
-  --accent: #001aff;
+  --accent: #2563eb;
   --ink:    #0d0d0d;
   --muted:  #666;
 }
@@ -116,9 +116,9 @@ body { animation: pageFadeIn 0.45s ease both; }
 .hero-btn--solid {
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 4px 22px rgba(0,26,255,.42);
+  box-shadow: 0 4px 22px rgba(37,99,235,.42);
 }
-.hero-btn--solid:hover { box-shadow: 0 8px 36px rgba(0,26,255,.58); color: #fff; }
+.hero-btn--solid:hover { box-shadow: 0 8px 36px rgba(37,99,235,.58); color: #fff; }
 .hero-btn--ghost {
   border: 1px solid rgba(255,255,255,.38);
   color: rgba(255,255,255,.8);
@@ -340,11 +340,11 @@ body { animation: pageFadeIn 0.45s ease both; }
   height: 7px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(0,26,255,.14);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.14);
   transition: box-shadow .2s ease, transform .2s ease;
 }
 .timeline-item:hover::before {
-  box-shadow: 0 0 0 5px rgba(0,26,255,.2);
+  box-shadow: 0 0 0 5px rgba(37,99,235,.2);
   transform: scale(1.25);
 }
 .timeline-period {
@@ -396,12 +396,12 @@ body { animation: pageFadeIn 0.45s ease both; }
 .skill-chip:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(0,26,255,.04);
+  background: rgba(37,99,235,.04);
 }
 .skill-chip--featured {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(0,26,255,.05);
+  background: rgba(37,99,235,.05);
 }
 
 /* ---- Reduced motion --------------------------------------- */
