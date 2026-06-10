@@ -19,10 +19,24 @@
 :root {
   --accent: #2563eb;
   --ink: #0d0d0d;
+  --body: #444;
   --muted: #666;
+  --muted-light: #999;
   --line: #e2e2e2;
   --card-bg: #ffffff;
   --card-radius: 5px;
+  /* letter-spacing scale */
+  --ls-tight:   0.5px;
+  --ls-default: 1px;
+  --ls-wide:    2px;
+}
+
+/* ---- Site border frame — always on top -------------------- */
+#site-border-left,
+#site-border-right,
+#site-border-top,
+#site-border-bottom {
+  z-index: 9999 !important;
 }
 
 /* ---- CSS-only hero parallax (no scroll listener) ----------- */
@@ -57,7 +71,7 @@
   color: var(--muted);
   margin: 0;
   max-width: 62ch;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 .category-header .cat-rule {
   height: 2px;
@@ -179,7 +193,7 @@
   left: 12px;
   font-family: "Roboto Mono", monospace;
   font-size: 10px;
-  letter-spacing: .8px;
+  letter-spacing: var(--ls-tight);
   text-transform: uppercase;
   background: rgba(0, 0, 0, .65);
   color: #fff;
@@ -255,7 +269,7 @@
 .proj-card .card-desc {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 14px;
-  line-height: 1.72;
+  line-height: 1.7;
   color: var(--muted);
   margin: 10px 0 16px;
   flex: 1;
@@ -271,7 +285,7 @@
 .proj-card .stack-chip {
   font-family: "Roboto Mono", monospace;
   font-size: 10px;
-  letter-spacing: .4px;
+  letter-spacing: var(--ls-tight);
   color: var(--accent);
   border: 1px solid var(--accent);
   border-radius: 3px;
@@ -288,7 +302,7 @@
   font-family: "Roboto Mono", monospace;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: .8px;
+  letter-spacing: var(--ls-tight);
   text-transform: uppercase;
   color: var(--accent);
   display: inline-flex;
@@ -369,7 +383,7 @@
 .nne-eyebrow {
   font-family: "Roboto Mono", monospace;
   font-size: 10px;
-  letter-spacing: 2.5px;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
   color: var(--accent);
   margin: 0 0 14px;
@@ -389,7 +403,7 @@
 .nne-desc {
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 15px;
-  line-height: 1.75;
+  line-height: 1.7;
   color: rgba(255,255,255,.55);
   max-width: 54ch;
   margin: 0 0 26px;
@@ -407,7 +421,7 @@
 .nne-specs li {
   font-family: "Roboto Mono", monospace;
   font-size: 11px;
-  letter-spacing: 0.6px;
+  letter-spacing: var(--ls-tight);
   color: rgba(255,255,255,.75);
   border: 1px solid rgba(255,255,255,.18);
   border-radius: 3px;
@@ -429,7 +443,7 @@
   font-family: "Roboto Mono", monospace;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.8px;
+  letter-spacing: var(--ls-tight);
   text-transform: uppercase;
   padding: 13px 26px;
   border-radius: 3px;
@@ -481,7 +495,7 @@
 .nne-video-item figcaption {
   font-family: "Roboto Mono", monospace;
   font-size: 10px;
-  letter-spacing: 1.2px;
+  letter-spacing: var(--ls-default);
   text-transform: uppercase;
   color: rgba(255,255,255,.35);
   padding: 10px 14px;

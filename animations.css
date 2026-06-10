@@ -8,9 +8,15 @@
   --ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
   --ease-quint: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-io:    cubic-bezier(0.65, 0, 0.35, 1);
-  --accent: #2563eb;
-  --ink:    #0d0d0d;
-  --muted:  #666;
+  --accent:      #2563eb;
+  --ink:         #0d0d0d;
+  --body:        #444;
+  --muted:       #666;
+  --muted-light: #999;
+  /* letter-spacing scale */
+  --ls-tight:   0.5px;
+  --ls-default: 1px;
+  --ls-wide:    2px;
 }
 
 /* ---- Smooth scroll ---------------------------------------- */
@@ -140,7 +146,7 @@ body { animation: pageFadeIn 0.45s ease both; }
 .hero-name {
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
-  font-size: clamp(38px, 6.5vw, 76px);
+  font-size: clamp(40px, 6.5vw, 78px);
   letter-spacing: -0.025em;
   color: #fff;
   margin: 0;
@@ -169,7 +175,7 @@ body { animation: pageFadeIn 0.45s ease both; }
   font-family: "Roboto Mono", monospace;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: var(--ls-default);
   text-transform: uppercase;
   padding: 14px 28px;
   border-radius: 3px;
@@ -287,7 +293,7 @@ body { animation: pageFadeIn 0.45s ease both; }
 .about-eyebrow {
   font-family: "Roboto Mono", monospace;
   font-size: 11px;
-  letter-spacing: 2px;
+  letter-spacing: var(--ls-wide);
   text-transform: uppercase;
   color: var(--accent);
   display: block;
@@ -296,7 +302,7 @@ body { animation: pageFadeIn 0.45s ease both; }
 .about-hero-name {
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
-  font-size: clamp(42px, 6.5vw, 82px);
+  font-size: clamp(40px, 6.5vw, 78px);
   color: #fff;
   margin: 0 0 14px;
   line-height: 1.0;
@@ -325,7 +331,7 @@ body { animation: pageFadeIn 0.45s ease both; }
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 15px;
   line-height: 1.78;
-  color: #444;
+  color: var(--body);
   margin: 0 0 14px;
   max-width: 56ch;
 }
@@ -418,7 +424,7 @@ body { animation: pageFadeIn 0.45s ease both; }
 .timeline-period {
   font-family: "Roboto Mono", monospace;
   font-size: 10px;
-  letter-spacing: 1px;
+  letter-spacing: var(--ls-default);
   text-transform: uppercase;
   color: var(--accent);
   margin: 0 0 5px;
@@ -433,14 +439,14 @@ body { animation: pageFadeIn 0.45s ease both; }
 .timeline-place {
   font-family: system-ui, sans-serif;
   font-size: 13px;
-  color: #999;
+  color: var(--muted-light);
   margin: 0 0 8px;
 }
 .timeline-desc {
   font-family: system-ui, sans-serif;
   font-size: 14px;
-  line-height: 1.65;
-  color: #555;
+  line-height: 1.7;
+  color: var(--muted);
   margin: 0;
   max-width: 55ch;
 }
@@ -525,7 +531,7 @@ body { animation: pageFadeIn 0.45s ease both; }
 .skills-marquee__item .sk {
   font-family: "Roboto Mono", monospace;
   font-size: 11px;
-  letter-spacing: 1.2px;
+  letter-spacing: var(--ls-default);
   text-transform: uppercase;
   color: rgba(255,255,255,.5);
   transition: color .2s ease;
@@ -556,7 +562,7 @@ body { animation: pageFadeIn 0.45s ease both; }
   font-family: "Roboto Mono", monospace;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1.4px;
+  letter-spacing: var(--ls-default);
   text-transform: uppercase;
   color: #aaa;
   padding: 0 32px;
