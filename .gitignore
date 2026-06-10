@@ -1,0 +1,6 @@
+# Local-only content editor — never publish this.
+# It generates data/projects.json, which you commit manually.
+admin.html
+
+# Local dev tooling (preview server config)
+.claude/launch.json

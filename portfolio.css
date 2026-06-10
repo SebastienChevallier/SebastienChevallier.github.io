@@ -1,0 +1,306 @@
+/* ============================================================
+   Portfolio additions — categorized project / tool grid
+   Matches existing theme: Roboto Mono, accent #001aff
+   ============================================================ */
+
+:root {
+  --accent: #001aff;
+  --ink: #0a0a0a;
+  --muted: #6b6b6b;
+  --line: #e5e5e5;
+  --card-bg: #ffffff;
+}
+
+/* ---- Category header ---------------------------------------- */
+.category-header {
+  max-width: 1140px;
+  margin: 0 auto 36px;
+  padding: 0 20px;
+}
+.category-header .cat-index {
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+.category-header .cat-title {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: 28px;
+  margin: 0 0 10px;
+  color: var(--ink);
+}
+.category-header .cat-sub {
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+  max-width: 720px;
+}
+.category-header .cat-rule {
+  height: 2px;
+  width: 56px;
+  background: var(--accent);
+  margin-top: 16px;
+}
+
+/* ---- Card grid --------------------------------------------- */
+.card-grid {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 26px;
+}
+
+/* ---- Project card ------------------------------------------ */
+.proj-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  min-height: 100%;
+}
+.proj-card:hover,
+.proj-card:focus {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 34px rgba(0, 26, 255, .14);
+  border-color: var(--accent);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+/* media area — image or generated cover */
+.proj-card .card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111;
+}
+.proj-card .card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+.proj-card:hover .card-media img { transform: scale(1.05); }
+
+/* text cover (no screenshot) */
+.card-media.cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0b1020 0%, #001aff 140%);
+}
+.card-media.cover .cover-mark {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: 46px;
+  letter-spacing: 4px;
+  color: #fff;
+  opacity: .92;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, .45);
+}
+.card-media.cover.tool {
+  background: linear-gradient(135deg, #111 0%, #333 100%);
+}
+
+/* tag chip top-left */
+.proj-card .card-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, .72);
+  color: #fff;
+  padding: 4px 9px;
+  border-radius: 3px;
+}
+
+/* body */
+.proj-card .card-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.proj-card .card-title {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+.proj-card .card-desc {
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 16px;
+  flex: 1;
+}
+.proj-card .card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.proj-card .stack-chip {
+  font-family: "Roboto Mono", monospace;
+  font-size: 10px;
+  letter-spacing: .5px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  padding: 2px 7px;
+}
+.proj-card .card-cta {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.proj-card .card-cta .arrow { transition: transform .18s ease; }
+.proj-card:hover .card-cta .arrow { transform: translateX(4px); }
+
+/* spacing between stacked sections */
+.projects-section { padding: 60px 0 20px; }
+.tools-section    { padding: 40px 0 70px; }
+
+@media (max-width: 600px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .category-header .cat-title { font-size: 23px; }
+}
+
+/* ============================================================
+   MOTION — scroll reveal, 3D tilt, cursor glow, micro-interactions
+   ============================================================ */
+
+/* ---- Scroll reveal (staggered) ----------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.category-header.reveal { transform: translateY(20px); }
+
+/* cards stagger via --i set inline by JS */
+.proj-card.reveal {
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+/* keep the slow easing for entrance / reset, snappy on hover for tilt */
+.proj-card.reveal:not(:hover) {
+  transition: opacity .6s ease,
+              transform .5s cubic-bezier(.2, .7, .2, 1),
+              box-shadow .3s ease,
+              border-color .3s ease;
+}
+.proj-card:hover {
+  transition: transform .1s ease,
+              box-shadow .2s ease,
+              border-color .2s ease;
+}
+
+/* ---- 3D tilt support --------------------------------------- */
+.proj-card { transform-style: preserve-3d; }
+.proj-card .card-body,
+.proj-card .card-media { transform: translateZ(0); }
+
+/* cursor-following glow on cover cards */
+.proj-card .card-media.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, .28),
+    rgba(255, 255, 255, 0) 60%
+  );
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.proj-card:hover .card-media.cover::after { opacity: 1; }
+
+/* shine sweep on image covers */
+.proj-card .card-media::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, .22) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-18deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 2;
+}
+.proj-card:hover .card-media::before {
+  left: 130%;
+  transition: left .75s ease;
+}
+
+/* cover mark subtle float + accent shift on hover */
+.card-media.cover .cover-mark {
+  transition: transform .4s ease, letter-spacing .4s ease;
+}
+.proj-card:hover .card-media.cover .cover-mark {
+  transform: translateY(-4px) scale(1.04);
+  letter-spacing: 6px;
+}
+
+/* stack chips fill on hover */
+.proj-card .stack-chip { transition: background .2s ease, color .2s ease; }
+.proj-card:hover .stack-chip { background: var(--accent); color: #fff; }
+
+/* accent bar that grows under the title on hover */
+.proj-card .card-title { position: relative; }
+.proj-card .card-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  transition: width .3s ease;
+}
+.proj-card:hover .card-title::after { width: 38px; }
+
+/* ---- Accessibility: respect reduced motion ----------------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .proj-card,
+  .proj-card * { transition: none !important; }
+  .proj-card:hover { transform: translateY(-4px) !important; }
+}

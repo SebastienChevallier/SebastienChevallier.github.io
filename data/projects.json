@@ -1,0 +1,102 @@
+{
+  "projects": [
+    {
+      "id": "noitero",
+      "title": "Noitero",
+      "tag": "Personal · Unity",
+      "description": "A Noita-inspired spell-crafting roguelite. Built a fully modular spell system: composable projectiles, trajectory modifiers (boomerang, zig-zag, arc) and damage/speed multipliers chained at runtime.",
+      "image": "",
+      "cover": "NOITERO",
+      "stack": ["C#", "Unity", "ScriptableObjects"],
+      "link": "https://github.com/SebastienChevallier/Noitero",
+      "cta": "View on GitHub",
+      "external": true
+    },
+    {
+      "id": "roguefps",
+      "title": "RogueFPS",
+      "tag": "Personal · Unity",
+      "description": "A roguelite first-person shooter built around custom weapon and status-effect systems — nail gun, electric SMG, glue revolver and repulsor — with wave spawning, ragdolls and juicy game feel.",
+      "image": "",
+      "cover": "ROGUE FPS",
+      "stack": ["C#", "Unity", "Gameplay"],
+      "link": "https://github.com/SebastienChevallier/RogueFPS",
+      "cta": "View on GitHub",
+      "external": true
+    },
+    {
+      "id": "jedi-monkey",
+      "title": "Jedi Monkey — Total War",
+      "tag": "Game Jam 2023",
+      "description": "Game Dev Party Jam 2023. Play a fighting monkey who's secretly a Jedi: defend against enemy waves from every side of the arena and survive for the highest score. I built the main character mechanics.",
+      "image": "./assets/images/JMTW1.png",
+      "cover": "",
+      "stack": ["Unity", "Mechanics"],
+      "link": "https://github.com/SebastienChevallier",
+      "cta": "Learn more",
+      "external": true
+    },
+    {
+      "id": "paper-feel",
+      "title": "Paper Feel",
+      "tag": "School Project",
+      "description": "First-year group project — a \"FeelGood\" cinematic platformer made in two months. I worked on character mechanics, asset integration and level building, plus lighting and the animator.",
+      "image": "./assets/images/PFA1.png",
+      "cover": "",
+      "stack": ["Unity", "Level Building"],
+      "link": "https://github.com/SebastienChevallier",
+      "cta": "Learn more",
+      "external": true
+    },
+    {
+      "id": "magnet-person",
+      "title": "Project : Magnet Person",
+      "tag": "Global Game Jam 2022",
+      "description": "A first-person puzzle game on the theme \"Duality\". Subject 710N37 flips his magnetic polarity to interact with the lab and escape. I reworked the mechanics, level design and game feel.",
+      "image": "./assets/images/PM_4.png",
+      "cover": "",
+      "stack": ["Unity", "Puzzle", "itch.io"],
+      "link": "https://bass-boostseb.itch.io/project-magnet",
+      "cta": "Play on itch.io",
+      "external": true
+    }
+  ],
+  "tools": [
+    {
+      "id": "flowsys",
+      "title": "FlowSys — Mission System",
+      "tag": "Unity Framework",
+      "description": "A modular mission/flow framework for Unity. SOLID architecture with a state machine, ScriptableObject-driven config, extensible actions & conditions, and custom editor windows with localization support.",
+      "image": "",
+      "cover": "FLOWSYS",
+      "stack": ["C#", "Editor Tooling", "State Machine"],
+      "link": "https://github.com/SebastienChevallier/FlowSys",
+      "cta": "View on GitHub",
+      "external": true
+    },
+    {
+      "id": "invoice",
+      "title": "Freelance Invoice Creator",
+      "tag": "Web Tool",
+      "description": "A standalone in-browser tool to build clean freelance invoices and export them to PDF — no backend, no signup. Built for my own freelance workflow.",
+      "image": "",
+      "cover": "INVOICE",
+      "stack": ["HTML", "JS", "PDF Export"],
+      "link": "./invoice.html",
+      "cta": "Open the tool",
+      "external": false
+    },
+    {
+      "id": "cardbuilder",
+      "title": "Navimancie — Card Builder",
+      "tag": "Web Tool",
+      "description": "An in-browser card designer for my game Navimancie: lay out card art, stats and text, then export print-ready cards. A custom tool to iterate on the game's card content fast.",
+      "image": "",
+      "cover": "CARDS",
+      "stack": ["HTML", "JS", "Game Tool"],
+      "link": "./CardBuilder.html",
+      "cta": "Open the tool",
+      "external": false
+    }
+  ]
+}
