@@ -1,0 +1,55 @@
+/* ============================================================
+   spa.css — persistent canvas layer + view transition choreography
+   ============================================================ */
+
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9990;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+#transition-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 9985;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(9, 11, 20, .93) 0%, rgba(5, 6, 11, .97) 60%, rgba(3, 4, 7, 1) 100%);
+  transition: opacity .4s ease;
+}
+
+body.is-transitioning #bg-canvas,
+body.is-transitioning #transition-veil {
+  opacity: 1;
+}
+
+.view {
+  transition: opacity .32s ease, filter .32s ease;
+}
+
+body.is-transitioning .view.is-active {
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.view[hidden] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #bg-canvas,
+  #transition-veil {
+    display: none;
+  }
+  .view {
+    transition: opacity .15s linear;
+  }
+  body.is-transitioning .view.is-active {
+    filter: none;
+  }
+}
